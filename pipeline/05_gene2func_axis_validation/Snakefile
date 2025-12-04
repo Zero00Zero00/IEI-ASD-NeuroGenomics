@@ -1,0 +1,232 @@
+############################################
+# Snakefile for 2.3.3.2 GENE2FUNC pipeline
+# (GENE2FUNC: functional contextualization & axis validation)
+############################################
+
+PROJECT_ROOT   = "XXX"
+
+IN_DIR         = f"{PROJECT_ROOT}/income"
+OUT_DIR        = f"{PROJECT_ROOT}/outcome"
+CODE_DIR       = f"{PROJECT_ROOT}/code"
+LOG_DIR        = f"{PROJECT_ROOT}/log"
+
+# SNP2GENE & MAGMA 
+SNP2GENE_IN    = "XX"
+SNP2GENE_OUT   = "XX"
+MAGMA_DIR      = "XX"
+Genesets_IN    = "XX"
+
+threads: XX
+
+############################################
+# rule all
+############################################
+rule all:
+    input:
+        # 0) Gene & backgroud
+        f"{OUT_DIR}/gene2func_Set_MAGMAmeta.genes.txt",
+        f"{OUT_DIR}/gene2func_robust_core19.genes.txt",
+        f"{OUT_DIR}/gene2func_CoreSeed_only.genes.txt",
+        f"{OUT_DIR}/U_MAGMA.genes.txt",
+
+        # 1) GTEx tiss matrix & enrichment + heatplot
+        f"{OUT_DIR}/gtex_v10_Set_MAGMAmeta.tpm.tsv",
+        f"{OUT_DIR}/tissue_enrichment_MAGMA_primary.tsv",
+        f"{OUT_DIR}/Figure_2_3_3_PanelD_TissueHeatmap.pdf",
+
+        # 2) enrichement + axis
+        f"{OUT_DIR}/pathway_enrichment_MAGMA_primary.tsv",
+        f"{OUT_DIR}/pathway_enrichment_robust_core19.tsv",
+        f"{OUT_DIR}/pathway_enrichment_CoreSeed_only.tsv",
+        f"{OUT_DIR}/axis_projection_summary.tsv",
+        f"{OUT_DIR}/Figure_2_3_3_PanelE_PathwayAxisBar.pdf"
+
+
+############################################
+# 0. genesets & backgroud
+############################################
+rule build_gene_sets_for_gene2func:
+    input:
+        magma_meta = f"{MAGMA_DIR}//magma_meta.win10kb.genes.txt",
+        coreseed   = f"{SNP2GENE_IN}/magma_coreseed_gene_list.std.tsv",
+        robust19   = f"{IN_DIR}/robust_core19.std.tsv",
+        main_set   = f"{IN_DIR}/MAGMA_meta_sig37.tsv",
+        orig_sig   = f"{IN_DIR}/Table.3.2.2.S2_Significant_genes_details.tsv"
+    output:
+        universe   = f"{OUT_DIR}/U_MAGMA.genes.txt",
+        set_main   = f"{OUT_DIR}/gene2func_Set_MAGMAmeta.genes.txt",
+        set_core19 = f"{OUT_DIR}/gene2func_robust_core19.genes.txt",
+        set_csonly = f"{OUT_DIR}/gene2func_CoreSeed_only.genes.txt",
+        summary    = f"{OUT_DIR}/gene2func_gene_sets_summary.tsv"
+    log:
+        f"{LOG_DIR}/step0_build_gene_sets.log"
+    conda:
+        f"{PROJECT_ROOT}/envs/base.yaml"
+    shell:
+        """
+        mkdir -p {OUT_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        python build_gene_sets_for_gene2func.py \
+            --magma-meta {input.magma_meta} \
+            --main-set-table {input.main_set} \
+            --coreseed-std {input.coreseed} \
+            --robust-core {input.robust19} \
+            --orig-sig-table {input.orig_sig} \
+            --out-universe {output.universe} \
+            --out-main {output.set_main} \
+            --out-robust {output.set_core19} \
+            --out-coreseed-only {output.set_csonly} \
+            --out-summary {output.summary} \
+            &> {log}
+        """
+
+############################################
+# 1.0  GTEx v10 gene×tissue TPM matrix
+############################################
+rule prepare_gtex_v10:
+    input:
+        gct = f"{IN_DIR}/GTEx_v10/GTEx_Analysis_v10_RNASeQCv2.4.2_gene_median_tpm.gct.gz"
+    output:
+        tpm = f"{IN_DIR}/GTEx_v10/GTEx_v10_gene_tpm_tissues.tsv.gz"
+    log:
+        f"{LOG_DIR}/step1_prepare_gtex_v10.log"
+    conda:
+        f"{PROJECT_ROOT}/envs/base.yaml"
+    shell:
+        """
+        mkdir -p {IN_DIR}/GTEx_v10 {LOG_DIR}
+        cd {CODE_DIR}
+        python prepare_gtex_v10.py \
+            --input-gct {input.gct} \
+            --output-tsv {output.tpm} \
+            &> {log}
+        """
+
+
+############################################
+# 1.1 Set_MAGMA^meta / core19 GTEx expression matrix
+############################################
+rule build_gtex_expression_matrix:
+    input:
+        gtex_tpm   = rules.prepare_gtex_v10.output.tpm,
+        genes_main = rules.build_gene_sets_for_gene2func.output.set_main,
+        genes_core = rules.build_gene_sets_for_gene2func.output.set_core19
+    output:
+        main_tpm   = f"{OUT_DIR}/gtex_v10_Set_MAGMAmeta.tpm.tsv",
+        core_tpm   = f"{OUT_DIR}/gtex_v10_robust_core19.tpm.tsv",
+        main_log2  = f"{OUT_DIR}/gtex_v10_Set_MAGMAmeta.log2_tpm.tsv",
+        core_log2  = f"{OUT_DIR}/gtex_v10_robust_core19.log2_tpm.tsv",
+        summary    = f"{OUT_DIR}/gtex_v10_expression_matrix.summary.tsv"
+    log:
+        f"{LOG_DIR}/step2_build_gtex_expression_matrix.log"
+    conda:
+        f"{PROJECT_ROOT}/envs/base.yaml"
+    shell:
+        """
+        mkdir -p {OUT_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        python build_gtex_expression_matrix.py \
+            --gtex-tpm {input.gtex_tpm} \
+            --genes-main {input.genes_main} \
+            --genes-core19 {input.genes_core} \
+            --out-main-tpm {output.main_tpm} \
+            --out-core19-tpm {output.core_tpm} \
+            --out-main-log2 {output.main_log2} \
+            --out-core19-log2 {output.core_log2} \
+            --out-summary {output.summary} \
+            &> {log}
+        """
+
+############################################
+# 1.2 GTEx tissure & heatplot (R)
+############################################
+rule plot_tissue_heatmap_and_enrichment:
+    input:
+        matrix   = rules.build_gtex_expression_matrix.output.main_tpm,   
+        universe = rules.build_gene_sets_for_gene2func.output.universe,  
+        gtex_tpm = f"{IN_DIR}/GTEx_v10/GTEx_v10_gene_tpm_tissues.tsv.gz",
+        core19   = rules.build_gene_sets_for_gene2func.output.set_core19
+    output:
+        enrich   = f"{OUT_DIR}/tissue_enrichment_MAGMA_primary.tsv",
+        heatmap  = f"{OUT_DIR}/Figure_2_3_3_PanelD_TissueHeatmap.pdf"
+    log:
+        f"{LOG_DIR}/step3_tissue_heatmap_enrichment.log"
+    conda:
+        f"{PROJECT_ROOT}/envs/r_gtex.yaml"
+    shell:
+        r"""
+        mkdir -p {OUT_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        Rscript run_tissue_enrichment_and_heatmap.R \
+            --expr-matrix {input.matrix} \
+            --gtex-full {input.gtex_tpm} \
+            --core19-list {input.core19} \
+            --out-enrich {output.enrich} \
+            --out-heatmap {output.heatmap} \
+            &> {log}
+        """
+
+############################################
+# 2. axis enrichment & axis map
+############################################
+rule run_pathway_enrichment:
+    input:
+        universe   = rules.build_gene_sets_for_gene2func.output.universe,
+        main_set   = rules.build_gene_sets_for_gene2func.output.set_main,
+        core19_set = rules.build_gene_sets_for_gene2func.output.set_core19,
+        cs_set     = rules.build_gene_sets_for_gene2func.output.set_csonly,
+        gmt_go     = f"{Genesets_IN}/go_bp.gmt",
+        gmt_kegg   = f"{Genesets_IN}/kegg.gmt",
+        gmt_react  = f"{Genesets_IN}/reactome.gmt"
+    output:
+        main_enrich   = f"{OUT_DIR}/pathway_enrichment_MAGMA_primary.tsv",
+        core19_enrich = f"{OUT_DIR}/pathway_enrichment_robust_core19.tsv",
+        cs_enrich     = f"{OUT_DIR}/pathway_enrichment_CoreSeed_only.tsv"
+    log:
+        f"{LOG_DIR}/step4_run_pathway_enrichment.log"
+    #conda:
+    #    f"{PROJECT_ROOT}/envs/r_enrich.yaml"
+    shell:
+        r"""
+        mkdir -p {OUT_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        Rscript run_pathway_enrichment.R \
+            --universe {input.universe} \
+            --main {input.main_set} \
+            --core19 {input.core19_set} \
+            --coreseed-only {input.cs_set} \
+            --gmt-go {input.gmt_go} \
+            --gmt-kegg {input.gmt_kegg} \
+            --gmt-react {input.gmt_react} \
+            --out-main {output.main_enrich} \
+            --out-core19 {output.core19_enrich} \
+            --out-coreseed-only {output.cs_enrich} \
+            &> {log}
+        """
+
+rule map_pathways_to_axes:
+    input:
+        main_enrich   = rules.run_pathway_enrichment.output.main_enrich,
+        core19_enrich = rules.run_pathway_enrichment.output.core19_enrich,
+        cs_enrich     = rules.run_pathway_enrichment.output.cs_enrich,
+        axis_def      = f"{IN_DIR}/axis_cluster_definitions.tsv"
+    output:
+        axis_summary  = f"{OUT_DIR}/axis_projection_summary.tsv",
+        axis_plot     = f"{OUT_DIR}/Figure_2_3_3_PanelE_PathwayAxisBar.pdf"
+    log:
+        f"{LOG_DIR}/step5_map_pathways_axes.log"
+    #conda:
+    #    f"{PROJECT_ROOT}/envs/r_enrich.yaml"
+    shell:
+        """
+        mkdir -p {OUT_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        python map_pathways_to_axes.py \
+            --main {input.main_enrich} \
+            --core19 {input.core19_enrich} \
+            --coreseed-only {input.cs_enrich} \
+            --axis-def {input.axis_def} \
+            --out-summary {output.axis_summary} \
+            --out-plot {output.axis_plot} \
+            &> {log}
+        """
