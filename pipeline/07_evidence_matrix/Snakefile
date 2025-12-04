@@ -1,0 +1,115 @@
+# Snakefile for 2.3.5
+# SetA + Aixs
+
+configfile: "XX/config.yaml"
+
+OUTDIR = config["outdir_235"]
+FIGDIR = config.get("figdir_235", f"{OUTDIR}/fig")
+
+rule all:
+    input:
+        f"{OUTDIR}/SetA_gene_evidence_matrix.tsv",
+        f"{OUTDIR}/Axis_evidence_summary.tsv",
+        f"{OUTDIR}/Mechanism_evidence_summary.tsv",
+        f"{FIGDIR}/SetA_multimodal_matrix_panelA.pdf",
+        f"{FIGDIR}/Axis_GWAS_FUMA_panelB.pdf"
+        # f"{FIGDIR}/Axis_Grade_FUMA_panelC.pdf"
+
+
+rule build_setA_multimodal_matrix:
+    input:
+        setA   = config["setA_gene_table"],
+        coreseed_mech = config["coreseed_mechanism_axis"],
+        fuma   = config["fuma_gene_matrix"]
+    output:
+        matrix = f"{OUTDIR}/SetA_gene_evidence_matrix.tsv"
+    log:
+        "log/build_setA_multimodal_matrix.log"
+    params:
+        coreseed_encoding = config.get("coreseed_mechanism_axis_encoding", "gbk"),
+        axis_mapping_file = config.get("axis_mapping_file", "")
+    shell:
+        r"""
+        mkdir -p "{OUTDIR}" log
+
+        python code/build_setA_multimodal_matrix.py \
+            --setA "{input.setA}" \
+            --coreseed-mech "{input.coreseed_mech}" \
+            --coreseed-encoding "{params.coreseed_encoding}" \
+            --fuma-matrix "{input.fuma}" \
+            --axis-mapping "{params.axis_mapping_file}" \
+            --out-matrix "{output.matrix}" \
+            > {log} 2>&1
+        """
+
+
+rule summarize_axis_and_mechanism:
+    input:
+        matrix = f"{OUTDIR}/SetA_gene_evidence_matrix.tsv"
+    output:
+        axis_summary      = f"{OUTDIR}/Axis_evidence_summary.tsv",
+        mechanism_summary = f"{OUTDIR}/Mechanism_evidence_summary.tsv"
+    log:
+        "log/summarize_axis_and_mechanism.log"
+    shell:
+        r"""
+        python code/summarize_axis_and_mechanism.py \
+            --matrix "{input.matrix}" \
+            --axis-out "{output.axis_summary}" \
+            --mech-out "{output.mechanism_summary}" \
+            > {log} 2>&1
+        """
+
+
+rule plot_panelA_SetA_heatmap:
+    input:
+        matrix = f"{OUTDIR}/SetA_gene_evidence_matrix.tsv"
+    output:
+        fig = f"{FIGDIR}/SetA_multimodal_matrix_panelA.pdf"
+    log:
+        "log/plot_panelA_SetA_heatmap.log"
+    shell:
+        r"""
+        mkdir -p "{FIGDIR}"
+
+        python code/plot_235_panelA_SetA_heatmap.py \
+            --matrix "{input.matrix}" \
+            --out "{output.fig}" \
+            > {log} 2>&1
+        """
+
+
+rule plot_panelB_axis_bar:
+    input:
+        axis_summary = f"{OUTDIR}/Axis_evidence_summary.tsv"
+    output:
+        fig = f"{FIGDIR}/Axis_GWAS_FUMA_panelB.pdf"
+    log:
+        "log/plot_panelB_axis_bar.log"
+    shell:
+        r"""
+        mkdir -p "{FIGDIR}"
+
+        python code/plot_235_panelB_axis_bar.py \
+            --axis-summary "{input.axis_summary}" \
+            --out "{output.fig}" \
+            > {log} 2>&1
+        """
+
+
+rule plot_panelC_axis_grade_fuma:
+    input:
+        matrix = f"{OUTDIR}/SetA_gene_evidence_matrix.tsv"
+    output:
+        fig = f"{FIGDIR}/Axis_Grade_FUMA_panelC.pdf"
+    log:
+        "log/plot_panelC_axis_grade_fuma.log"
+    shell:
+        r"""
+        mkdir -p "{FIGDIR}"
+
+        python code/plot_235_panelC_axis_grade_fuma.py \
+            --matrix "{input.matrix}" \
+            --out "{output.fig}" \
+            > {log} 2>&1
+        """
