@@ -1,0 +1,279 @@
+############################################
+# Snakefile for 2.3.3.1 SNP2GENE pipeline
+# (updated: add HGNC/ENSG standardization for coreseed & 3D evidence)
+############################################
+
+PROJECT_ROOT = "XXX"
+
+IN_DIR        = f"{PROJECT_ROOT}/income"
+RAW_EQTL_DIR  = f"{IN_DIR}/eQTL_raw"
+EQTL_LONG_DIR = f"{IN_DIR}/eQTL_long"
+CODE_DIR      = f"{PROJECT_ROOT}/code"
+OUT_DIR       = f"{PROJECT_ROOT}/outcome"
+LOG_DIR       = f"{PROJECT_ROOT}/log"
+
+threads: XX
+
+
+# ------------- rule all -------------
+rule all:
+    input:
+        # coreseed standard
+        f"{IN_DIR}/magma_coreseed_gene_list.std.tsv",
+        f"{IN_DIR}/magma_coreseed_gene_list.std.qc.tsv",
+        f"{OUT_DIR}/all_eqtl_pairs.mapped.tsv.gz",
+        f"{OUT_DIR}/all_significant_eqtl_pairs.mapped.tsv.gz",
+        f"{OUT_DIR}/all_eqtl_pairs.mapped.qc.tsv",
+
+        # 3D evidence + QC
+        f"{IN_DIR}/gene_3d_evidence_mapped.tsv",
+        f"{IN_DIR}/gene_3d_evidence_mapped.qc.tsv",
+
+        # eQTL
+        f"{OUT_DIR}/snp2gene_with_eqtl_gene_level.tsv",
+        f"{OUT_DIR}/plot_heatmap_matrix.tsv",
+        f"{OUT_DIR}/Figure_2_3_3_PanelA_Heatmap.pdf",
+        f"{OUT_DIR}/Figure_2_3_3_PanelB_Bar.pdf",
+        f"{OUT_DIR}/Figure_2_3_3_PanelC_MultiModalHeatmap.pdf",
+        f"{OUT_DIR}/Figure_2_3_3_PanelC_MultiModalHeatmap.png",
+        f"{OUT_DIR}/Figure_2_3_3_Supp_UpSet.pdf",
+        f"{OUT_DIR}/Figure_2_3_3_Supp_UpSet.png",
+
+        # 3D + Function + Evidence
+        f"{OUT_DIR}/gene_3d_spine.tsv",
+        f"{OUT_DIR}/gene_functional_scores.tsv",
+        f"{OUT_DIR}/final_gene_evidence_matrix_2.3.3.tsv",
+        f"{OUT_DIR}/final_gene_evidence_matrix_2.3.3.qc.tsv"
+
+
+# ========= 0. coreseed gene_symbol standard + ENSG =========
+rule standardize_coreseed:
+    input:
+        coreseed = f"{IN_DIR}/magma_coreseed_gene_list.tsv"
+    output:
+        std = f"{IN_DIR}/magma_coreseed_gene_list.std.tsv",
+        qc  = f"{IN_DIR}/magma_coreseed_gene_list.std.qc.tsv"
+    log:
+        f"{LOG_DIR}/step0_standardize_coreseed.log"
+    conda:
+        f"{PROJECT_ROOT}/envs/mygene.yaml"
+    shell:
+        """
+        mkdir -p {LOG_DIR}
+        cd {CODE_DIR}
+        python standardize_coreseed_symbols.py \
+            -i {input.coreseed} \
+            -o {output.std} \
+            --qc {output.qc} \
+            &> {log}
+        """
+
+
+# ========= 1. eQTL data clean =========
+rule prep_eqtl_long:
+    input:
+        gwas       = f"{IN_DIR}/gwas_snps_all_hg38.tsv",
+        gene_list  = rules.standardize_coreseed.output.std,
+        tss        = f"{IN_DIR}/gene_tss10kb_hg38.bed",
+        psych_eqtl = f"{RAW_EQTL_DIR}/PsychENCODE/DER-08a_hg38_eQTL.significant.txt",
+        psych_info = f"{RAW_EQTL_DIR}/PsychENCODE/SNP_Information_Table_with_Alleles.txt"
+    output:
+        gtex_long  = f"{EQTL_LONG_DIR}/GTEx_v10_long_filtered.tsv",
+        psych_long = f"{EQTL_LONG_DIR}/PsychENCODE_long_filtered.tsv"
+    log:
+        f"{LOG_DIR}/step1_prep_eqtl_long.log"
+    shell:
+        """
+        mkdir -p {EQTL_LONG_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        python prep_eqtl_long_tables.py &> {log}
+        """
+
+
+# ========= 2. eQTL map and integrate =========
+rule map_and_integrate:
+    input:
+        gtex      = rules.prep_eqtl_long.output.gtex_long,
+        psych     = rules.prep_eqtl_long.output.psych_long,
+        gene_list = rules.standardize_coreseed.output.std
+    output:
+        eqtl_pairs = f"{OUT_DIR}/all_significant_eqtl_pairs.tsv.gz",
+        matrix     = f"{OUT_DIR}/plot_heatmap_matrix.tsv",
+        master     = f"{OUT_DIR}/snp2gene_with_eqtl_gene_level.tsv"
+    log:
+        f"{LOG_DIR}/step2_eqtl_mapping.log"
+    shell:
+        """
+        mkdir -p {OUT_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        python process_eqtl_mapping_v1.py \
+            --gtex {input.gtex} \
+            --psych {input.psych} \
+            --gene-list {input.gene_list} \
+            --out-dir {OUT_DIR} \
+            &> {log}
+        """
+
+# ========= 2.1  mapped SNP eQTL pairs + FDR =========
+rule mapped_eqtl_pairs:
+    input:
+        gtex_long  = rules.prep_eqtl_long.output.gtex_long,
+        psych_long = rules.prep_eqtl_long.output.psych_long,
+        fuma_snps  = f"{IN_DIR}/snps.txt"
+    output:
+        all_mapped = f"{OUT_DIR}/all_eqtl_pairs.mapped.tsv.gz",
+        sig_mapped = f"{OUT_DIR}/all_significant_eqtl_pairs.mapped.tsv.gz",
+        qc         = f"{OUT_DIR}/all_eqtl_pairs.mapped.qc.tsv"
+    log:
+        f"{LOG_DIR}/step2_5_mapped_eqtl_pairs.log"
+    conda:
+        f"{PROJECT_ROOT}/envs/base.yaml"   # pandas/numpy 
+    shell:
+        """
+        mkdir -p {OUT_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        python build_mapped_eqtl_pairs.py \
+            --gtex-long {input.gtex_long} \
+            --psych-long {input.psych_long} \
+            --fuma-snps {input.fuma_snps} \
+            --out-all {output.all_mapped} \
+            --out-sig {output.sig_mapped} \
+            --qc-out {output.qc} \
+            &> {log}
+        """
+
+# ========= 3. eQTL visualize =========
+rule visualize:
+    input:
+        matrix = rules.map_and_integrate.output.matrix,
+        master = rules.map_and_integrate.output.master
+    output:
+        heatmap = f"{OUT_DIR}/Figure_2_3_3_PanelA_Heatmap.pdf",
+        barplot = f"{OUT_DIR}/Figure_2_3_3_PanelB_Bar.pdf"
+    log:
+        f"{LOG_DIR}/step3_visualize.log"
+    shell:
+        """
+        mkdir -p {OUT_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        Rscript plot_figure_2_3_3.R &> {log}
+        """
+
+
+# ========= 3.1 3D：Ensembl(gene_id) → gene_symbol (MyGene) =========
+rule prepare_3d_evidence:
+    input:
+        evidence = f"{IN_DIR}/gene_3d_evidence.tsv"
+    output:
+        mapped   = f"{IN_DIR}/gene_3d_evidence_mapped.tsv",
+        qc       = f"{IN_DIR}/gene_3d_evidence_mapped.qc.tsv"
+    log:
+        f"{LOG_DIR}/step3_1_prepare_3d_evidence.log"
+    conda:
+        f"{PROJECT_ROOT}/envs/mygene.yaml"
+    shell:
+        """
+        mkdir -p {LOG_DIR}
+        cd {CODE_DIR}
+        python map_3d_evidence_symbols.py \
+            -i {input.evidence} \
+            -o {output.mapped} \
+            --qc {output.qc} \
+            &> {log}
+        """
+
+
+# ========= 3.2 3D + Spine =========
+rule merge_3d_with_spine:
+    input:
+        mapped    = rules.prepare_3d_evidence.output.mapped,
+        gene_list = rules.standardize_coreseed.output.std
+    output:
+        merged_3d = f"{OUT_DIR}/gene_3d_spine.tsv",
+        qc_merged = f"{OUT_DIR}/gene_3d_spine.qc.tsv"
+    log:
+        f"{LOG_DIR}/step3_2_merge_3d_spine.log"
+    params:
+        unmatched = f"{LOG_DIR}/step3_2_unmatched_spine_genes.csv"
+    shell:
+        """
+        cd {CODE_DIR}
+        python merge_3d_with_spine.py \
+            --gene3d {input.mapped} \
+            --spine {input.gene_list} \
+            --out {output.merged_3d} \
+            --qc-out {output.qc_merged} \
+            --log-unmatched {params.unmatched} \
+            &> {log}
+        """
+
+
+# ========= 4. Functional annotation (CADD / RegDB) =========
+rule functional_annotation:
+    input:
+        fuma_snps  = f"{IN_DIR}/snps.txt",
+        eqtl_pairs = rules.mapped_eqtl_pairs.output.sig_mapped
+    output:
+        func_scores = f"{OUT_DIR}/gene_functional_scores.tsv",
+        qc          = f"{OUT_DIR}/gene_functional_scores.qc.tsv"
+    log:
+        f"{LOG_DIR}/step4_functional_annotation.log"
+    shell:
+        """
+        mkdir -p {OUT_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        python annotate_functional_variants.py \
+            --fuma-snps {input.fuma_snps} \
+            --eqtl-pairs {input.eqtl_pairs} \
+            --out {output.func_scores} \
+            --qc {output.qc} \
+            &> {log}
+        """
+
+# ========= 5. evidence =========
+rule merge_final_table:
+    input:
+        eqtl_master  = rules.map_and_integrate.output.master,
+        gene3d_spine = rules.merge_3d_with_spine.output.merged_3d,
+        func_scores  = rules.functional_annotation.output.func_scores
+    output:
+        final_matrix = f"{OUT_DIR}/final_gene_evidence_matrix_2.3.3.tsv",
+        final_qc     = f"{OUT_DIR}/final_gene_evidence_matrix_2.3.3.qc.tsv"
+    log:
+        f"{LOG_DIR}/step5_merge_final_table.log"
+    shell:
+        """
+        mkdir -p {OUT_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        python merge_final_table.py \
+            --eqtl-master {input.eqtl_master} \
+            --gene3d-spine {input.gene3d_spine} \
+            --func {input.func_scores} \
+            --out {output.final_matrix} \
+            --qc-out {output.final_qc} \
+            &> {log}
+        """
+
+# ========= 5.1 Multi-modal visualization =========
+rule visualize_multimodal_evidence:
+    input:
+        final_matrix = rules.merge_final_table.output.final_matrix
+    output:
+        panelC_pdf = f"{OUT_DIR}/Figure_2_3_3_PanelC_MultiModalHeatmap.pdf",
+        panelC_png = f"{OUT_DIR}/Figure_2_3_3_PanelC_MultiModalHeatmap.png",
+        upset_pdf  = f"{OUT_DIR}/Figure_2_3_3_Supp_UpSet.pdf",
+        upset_png  = f"{OUT_DIR}/Figure_2_3_3_Supp_UpSet.png"
+    log:
+        f"{LOG_DIR}/step5_5_visualize_multimodal.log"
+    conda:
+        f"{PROJECT_ROOT}/envs/r_vis.yaml"
+    shell:
+        r"""
+        mkdir -p {OUT_DIR} {LOG_DIR}
+        cd {CODE_DIR}
+        Rscript plot_multimodal_evidence.R \
+            {input.final_matrix} \
+            Figure_2_3_3 \
+            {OUT_DIR} \
+            &> {log}
+        """
