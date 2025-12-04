@@ -1,0 +1,16 @@
+Primary_Mechanism	n_genes	n_coreseed	n_A++	n_A+	n_A	n_CoreSeed-only	n_None	median_FUMA_evidence	mean_FUMA_evidence	n_FUMA_ge1
+LoF 	15	15	0	0	0	15	0	1	1.266666667	13
+LoF	11	8	0	3	0	8	0	1	1.272727273	10
+Regulation	11	0	0	11	0	0	0	2	1.818181818	11
+Function	8	0	0	8	0	0	0	2	1.75	8
+Unknown	6	0	0	6	0	0	0	1	1	3
+Metabolic	2	0	0	2	0	0	0	2	2	2
+GoF (Stress hypersensitivity)	1	0	0	1	0	0	0	1	1	1
+LoF (Genomic instability)	1	0	0	1	0	0	0	1	1	1
+GoF/LoF (Context dependent)	1	0	0	1	0	0	0	2	2	1
+GoF (Kinase activation)	1	0	0	1	0	0	0	2	2	1
+LoF (Synaptic dysfunction)	1	0	0	1	0	0	0	2	2	1
+Mixed	1	1	0	0	0	1	0	0	0	0
+LoF (likely)	1	0	0	1	0	0	0	1	1	1
+Mixed 	1	1	0	0	0	1	0	1	1	1
+Transport	1	0	0	1	0	0	0	2	2	1
