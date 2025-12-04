@@ -1,0 +1,60 @@
+#####SetA and SetB#####
+import os
+
+configfile: "config.yaml"
+
+OUTDIR = config["outdir"]
+
+rule all:
+    input:
+        f"{OUTDIR}/SetA_gene_table.tsv",
+        f"{OUTDIR}/SetA_tier_summary.tsv"
+
+
+rule build_setA_and_summary:
+    input:
+        magma=config["magma_meta_gene_results"],
+        coreseed=config["coreseed_file"],
+        meta37=config["magma_meta_sig37"],
+        hgnc=config["hgnc_complete_file"]
+    output:
+        gene_table=f"{OUTDIR}/SetA_gene_table.tsv",
+        summary=f"{OUTDIR}/SetA_tier_summary.tsv"
+    log:
+        "log/build_setA_and_summary.log"
+    params:
+        coreseed_encoding=config.get("coreseed_encoding", "utf-8"),
+        meta_p=config["meta_p_col"],
+        meta_q=config["meta_q_col"],
+        magma_p=config["magma_p_col"],
+        setA_q=config["setA_q_threshold"],
+        tier_A_q=config["tier_A_q_upper"],
+        tier_A_p=config["tier_A_p_threshold"],
+        largest_cohort=config["largest_cohort"],
+        cohort_q_cols=",".join(
+            [f"{name}:{col}" for name, col in config["cohort_q_cols"].items()]
+        ),
+        hgnc_encoding=config.get("hgnc_encoding", "utf-8"),
+    shell:
+        r"""
+        mkdir -p "{OUTDIR}"
+        mkdir -p "log"
+
+        python code/build_setA_and_summary.py \
+            --magma "{input.magma}" \
+            --coreseed "{input.coreseed}" \
+            --meta37 "{input.meta37}" \
+            --hgnc "{input.hgnc}" \
+            --outdir "{OUTDIR}" \
+            --coreseed-encoding "{params.coreseed_encoding}" \
+            --hgnc-encoding "{params.hgnc_encoding}" \
+            --meta-p-col "{params.meta_p}" \
+            --meta-q-col "{params.meta_q}" \
+            --magma-p-col "{params.magma_p}" \
+            --setA-q-threshold {params.setA_q} \
+            --tier-A-q-upper {params.tier_A_q} \
+            --tier-A-p-threshold {params.tier_A_p} \
+            --largest-cohort "{params.largest_cohort}" \
+            --cohort-q-cols "{params.cohort_q_cols}" \
+        > {log} 2>&1
+        """
