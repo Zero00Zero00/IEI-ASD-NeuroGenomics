@@ -1,0 +1,730 @@
+# Snakefile.py
+import os
+import random  # 
+
+configfile: "config.yaml"
+
+#  ldsc python2 config.yaml  ======
+LDSC_PY   = config.get("ldsc_python", "python")
+# python3
+SCRIPTS_PY = "python"
+
+LDSC      = config["ldsc_dir"]
+BASELINE  = config["baseline_ld_prefix"]      
+WEIGHTS   = config["weights_prefix"]          
+HM3       = config["hm3_snplist"]             
+KG_EUR    = config["kg_eur_prefix"]           
+FREQ      = config["freq_prefix"]             
+
+SUMSTATS  = config["asd_sumstats_munged"]     
+
+SET_A_GENES        = config["setA_genes"]
+CORESEED_GENES     = config["coreseed_genes"]
+RANDOM_GENE_PATTERN = config["random_gene_list_pattern"]
+
+N_RANDOM = int(config["N_RANDOM"])
+CHROMS   = [str(c) for c in range(1, 23)]
+RANDOM_IDS = [f"{i:04d}" for i in range(1, N_RANDOM + 1)]
+
+GTF         = config["gencode_gtf"]
+GENCODE_TSS = config["gencode_tss_bed"]
+
+WINDOWS       = config.get("windows", ["0kb", "35kb", "50kb"])
+WINDOW_FLANK  = config.get("window_flank", {"0kb": 0, "35kb": 35000, "50kb": 50000})
+
+WINDOWS_RANDOM = [w for w in WINDOWS if w != "0kb"]
+
+LOO_IDS       = config.get("loo_ids", [])
+LOO_REMOVE    = config.get("loo_remove_genes", {})
+
+
+SCRIPTS = "code"
+
+wildcard_constraints:
+    annot = "A|CoreSeed",
+    rid   = "[0-9]{4}"
+    #chr   = "[0-9]{1,2}|22"
+
+
+
+ruleorder: random_genes_to_bed > genes_to_bed
+ruleorder: make_annot_chr_random > make_annot_chr
+ruleorder: compute_ldscores_random > compute_ldscores
+ruleorder: sldsc_random > sldsc_main  
+
+rule all:
+    input:
+        SUMSTATS,
+        GENCODE_TSS,
+        "annotations/A.TSS10kb.bed",
+        "annotations/CoreSeed.TSS10kb.bed",
+        expand("ldscores/A.chr{chr}.annot.gz",       chr=CHROMS),
+        expand("ldscores/CoreSeed.chr{chr}.annot.gz", chr=CHROMS),
+        expand("ldscores/A.chr{chr}.l2.ldscore.gz",       chr=CHROMS),
+        expand("ldscores/CoreSeed.chr{chr}.l2.ldscore.gz", chr=CHROMS),
+        "results/sldsc/A.results",
+        "results/sldsc/CoreSeed.results",
+        "figures/Fig_SLDSc_polygenic.png",
+
+rule random_all:
+    input:
+        expand("results/sldsc/random/random_{rid}.results", rid=RANDOM_IDS),
+    # 2) LOO  ( A.results + A_LOO_*.results)
+        "figures/Fig_SLDSc_LOO.png"
+
+# ============================================================
+# 2.3.8 — window sensetivity
+# ============================================================
+rule window_all:
+    input:
+        # Set A & CoreSeed: 0kb / 35kb / 50kb 
+        expand("results/sldsc/A.TSS{win}.results",        win=WINDOWS),
+        expand("results/sldsc/CoreSeed.TSS{win}.results", win=WINDOWS),
+        expand("results/sldsc/random/random_{rid}.TSS{win}.results",
+               rid=RANDOM_IDS, win=WINDOWS_RANDOM)
+
+
+# ============================================================
+# 2.3.8 — LOO
+# ============================================================
+rule loo_all:
+    input:
+        expand("results/sldsc/A_LOO_{loo}.results", loo=LOO_IDS)
+
+
+ALL_GENES_LIST = "income/universe_genes.txt"
+
+# 0.1: 
+rule extract_all_genes:
+    input: GTF
+    output: ALL_GENES_LIST
+    shell:
+        r"""
+        zcat {input} | awk '$3=="gene"' | grep -o 'gene_name "[^"]*"' | cut -d'"' -f2 | sort | uniq > {output}
+        """
+
+# 0.2
+rule generate_random_inputs:
+    input: 
+        universe = ALL_GENES_LIST
+    output:
+        expand(RANDOM_GENE_PATTERN.replace("{id}", "{rid}"), rid=RANDOM_IDS)
+    run:
+        with open(input.universe, 'r') as f:
+            all_genes = [line.strip() for line in f if line.strip()]
+        
+        SET_SIZE = 25
+        
+        for out_file in output:
+            random_sample = random.sample(all_genes, SET_SIZE)
+            
+            os.makedirs(os.path.dirname(out_file), exist_ok=True)
+            
+            with open(out_file, 'w') as out:
+                for g in random_sample:
+                    out.write(f"{g}\n")
+
+
+# ============================================================
+# 1.5 GENCODE v19 GTF -> TSS bed
+# ============================================================
+rule make_tss_bed:
+    input:
+        gtf = GTF
+    output:
+        bed = GENCODE_TSS
+    log:
+        "logs/1p5_make_tss_bed.log"
+    shell:
+        r"""
+        mkdir -p logs $(dirname {output.bed})
+        {SCRIPTS_PY} {SCRIPTS}/gtf_to_tss_bed.py \
+          --gtf {input.gtf} \
+          --out-bed {output.bed} \
+          --strip-chr \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 2. TSS±10kb bed 
+# ============================================================
+rule genes_to_bed:
+    input:
+        genes = lambda w: SET_A_GENES if w.annot == "A" else CORESEED_GENES,
+        tss = GENCODE_TSS
+    output:
+        bed = "annotations/{annot}.TSS10kb.bed"
+    log:
+        "logs/2_genes_to_bed_{annot}.log"
+    params:
+        flank = 10000
+    shell:
+        r"""
+        mkdir -p annotations logs
+        
+        {SCRIPTS_PY} {SCRIPTS}/genes_to_bed.py \
+          --genes {input.genes} --tss-bed {input.tss} \
+          --flank {params.flank} --out-bed {output.bed}.tmp > {log} 2>&1
+        awk 'BEGIN{{OFS="\t"}} $1 ~ /^[0-9]+$/ {{print $1, $2, $3, $4}}' {output.bed}.tmp \
+        | sed 's/^/chr/' \
+        | sort -k1,1 -k2,2n > {output.bed}
+        
+        rm {output.bed}.tmp
+        """
+
+# ============================================================
+# 2.1 Random genes
+# ============================================================
+rule random_genes_to_bed:
+    input:
+        genes = lambda w: RANDOM_GENE_PATTERN.format(id=w.rid),
+        tss   = GENCODE_TSS
+    output:
+        bed   = "annotations/random/random_{rid}.TSS10kb.bed"
+    log:
+        "logs/2_random_genes_to_bed_{rid}.log"
+    params:
+        flank = 10000
+    shell:
+        r"""
+        mkdir -p annotations/random logs
+        
+        {SCRIPTS_PY} {SCRIPTS}/genes_to_bed.py \
+          --genes {input.genes} --tss-bed {input.tss} \
+          --flank {params.flank} --out-bed {output.bed}.tmp > {log} 2>&1
+          
+        awk 'BEGIN{{OFS="\t"}} $1 ~ /^[0-9]+$/ {{print $1, $2, $3, $4}}' {output.bed}.tmp \
+        | sed 's/^/chr/' \
+        | sort -k1,1 -k2,2n > {output.bed}
+        
+        rm {output.bed}.tmp
+        """
+
+# ============================================================
+# 3. bed -> annot 
+# ============================================================
+rule make_annot_chr:
+    input:
+        bed = "annotations/{annot}.TSS10kb.bed",
+        bim = lambda w: f"{KG_EUR}{w.chr}.bim"
+    output:
+        annot = "ldscores/{annot}.chr{chr}.annot.gz"
+    log:
+        "logs/3_make_annot_{annot}_chr{chr}.log"
+    shell:
+        r"""
+        mkdir -p ldscores logs
+        {LDSC_PY} {LDSC}/make_annot.py \
+          --bed-file {input.bed} \
+          --bimfile {input.bim} \
+          --annot-file {output.annot} \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 3.1 bed -> annot 
+# ============================================================
+rule make_annot_chr_random:
+    input:
+        bed = "annotations/random/random_{rid}.TSS10kb.bed",
+        bim = lambda w: f"{KG_EUR}{w.chr}.bim"
+    output:
+        annot = "ldscores/random/random_{rid}.chr{chr}.annot.gz"
+    log:
+        "logs/3_make_annot_random_{rid}_chr{chr}.log"
+    shell:
+        r"""
+        mkdir -p ldscores/random logs
+        {LDSC_PY} {LDSC}/make_annot.py \
+          --bed-file {input.bed} --bimfile {input.bim} \
+          --annot-file {output.annot} \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 4. annot -> ldscore 
+# ============================================================
+rule compute_ldscores:
+    input:
+        annot = "ldscores/{annot}.chr{chr}.annot.gz"
+    output:
+        "ldscores/{annot}.chr{chr}.l2.ldscore.gz"
+    log:
+        "logs/4_compute_ldscores_{annot}_chr{chr}.log"
+    shell:
+        r"""
+        mkdir -p ldscores logs
+        {LDSC_PY} {LDSC}/ldsc.py \
+          --l2 \
+          --bfile {KG_EUR}{wildcards.chr} \
+          --ld-wind-cm 1 \
+          --annot {input.annot} \
+          --thin-annot \
+          --out ldscores/{wildcards.annot}.chr{wildcards.chr} \
+          --print-snps {HM3} \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 4.1 annot -> ldscore 
+# ============================================================
+rule compute_ldscores_random:
+    input:
+        annot = "ldscores/random/random_{rid}.chr{chr}.annot.gz"
+    output:
+        "ldscores/random/random_{rid}.chr{chr}.l2.ldscore.gz"
+    log:
+        "logs/4_compute_ldscores_random_{rid}_chr{chr}.log"
+    shell:
+        r"""
+        mkdir -p ldscores/random logs
+        {LDSC_PY} {LDSC}/ldsc.py \
+          --l2 \
+          --bfile {KG_EUR}{wildcards.chr} \
+          --ld-wind-cm 1 \
+          --annot {input.annot} \
+          --thin-annot \
+          --out ldscores/random/random_{wildcards.rid}.chr{wildcards.chr} \
+          --print-snps {HM3} \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 5. S-LDSC 
+# ============================================================
+rule sldsc_main:
+    input:
+        sumstats = SUMSTATS,
+        ld = lambda w: expand(
+            "ldscores/{annot}.chr{chr}.l2.ldscore.gz",
+            annot=[w.annot], chr=CHROMS
+        )
+    output:
+        res = "results/sldsc/{annot}.results"
+    log:
+        "logs/5_sldsc_main_{annot}.log"
+    params:
+        out_prefix = "results/sldsc/{annot}"
+    shell:
+        r"""
+        mkdir -p results/sldsc logs
+        {LDSC_PY} {LDSC}/ldsc.py \
+          --h2 {input.sumstats} \
+          --ref-ld-chr {BASELINE},ldscores/{wildcards.annot}.chr \
+          --w-ld-chr {WEIGHTS} \
+          --overlap-annot \
+          --frqfile-chr {FREQ} \
+          --print-coefficients \
+          --out {params.out_prefix} \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 6. S-LDSC 
+# ============================================================
+rule sldsc_random:
+    input:
+        sumstats = SUMSTATS,
+        ld = lambda w: expand(
+            "ldscores/random/random_{rid}.chr{chr}.l2.ldscore.gz",
+            rid=[w.rid], chr=CHROMS
+        )
+    output:
+        res = "results/sldsc/random/random_{rid}.results"
+    log:
+        "logs/6_sldsc_random_{rid}.log"
+    params:
+        out_prefix = "results/sldsc/random/random_{rid}"
+    shell:
+        r"""
+        mkdir -p results/sldsc/random logs
+        {LDSC_PY} {LDSC}/ldsc.py \
+          --h2 {input.sumstats} \
+          --ref-ld-chr {BASELINE},ldscores/random/random_{wildcards.rid}.chr \
+          --w-ld-chr {WEIGHTS} \
+          --overlap-annot \
+          --frqfile-chr {FREQ} \
+          --print-coefficients \
+          --out {params.out_prefix} \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 7. S-LDSC (Set A / CoreSeed / Random)
+# ============================================================
+VIS_FIG_SLDSc = "figures/Fig_SLDSc_polygenic.png"
+
+rule plot_sldsc_polygenic:
+    input:
+        A     = "results/sldsc/A.results",
+        core  = "results/sldsc/CoreSeed.results",
+        random = expand("results/sldsc/random/random_{rid}.results", rid=RANDOM_IDS)
+    output:
+        fig   = VIS_FIG_SLDSc
+    log:
+        "logs/7_plot_sldsc_polygenic.log"
+    shell:
+        r"""
+        mkdir -p figures logs
+        Rscript {SCRIPTS}/plot_sldsc_polygenic.R \
+          --A {input.A} \
+          --core {input.core} \
+          --random_dir results/sldsc/random \
+          --random_pattern "random_.*\.results" \
+          --out {output.fig} \
+          > {log} 2>&1
+        """
+
+
+# ============================================================
+# 7.x S-LDSC ：LOO (Set A full + A_LOO_PTEN/ATM/KMT2D)
+# ============================================================
+VIS_FIG_SLDSc_LOO = "figures/Fig_SLDSc_LOO.png"
+
+rule plot_sldsc_LOO:
+    input:
+        A   = "results/sldsc/A.results",
+        loo = expand("results/sldsc/A_LOO_{loo}.results", loo=LOO_IDS)
+    output:
+        fig = VIS_FIG_SLDSc_LOO
+    log:
+        "logs/7_plot_sldsc_LOO.log"
+    shell:
+        r"""
+        mkdir -p figures logs
+        Rscript {SCRIPTS}/plot_sldsc_LOO.R > {log} 2>&1
+        """
+
+
+# ============================================================
+# 2.3.8 — TSS bed（Set A / CoreSeed）
+# ============================================================
+rule genes_to_bed_window:
+    input:
+        genes = lambda w: SET_A_GENES if w.annot == "A" else CORESEED_GENES,
+        tss   = GENCODE_TSS
+    output:
+        bed   = "annotations/window/{annot}.TSS{win}.bed"
+    log:
+        "logs/2_3_8_genes_to_bed_{annot}_TSS{win}.log"
+    params:
+        flank = lambda w: WINDOW_FLANK[w.win]
+    shell:
+        r"""
+        mkdir -p annotations/window logs
+
+        {SCRIPTS_PY} {SCRIPTS}/genes_to_bed.py \
+          --genes {input.genes} --tss-bed {input.tss} \
+          --flank {params.flank} --out-bed {output.bed}.tmp > {log} 2>&1
+
+        awk 'BEGIN{{OFS="\t"}} $1 ~ /^[0-9]+$/ {{print $1, $2, $3, $4}}' {output.bed}.tmp \
+        | sed 's/^/chr/' \
+        | sort -k1,1 -k2,2n > {output.bed}
+
+        rm {output.bed}.tmp
+        """
+
+# ============================================================
+# 2.3.8 — random genes -> TSS bed
+# ============================================================
+rule random_genes_to_bed_window:
+    input:
+        genes = lambda w: RANDOM_GENE_PATTERN.format(id=w.rid),
+        tss   = GENCODE_TSS
+    output:
+        bed   = "annotations/window/random/random_{rid}.TSS{win}.bed"
+    log:
+        "logs/2_3_8_random_genes_to_bed_{rid}_TSS{win}.log"
+    params:
+        flank = lambda w: WINDOW_FLANK[w.win]
+    shell:
+        r"""
+        mkdir -p annotations/window/random logs
+
+        {SCRIPTS_PY} {SCRIPTS}/genes_to_bed.py \
+          --genes {input.genes} --tss-bed {input.tss} \
+          --flank {params.flank} --out-bed {output.bed}.tmp > {log} 2>&1
+
+        awk 'BEGIN{{OFS="\t"}} $1 ~ /^[0-9]+$/ {{print $1, $2, $3, $4}}' {output.bed}.tmp \
+        | sed 's/^/chr/' \
+        | sort -k1,1 -k2,2n > {output.bed}
+
+        rm {output.bed}.tmp
+        """
+
+# ============================================================
+# 2.3.8 — bed -> annot (Set A / CoreSeed)
+# ============================================================
+rule make_annot_chr_window:
+    input:
+        bed = "annotations/window/{annot}.TSS{win}.bed",
+        bim = lambda w: f"{KG_EUR}{w.chr}.bim"
+    output:
+        annot = "ldscores/{annot}.TSS{win}.chr{chr}.annot.gz"
+    log:
+        "logs/3_2_3_8_make_annot_{annot}_TSS{win}_chr{chr}.log"
+    shell:
+        r"""
+        mkdir -p ldscores logs
+        {LDSC_PY} {LDSC}/make_annot.py \
+          --bed-file {input.bed} \
+          --bimfile {input.bim} \
+          --annot-file {output.annot} \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 2.3.8 — bed -> annot
+# ============================================================
+rule make_annot_chr_random_window:
+    input:
+        bed = "annotations/window/random/random_{rid}.TSS{win}.bed",
+        bim = lambda w: f"{KG_EUR}{w.chr}.bim"
+    output:
+        annot = "ldscores/random/random_{rid}.TSS{win}.chr{chr}.annot.gz"
+    log:
+        "logs/3_2_3_8_make_annot_random_{rid}_TSS{win}_chr{chr}.log"
+    shell:
+        r"""
+        mkdir -p ldscores/random logs
+        {LDSC_PY} {LDSC}/make_annot.py \
+          --bed-file {input.bed} --bimfile {input.bim} \
+          --annot-file {output.annot} \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 2.3.8 — annot -> ldscore (Set A / CoreSeed)
+# ============================================================
+rule compute_ldscores_window:
+    input:
+        annot = "ldscores/{annot}.TSS{win}.chr{chr}.annot.gz"
+    output:
+        "ldscores/{annot}.TSS{win}.chr{chr}.l2.ldscore.gz"
+    log:
+        "logs/4_2_3_8_compute_ldscores_{annot}_TSS{win}_chr{chr}.log"
+    shell:
+        r"""
+        mkdir -p ldscores logs
+        {LDSC_PY} {LDSC}/ldsc.py \
+          --l2 \
+          --bfile {KG_EUR}{wildcards.chr} \
+          --ld-wind-cm 1 \
+          --annot {input.annot} \
+          --thin-annot \
+          --out ldscores/{wildcards.annot}.TSS{wildcards.win}.chr{wildcards.chr} \
+          --print-snps {HM3} \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 2.3.8 — annot -> ldscore 
+# ============================================================
+rule compute_ldscores_random_window:
+    input:
+        annot = "ldscores/random/random_{rid}.TSS{win}.chr{chr}.annot.gz"
+    output:
+        "ldscores/random/random_{rid}.TSS{win}.chr{chr}.l2.ldscore.gz"
+    log:
+        "logs/4_2_3_8_compute_ldscores_random_{rid}_TSS{win}_chr{chr}.log"
+    shell:
+        r"""
+        mkdir -p ldscores/random logs
+        {LDSC_PY} {LDSC}/ldsc.py \
+          --l2 \
+          --bfile {KG_EUR}{wildcards.chr} \
+          --ld-wind-cm 1 \
+          --annot {input.annot} \
+          --thin-annot \
+          --out ldscores/random/random_{wildcards.rid}.TSS{wildcards.win}.chr{wildcards.chr} \
+          --print-snps {HM3} \
+          > {log} 2>&1
+        """
+# ============================================================
+# 2.3.8 — S-LDSC (Set A / CoreSeed,)
+# ============================================================
+rule sldsc_window:
+    input:
+        sumstats = SUMSTATS,
+        ld = lambda w: expand(
+            "ldscores/{annot}.TSS{win}.chr{chr}.l2.ldscore.gz",
+            annot=[w.annot], win=[w.win], chr=CHROMS
+        )
+    output:
+        res = "results/sldsc/{annot}.TSS{win}.results"
+    log:
+        "logs/5_2_3_8_sldsc_{annot}_TSS{win}.log"
+    params:
+        out_prefix = "results/sldsc/{annot}.TSS{win}"
+    shell:
+        r"""
+        mkdir -p results/sldsc logs
+        {LDSC_PY} {LDSC}/ldsc.py \
+          --h2 {input.sumstats} \
+          --ref-ld-chr {BASELINE},ldscores/{wildcards.annot}.TSS{wildcards.win}.chr \
+          --w-ld-chr {WEIGHTS} \
+          --overlap-annot \
+          --frqfile-chr {FREQ} \
+          --print-coefficients \
+          --out {params.out_prefix} \
+          > {log} 2>&1
+        """
+# ============================================================
+# 2.3.8 — S-LDSC 
+# ============================================================
+rule sldsc_random_window:
+    input:
+        sumstats = SUMSTATS,
+        ld = lambda w: expand(
+            "ldscores/random/random_{rid}.TSS{win}.chr{chr}.l2.ldscore.gz",
+            rid=[w.rid], win=[w.win], chr=CHROMS
+        )
+    output:
+        res = "results/sldsc/random/random_{rid}.TSS{win}.results"
+    log:
+        "logs/6_2_3_8_sldsc_random_{rid}_TSS{win}.log"
+    params:
+        out_prefix = "results/sldsc/random/random_{rid}.TSS{win}"
+    shell:
+        r"""
+        mkdir -p results/sldsc/random logs
+        {LDSC_PY} {LDSC}/ldsc.py \
+          --h2 {input.sumstats} \
+          --ref-ld-chr {BASELINE},ldscores/random/random_{wildcards.rid}.TSS{wildcards.win}.chr \
+          --w-ld-chr {WEIGHTS} \
+          --overlap-annot \
+          --frqfile-chr {FREQ} \
+          --print-coefficients \
+          --out {params.out_prefix} \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 2.3.8 — LOO  Set A 
+# ============================================================
+rule make_setA_loo_genes:
+    input:
+        SET_A_GENES
+    output:
+        "income/SetA_minus_{loo}.genes.txt"
+    run:
+        with open(input[0], "r") as f:
+            genes = [line.strip() for line in f if line.strip()]
+
+        remove = set(LOO_REMOVE.get(wildcards.loo, []))
+
+        kept = [g for g in genes if g not in remove]
+
+        if len(kept) == 0:
+            raise ValueError(
+                f"LOO  {wildcards.loo} 0，loo_remove_genes。"
+            )
+
+        out_path = output[0]
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
+        with open(out_path, "w") as out:
+            out.write("\n".join(kept) + "\n")
+
+
+# ============================================================
+# 2.3.8 — LOO: -> TSS±10kb bed
+# ============================================================
+rule genes_to_bed_loo:
+    input:
+        genes = "income/SetA_minus_{loo}.genes.txt",
+        tss   = GENCODE_TSS
+    output:
+        bed   = "annotations/A_LOO_{loo}.TSS10kb.bed"
+    log:
+        "logs/2_3_8_genes_to_bed_A_LOO_{loo}.log"
+    params:
+        flank = 10000
+    shell:
+        r"""
+        mkdir -p annotations logs
+
+        {SCRIPTS_PY} {SCRIPTS}/genes_to_bed.py \
+          --genes {input.genes} --tss-bed {input.tss} \
+          --flank {params.flank} --out-bed {output.bed}.tmp > {log} 2>&1
+
+        awk 'BEGIN{{OFS="\t"}} $1 ~ /^[0-9]+$/ {{print $1, $2, $3, $4}}' {output.bed}.tmp \
+        | sed 's/^/chr/' \
+        | sort -k1,1 -k2,2n > {output.bed}
+
+        rm {output.bed}.tmp
+        """
+
+
+# ============================================================
+# 2.3.8 — LOO: bed -> annot
+# ============================================================
+rule make_annot_chr_loo:
+    input:
+        bed = "annotations/A_LOO_{loo}.TSS10kb.bed",
+        bim = lambda w: f"{KG_EUR}{w.chr}.bim"
+    output:
+        annot = "ldscores/A_LOO_{loo}.chr{chr}.annot.gz"
+    log:
+        "logs/3_2_3_8_make_annot_A_LOO_{loo}_chr{chr}.log"
+    shell:
+        r"""
+        mkdir -p ldscores logs
+        {LDSC_PY} {LDSC}/make_annot.py \
+          --bed-file {input.bed} \
+          --bimfile {input.bim} \
+          --annot-file {output.annot} \
+          > {log} 2>&1
+        """
+
+# ============================================================
+# 2.3.8 — LOO: annot -> ldscore
+# ============================================================
+rule compute_ldscores_loo:
+    input:
+        annot = "ldscores/A_LOO_{loo}.chr{chr}.annot.gz"
+    output:
+        "ldscores/A_LOO_{loo}.chr{chr}.l2.ldscore.gz"
+    log:
+        "logs/4_2_3_8_compute_ldscores_A_LOO_{loo}_chr{chr}.log"
+    shell:
+        r"""
+        mkdir -p ldscores logs
+        {LDSC_PY} {LDSC}/ldsc.py \
+          --l2 \
+          --bfile {KG_EUR}{wildcards.chr} \
+          --ld-wind-cm 1 \
+          --annot {input.annot} \
+          --thin-annot \
+          --out ldscores/A_LOO_{wildcards.loo}.chr{wildcards.chr} \
+          --print-snps {HM3} \
+          > {log} 2>&1
+        """
+# ============================================================
+# 2.3.8 — LOO: S-LDSC 主分析
+# ============================================================
+rule sldsc_loo:
+    input:
+        sumstats = SUMSTATS,
+        ld = lambda w: expand(
+            "ldscores/A_LOO_{loo}.chr{chr}.l2.ldscore.gz",
+            loo=[w.loo], chr=CHROMS
+        )
+    output:
+        res = "results/sldsc/A_LOO_{loo}.results"
+    log:
+        "logs/5_2_3_8_sldsc_A_LOO_{loo}.log"
+    params:
+        out_prefix = "results/sldsc/A_LOO_{loo}"
+    shell:
+        r"""
+        mkdir -p results/sldsc logs
+        {LDSC_PY} {LDSC}/ldsc.py \
+          --h2 {input.sumstats} \
+          --ref-ld-chr {BASELINE},ldscores/A_LOO_{wildcards.loo}.chr \
+          --w-ld-chr {WEIGHTS} \
+          --overlap-annot \
+          --frqfile-chr {FREQ} \
+          --print-coefficients \
+          --out {params.out_prefix} \
+          > {log} 2>&1
+        """
