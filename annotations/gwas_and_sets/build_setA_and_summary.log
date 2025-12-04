@@ -1,0 +1,19 @@
+[build_setA] Starting with arguments: Namespace(magma='/home/h3021/chapter2/2.0_IEI_ASD/2.3_GWAS/2.3.2_magma/outcome/2_magma_results/meta_analysis/magma_meta.win10kb.genes.txt', coreseed='/home/h3021/chapter2/2.0_IEI_ASD/2.3_GWAS/2.3.4_CPS11/income/magma_coreseed_gene_list.std.tsv', outdir='/home/h3021/chapter2/2.0_IEI_ASD/2.3_GWAS/2.3.4_CPS11/outcome', coreseed_encoding='gbk', meta_p_col='P_meta', meta_q_col='Q_meta', magma_p_col='P_meta', setA_q_threshold=0.05, tier_A_q_upper=0.1, tier_A_p_threshold=0.001, largest_cohort='iPSYCH2017', cohort_q_cols='iPSYCH2017:Q_gwas1,PGC_ASD:Q_gwas2')
+[build_setA] Parsed cohort_q_cols: {'iPSYCH2017': 'Q_gwas1', 'PGC_ASD': 'Q_gwas2'}
+[build_setA] Reading MAGMA gene results from: /home/h3021/chapter2/2.0_IEI_ASD/2.3_GWAS/2.3.2_magma/outcome/2_magma_results/meta_analysis/magma_meta.win10kb.genes.txt
+[build_setA] MAGMA dataframe shape: (17926, 13)
+[build_setA] MAGMA columns: ['GENE', 'Z_meta', 'P_meta', 'Q_meta', 'replication_flag', 'Z_gwas1', 'P_gwas1', 'Q_gwas1', 'NSNPS_gwas1', 'Z_gwas2', 'P_gwas2', 'Q_gwas2', 'NSNPS_gwas2']
+[build_setA] Renamed column 'GENE' to 'gene_symbol'.
+[build_setA] MAGMA after dedup: (17926, 13)
+[build_setA] Reading CoreSeed list from: /home/h3021/chapter2/2.0_IEI_ASD/2.3_GWAS/2.3.4_CPS11/income/magma_coreseed_gene_list.std.tsv (encoding=gbk)
+[build_setA] CoreSeed dataframe shape: (62, 7)
+[build_setA] CoreSeed columns: ['gene_id', 'gene_symbol', 'in_MAGMA19', 'in_MAGMA37', 'CoreSeed_Flag', 'Kept_As_Canonical', 'Mechanism']
+[build_setA] Number of CoreSeed genes present in MAGMA file: 0
+[build_setA] Number of MAGMA meta-significant genes (Q_meta<0.05): 55
+[build_setA] Total genes in Set A (MAGMA_sig ∪ CoreSeed): 55
+[build_setA] Largest cohort: iPSYCH2017 (q column: Q_gwas1)
+[build_setA] Assigning GWAS evidence grades to all genes...
+[build_setA] Counts by GWAS_Grade (overall): {'None': 17764, 'A': 97, 'A+': 65}
+[build_setA] Writing gene-level table to: /home/h3021/chapter2/2.0_IEI_ASD/2.3_GWAS/2.3.4_CPS11/outcome/SetA_gene_table.tsv
+[build_setA] Writing tier summary table to: /home/h3021/chapter2/2.0_IEI_ASD/2.3_GWAS/2.3.4_CPS11/outcome/SetA_tier_summary.tsv
+[build_setA] Done. Set A construction and GWAS grading finished successfully.

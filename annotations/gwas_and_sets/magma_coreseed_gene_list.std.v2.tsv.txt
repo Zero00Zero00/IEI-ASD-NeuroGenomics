@@ -1,0 +1,63 @@
+GENE	gene_symbol	in_MAGMA19	in_MAGMA37	CoreSeed_Flag	Kept_As_Canonical	Mechanism
+60	ACTB	0	0	Y	TRUE	GoF (missense) - BWCFF; note: LoF  ACTB-associated thrombocytopenia
+100	ADA	0	0	Y	TRUE	LoF (enzyme deficiency; AR)
+675	BRCA2	0	0	Y	TRUE	LoF (haploinsufficiency/HR repair)
+84433	CARD11	0	0	Y	TRUE	Mixed (GoF BENTA; LoF/DN CID)
+55636	CHD7	0	0	Y	TRUE	LoF (haploinsufficiency; AD)
+1052	CORO1A	0	0	Y	TRUE	LoF (cytoskeletal regulation; AR)
+1759	DOCK8	0	0	Y	TRUE	LoF (guanine?exchange factor; AR)
+8651	ERBIN	0	0	Y	TRUE	LoF (scaffolding protein; AD/AR reported)
+10000	KDM6A	0	0	Y	TRUE	LoF (haploinsufficiency/dosage; X?linked)
+5335	KMT2A	0	0	Y	TRUE	LoF (haploinsufficiency; AD)
+5156	LRBA	0	0	Y	TRUE	LoF (protein degradation/CTLA?4 recycling; AR)
+5295	MCM4	0	0	Y	TRUE	LoF (replicative helicase; AR)
+5290	NSMCE3	0	0	Y	TRUE	LoF (SMC5/6 complex; AR)
+5291	PAX5	0	0	Y	TRUE	LoF (haploinsufficiency; AD)
+5293	PDCD1	0	0	Y	TRUE	LoF (PD?1 checkpoint; AR/AD)
+5728	PIK3CG	0	0	Y	TRUE	LoF (PI3K?¦Ã; AR)
+2353	PRKDC	0	0	Y	TRUE	LoF (DNA?PKcs; AR)
+2354	PSMD12	0	0	Y	TRUE	LoF (haploinsufficiency; proteasome)
+2355	PTEN	0	0	Y	TRUE	LoF (haploinsufficiency; AD)
+3725	PTPRC	0	0	Y	TRUE	LoF (CD45; AR)
+3726	SLC7A7	0	0	Y	TRUE	LoF (AA transporter; AR)
+3727	SRPRA	0	0	Y	TRUE	LoF (signal?recognition particle receptor; AR)
+2475	TET2	0	0	Y	TRUE	LoF (dioxygenase; AD)
+6446	TOP2B	0	0	Y	TRUE	LoF (haploinsufficiency/dosage; AD)
+1649	VPS13B	0	0	Y	TRUE	LoF (biallelic; AR)
+57211	ADGRG6	1	1			
+84865	ADTRP	0	1			
+647053	ATXN1-AS1	0	1			
+640	BLK	1	1			
+79946	C10orf95	0	1			
+203076	C8orf74	1	1			
+1394	CRHR1	1	1			
+10675	CSPG5	0	1			
+79004	CUEDC2	0	1			
+55740	ENAH	1	1			
+90459	ERI1	0	1			
+83649	FAM167A	0	1			
+79172	FBXL15	0	1			
+2260	FGFR1	0	1			
+3250	HPR	0	1			
+55857	KIZ	1	1			
+140733	MACROD2	1	1			
+4190	MDH1	0	1			
+9258	MFHAS1	1	1			
+4321	MMP12	0	1			
+4338	MOCS2	0	1			
+4482	MSRA	1	1			
+644524	NKX2-4	0	1			
+4905	NSF	1	1			
+50863	NTM	1	1			
+54984	PINX1	1	1			
+8502	PKP4	1	1			
+94137	RP1L1	0	1			
+9905	SGSM2	0	1			
+83650	SLC35G5	0	1			
+83595	SOX7	1	1			
+7874	USP7	1	1			
+51057	WDPCP	1	1			
+7473	WNT3	1	1			
+81029	WNT5B	0	1			
+286046	XKR6	1	1			
+22803	XRN2	1	1			
