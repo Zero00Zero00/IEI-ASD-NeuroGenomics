@@ -1,0 +1,28 @@
+target_id	target_type	biological_label	family	multiplicity_m	primary_status	frozen_n	membership_source
+D01	HIGHER_ORDER	Purine nucleotide metabolism and biosynthesis	A_PRIMARY_HIGHER_ORDER_EXPANDED	7	PRIMARY	27	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Expanded_flag=1
+M01	HIGHER_ORDER	Purine nucleotide catabolism	A_PRIMARY_HIGHER_ORDER_EXPANDED	7	PRIMARY	17	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Expanded_flag=1
+M02	HIGHER_ORDER	Amino-acid transport	A_PRIMARY_HIGHER_ORDER_EXPANDED	7	PRIMARY	34	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Expanded_flag=1
+M03	HIGHER_ORDER	Purine salvage	A_PRIMARY_HIGHER_ORDER_EXPANDED	7	PRIMARY	23	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Expanded_flag=1
+M04	HIGHER_ORDER	Lymphocyte and T-cell proliferation	A_PRIMARY_HIGHER_ORDER_EXPANDED	7	PRIMARY	42	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Expanded_flag=1
+M05	HIGHER_ORDER	Lymphocyte and T-cell activation	A_PRIMARY_HIGHER_ORDER_EXPANDED	7	PRIMARY	387	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Expanded_flag=1
+M06	HIGHER_ORDER	CCT/TriC-mediated actin folding	A_PRIMARY_HIGHER_ORDER_EXPANDED	7	PRIMARY	28	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Expanded_flag=1
+SA001	STANDALONE	DNA recombinase assembly	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	10	global pathway membership by pathway_key
+SA002	STANDALONE	DNA topological change	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	10	global pathway membership by pathway_key
+SA003	STANDALONE	DNA recombination	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	215	global pathway membership by pathway_key
+SA004	STANDALONE	SRP-dependent cotranslational protein targeting to membrane	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	18	global pathway membership by pathway_key
+SA005	STANDALONE	detection of molecule of bacterial origin	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	13	global pathway membership by pathway_key
+SA006	STANDALONE	protein localization to phagophore assembly site	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	16	global pathway membership by pathway_key
+SA007	STANDALONE	locomotor rhythm	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	11	global pathway membership by pathway_key
+SA008	STANDALONE	purine ribonucleoside metabolic process	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	25	global pathway membership by pathway_key
+SA009	STANDALONE	response to hydroxyurea	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	10	global pathway membership by pathway_key
+SA010	STANDALONE	mitotic DNA replication	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	14	global pathway membership by pathway_key
+SA011	STANDALONE	Ribavirin ADME	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	11	global pathway membership by pathway_key
+SA012	STANDALONE	Specification of primordial germ cells	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	12	global pathway membership by pathway_key
+SA013	STANDALONE	GBP-mediated host defense	B_SECONDARY_STANDALONE	13	SECONDARY_COMPLETENESS	11	global pathway membership by pathway_key
+D01	COMPACT	Purine nucleotide metabolism and biosynthesis	C_SENSITIVITY_COMPACT	7	SENSITIVITY	21	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Compact_flag=1
+M01	COMPACT	Purine nucleotide catabolism	C_SENSITIVITY_COMPACT	7	SENSITIVITY	8	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Compact_flag=1
+M02	COMPACT	Amino-acid transport	C_SENSITIVITY_COMPACT	7	SENSITIVITY	8	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Compact_flag=1
+M03	COMPACT	Purine salvage	C_SENSITIVITY_COMPACT	7	SENSITIVITY	10	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Compact_flag=1
+M04	COMPACT	Lymphocyte and T-cell proliferation	C_SENSITIVITY_COMPACT	7	SENSITIVITY	20	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Compact_flag=1
+M05	COMPACT	Lymphocyte and T-cell activation	C_SENSITIVITY_COMPACT	7	SENSITIVITY	255	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Compact_flag=1
+M06	COMPACT	CCT/TriC-mediated actin folding	C_SENSITIVITY_COMPACT	7	SENSITIVITY	10	MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv:Compact_flag=1

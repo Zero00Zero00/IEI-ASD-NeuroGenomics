@@ -1,0 +1,36 @@
+{
+  "version": "1.0R4.1",
+  "observed": {
+    "Tier1_BH": 39,
+    "Tier1_BY": 0
+  },
+  "certification": {
+    "MDV2": 6671,
+    "MDV3": 6671,
+    "MDV4": 6671
+  },
+  "global_null": {
+    "groups": {
+      "Overlap_raw": 26,
+      "IEI_only": 474,
+      "ASD_only": 909,
+      "Background": 17858
+    },
+    "pilot_R": 50,
+    "primary_R": 250,
+    "adaptive_R": [
+      500,
+      1000
+    ],
+    "CI_halfwidth_target": 0.02,
+    "MC_CI_upper_HOLD": 0.1
+  },
+  "implementation_hotfix": {
+    "scope": "numeric replay comparator only",
+    "change": "NA/NaN/blank/Inf-safe comparison; both-missing treated as semantically equal; one-sided missing remains FAIL",
+    "scientific_model_changed": false,
+    "threshold_changed": false,
+    "solver_changed": false,
+    "family_changed": false
+  }
+}

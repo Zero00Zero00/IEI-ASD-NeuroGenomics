@@ -1,0 +1,70 @@
+=== WP01 Tier1 ===
+40 /home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_tier1.tsv
+source	pathway_id	pathway_name	pathway_size	raw26_n	raw26_pathway_n	nonraw26_pathway_n	beta_Firth	SE_Firth	logCI95L	logCI95U	OR_Firth	CI95L	CI95U	P_Firth	q_Firth	fit_status	converged	solver_attempt	solver_type	iterations	prob01_warning	warning	enriched_flag	depleted_flag	P_emp	q_emp	observed_driver_n	T_obs_logOR	P_emp_1k	q_emp_1k	P_emp_K20	q_emp_K20	tier_class
+GO_BP	GO:1902969	mitotic DNA replication	14	26	2	12	4.68347775651458	0.776777808337248	3.16102122818362	6.20593428484554	108.145523127755	23.5946791810903	495.681847708657	1.6460406643339502e-09	8.97092162062e-06	PASS	True	A_ASMEAN_RA05	AS_mean	40	False		True	False	9.999000099990002e-05	0.016513500165135003	2	4.894361535574586	0.000999000999000999	0.1396039857578319	9.999000099990002e-05	0.005676515681765157	Tier1
+GO_BP	GO:0046649	lymphocyte activation	387	26	9	378	2.32184930162307	0.454117170503977	1.43179600267404	3.2119026005721	10.1945096077925	4.18621089034201	24.8262758054414	3.17273866893792e-07	0.0003280888231167	PASS	True	A_ASMEAN_RA05	AS_mean	38	False		True	False	9.999000099990002e-05	0.016513500165135003	9	3.27407464800614	0.000999000999000999	0.1396039857578319	0.00019998000199980003	0.011121336845907246	Tier1
+
+=== WP01 all tier ===
+source	pathway_id	pathway_name	pathway_size	raw26_n	raw26_pathway_n	nonraw26_pathway_n	beta_Firth	SE_Firth	logCI95L	logCI95U	OR_Firth	CI95L	CI95U	P_Firth	q_Firth	fit_status	converged	solver_attempt	solver_type	iterations	prob01_warning	warning	enriched_flag	depleted_flag	P_emp	q_emp	observed_driver_n	T_obs_logOR	P_emp_1k	q_emp_1k	P_emp_K20	q_emp_K20	tier_class
+GO_BP	GO:1902969	mitotic DNA replication	14	26	2	12	4.68347775651458	0.776777808337248	3.16102122818362	6.20593428484554	108.145523127755	23.5946791810903	495.681847708657	1.6460406643339502e-09	8.97092162062e-06	PASS	True	A_ASMEAN_RA05	AS_mean	40	False		True	False	9.999000099990002e-05	0.016513500165135003	2	4.894361535574586	0.000999000999000999	0.1396039857578319	9.999000099990002e-05	0.005676515681765157	Tier1
+GO_BP	GO:0033260	nuclear DNA replication	22	26	2	20	3.9304242758702	0.73441144058201	2.49100430249528	5.36984424924512	50.9285808539822	12.0733953748288	214.829405256462	8.70828777947284e-08	0.0001764817728805	PASS	True	A_ASMEAN_RA05	AS_mean	40	False		True	False	0.0013998600139986002	0.19073092690730928	2	4.38311978696514	0.002997002997002997	0.347524815609922	9.999000099990002e-05	0.005676515681765157	Firth_only
+
+=== WP01 MDV3 all ===
+source	pathway_id	pathway_name	pathway_size	raw26_n	raw26_pathway_n	nonraw26_pathway_n	beta_Firth	SE_Firth	logCI95L	logCI95U	OR_Firth	CI95L	CI95U	P_Firth	q_Firth	fit_status	converged	solver_attempt	solver_type	iterations	prob01_warning	warning	enriched_flag	depleted_flag
+GO_BP	GO:1902969	mitotic DNA replication	14	26	2	12	4.68347775651458	0.776777808337248	3.16102122818362	6.20593428484554	108.145523127755	23.5946791810903	495.681847708657	1.64604066433395e-09	8.97092162062e-06	PASS	TRUE	A_ASMEAN_RA05	AS_mean	40	FALSE		TRUE	FALSE
+GO_BP	GO:0033260	nuclear DNA replication	22	26	2	20	3.9304242758702	0.73441144058201	2.49100430249528	5.36984424924512	50.9285808539822	12.0733953748288	214.829405256462	8.70828777947284e-08	0.00017648177288051	PASS	TRUE	A_ASMEAN_RA05	AS_mean	40	FALSE		TRUE	FALSE
+
+=== WP01 crossstage ===
+analysis_id	source	pathway_id	pathway_name_x	global_pathway_size	C1_n_case	C1_n_control	C1_pathway_case	C1_pathway_control	beta_C1	SE_C1	OR_C1	CI95L_C1	CI95U_C1	P_C1	fit_status_C1	warning_C1	C2_n_case	C2_n_control	C2_pathway_case	C2_pathway_control	beta_C2	SE_C2	OR_C2	CI95L_C2	CI95U_C2	P_C2	fit_status_C2	warning_C2	P_conj	q_conj	direction_pass	conjunction_testable	primary_pass	pathway_name_y	pathway_size	raw26_n	raw26_pathway_n	nonraw26_pathway_n	beta_Firth	SE_Firth	logCI95L	logCI95U	OR_Firth	CI95L	CI95U	P_Firth	q_Firth	fit_status	converged	solver_attempt	solver_type	iterations	prob01_warning	warning	enriched_flag	depleted_flag	P_emp	q_emp	observed_driver_n	T_obs_logOR	P_emp_1k	q_emp_1k	P_emp_K20	q_emp_K20	tier_class
+PRIMARY_RAW_OVERLAP	GO_BP	GO:0000727	double-strand break repair via break-induced replication	12	26	474	1	1	4.09266083800681	1.5047824223002	59.8990615471875	3.13723389252518	1143.65001053391	0.0065327502021347	PASS		26	909	1	1	3.56808445944287	1.46260042459237	35.4486247958494	2.01665521222249	623.113456529859	0.014705634443011	PASS		0.014705634443011	0.0448493048205988	True	True	True	double-strand break repair via break-induced replication	12	26	1	11	4.88645923045047	0.966868711500379	2.99143137813108	6.78148708276986	132.483648524735	19.9141668036521	881.378432724915	4.32874919107125e-07	0.0003280888231167	PASS	True	A_ASMEAN_RA05	AS_mean	40	False		True	False	0.036996300369963	1.0	1	4.247455740916254	0.030969030969030968	1.0	9.999000099990002e-05	0.005676515681765157	Firth_only
+PRIMARY_RAW_OVERLAP	GO_BP	GO:0009123	nucleoside monophosphate metabolic process	74	26	474	2	3	2.72236675101128	0.965066644896604	15.2162928379065	2.29531682555003	100.87303205885	0.0047887542738512	PASS		26	909	2	9	1.95705105973573	0.787522103202222	7.07842241216078	1.51215547587436	33.1342012407877	0.0129524342189905	PASS		0.0129524342189905	0.0395910075678622	True	True	True	nucleoside monophosphate metabolic process	74	26	2	72	2.4592316205642	0.680938907735713	1.12461588573016	3.79384735539824	11.6958212579099	3.07903392087647	44.4269983417518	0.0003043952992241	0.0170269912694331	PASS	True	A_ASMEAN_RA05	AS_mean	40	False		True	False	0.007599240075992401	0.6002298320892548	2	3.099476901034105	0.005994005994005994	0.5444555444555444	9.999000099990002e-05	0.005676515681765157	Firth_only
+
+=== WP01 raw26 genes ===
+27 /home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_gene_set.tsv
+gene	IUIS_flag	SFARI_R0_highconf_flag	CoreSeed_flag	R0_group
+PTPRC	True	True	True	Overlap_raw
+PDCD1	True	True	True	Overlap_raw
+TOP2B	True	True	True	Overlap_raw
+TET2	True	True	True	Overlap_raw
+LRBA	True	True	True	Overlap_raw
+ERBIN	True	True	True	Overlap_raw
+C4B	True	True	False	Overlap_raw
+CARD11	True	True	True	Overlap_raw
+ACTB	True	True	True	Overlap_raw
+PIK3CG	True	True	True	Overlap_raw
+PRKDC	True	True	True	Overlap_raw
+MCM4	True	True	True	Overlap_raw
+CHD7	True	True	True	Overlap_raw
+VPS13B	True	True	True	Overlap_raw
+DOCK8	True	True	True	Overlap_raw
+PAX5	True	True	True	Overlap_raw
+PTEN	True	True	True	Overlap_raw
+KMT2A	True	True	True	Overlap_raw
+SRPRA	True	True	True	Overlap_raw
+BRCA2	True	True	True	Overlap_raw
+SLC7A7	True	True	True	Overlap_raw
+NSMCE3	True	True	True	Overlap_raw
+CORO1A	True	True	True	Overlap_raw
+PSMD12	True	True	True	Overlap_raw
+ADA	True	True	True	Overlap_raw
+KDM6A	True	True	True	Overlap_raw
+
+=== WP01 raw26 vs Core25 ===
+source	pathway_id	pathway_name	pathway_size	raw26_n	raw26_pathway_n	nonraw26_pathway_n	beta_Firth	SE_Firth	logCI95L	logCI95U	OR_Firth	CI95L	CI95U	P_Firth	q_Firth	fit_status	converged	solver_attempt	solver_type	iterations	prob01_warning	warning	enriched_flag	depleted_flag	P_emp	q_emp	observed_driver_n	T_obs_logOR	P_emp_1k	q_emp_1k	P_emp_K20	q_emp_K20	tier_class	core25_OR_Firth	core25_q_Firth	core25_P_emp	core25_q_emp	core25_firth_pass	core25_emp_pass	core25_Tier1_flag	raw26_firth_pass	raw26_emp_pass	raw26_Tier1_flag	delta_logOR	delta_q_Firth	delta_q_emp	Firth_gate_changed	Emp_gate_changed	Tier1_gate_changed
+GO_BP	GO:1902969	mitotic DNA replication	14	26	2	12	4.68347775651458	0.776777808337248	3.16102122818362	6.20593428484554	108.145523127755	23.5946791810903	495.681847708657	1.64604066433395e-09	8.97092162062e-06	PASS	True	A_ASMEAN_RA05	AS_mean	40	False		True	False	9.999000099990002e-05	0.016513500165135	2	4.894361535574586	0.0009990009990009	0.1396039857578319	9.999000099990002e-05	0.0056765156817651	Tier1	116.563213713812	6.80866606010947e-06	9.99900009999e-05	0.016513500165135	True	True	True	True	True	True	-0.07495597631874862	2.16225556051053e-06	0.0	False	False	False
+GO_BP	GO:0033260	nuclear DNA replication	22	26	2	20	3.9304242758702	0.73441144058201	2.49100430249528	5.36984424924512	50.9285808539822	12.0733953748288	214.829405256462	8.70828777947284e-08	0.0001764817728805	PASS	True	A_ASMEAN_RA05	AS_mean	40	False		True	False	0.0013998600139986	0.1907309269073092	2	4.38311978696514	0.0029970029970029	0.347524815609922	9.999000099990002e-05	0.0056765156817651	Firth_only	53.6279172319026	0.0001440563895782	0.0006999300069993	0.100384698372268	True	False	False	True	False	False	-0.05164550049324301	3.242538330229999e-05	0.09034622853504119	False	False	False
+
+=== Legacy MDV5 Tier1 ===
+source	pathway_id	pathway_name	global_pathway_size	CoreSeed_n	nonCoreSeed_n	CoreSeed_pathway_n	nonCoreSeed_pathway_n	beta_pathway	SE	logCI95L	logCI95U	OR_Firth	CI95L	CI95U	P_Firth	fit_status	converged	solver_attempt	solver_type	iterations	prob01_warning	warning	q_Firth	enriched_flag	depleted_flag	mdv2_short_id	mdv2_descriptive_family	mdv2_representative_role	mdv2_primary_reporting_flag	T_obs_logOR	null_exceed_n	B	P_emp	q_emp	null_mean_T	null_sd_T	Fisher_OR	Fisher_q	MH_OR	MH_q	goseq_over_P	goseq_under_P	goseq_q	Fisher_status	MH_status	goseq_status	firth_pass	emp_pass	supportive_direction_consistent	Tier1_flag	Tier2_flag	tier	pathway_key	pathway_size	CoreSeed_driver_n	CoreSeed_drivers	single_driver_flag	multi_driver_flag
+GO_BP	GO:0000730	DNA recombinase assembly	10	25	19242	1	9	3.99970965136364	1.00061127787531	2.03854758420343	5.96087171852385	54.5822998358873	7.67944734438239	387.948158477061	6.40782253528286e-05	PASS	True	A_ASMEAN_RA05	AS_mean	40	False		0.0071756782765557	True	False				False	4.4891044249712	0	10000	9.99900009999e-05	0.016513500165135	3.58115594544528	1.47749977489457e-07	88.5201571696189	0.515250875059762	106.842574171784	8.22779256427983e-19	0.0140806126653859	0.999913891177297	0.552323233539626	PASS	PASS	PASS	True	True	True	True	False	Tier1	GO_BP::GO:0000730	10	1	BRCA2	1	0
+GO_BP	GO:0006144	purine nucleobase metabolic process	16	25	19242	1	15	3.38852512963353	0.934362478527033	1.55720832321497	5.2198419360521	29.6222310859372	4.74555468093937	184.904954953542	0.0002872178914624	PASS	True	A_ASMEAN_RA05	AS_mean	40	False		0.0166525266858561	True	False				False	3.97796678872218	0	10000	9.99900009999e-05	0.016513500165135	3.12885880110634	0.0	53.3005397726223	0.515250875059762	50.6071876077612	5.42646960969087e-10	0.0254858632509428	0.999704945952826	0.578366765833207	PASS	PASS	PASS	True	True	True	True	False	Tier1	GO_BP::GO:0006144	16	1	ADA	1	0
+
+=== Legacy membership ===
+domain_id	domain_label	unit_type	representative_pathway_ids	original_tier1_pathway_ids	HGNC_id	gene	CoreSeed_flag	membership_count	membership_count_all_tier1	DomainCore_flag	Expanded_flag	Compact_flag	AllTier1_flag	broad_domain_flag	freeze_timestamp
+D01	GWAS_BLINDED_UNIT_D01	stable_domain	GO_BP::GO:0006144;GO_BP::GO:0006167;GO_BP::GO:0006177;GO_BP::GO:0009113;GO_BP::GO:0009168;GO_BP::GO:0032261;Reactome::R-HSA-74217	GO_BP::GO:0006144;GO_BP::GO:0006167;GO_BP::GO:0006177;GO_BP::GO:0009113;GO_BP::GO:0009127;GO_BP::GO:0009168;GO_BP::GO:0032261;GO_BP::GO:0043101;Reactome::R-HSA-74217	HGNC:125	ACP3	0	1	1	0	1	0	1	0	2026-08-13T09:37:11.274718+00:00
+D01	GWAS_BLINDED_UNIT_D01	stable_domain	GO_BP::GO:0006144;GO_BP::GO:0006167;GO_BP::GO:0006177;GO_BP::GO:0009113;GO_BP::GO:0009168;GO_BP::GO:0032261;Reactome::R-HSA-74217	GO_BP::GO:0006144;GO_BP::GO:0006167;GO_BP::GO:0006177;GO_BP::GO:0009113;GO_BP::GO:0009127;GO_BP::GO:0009168;GO_BP::GO:0032261;GO_BP::GO:0043101;Reactome::R-HSA-74217	HGNC:186	ADA	1	7	9	1	1	1	1	0	2026-08-13T09:37:11.274718+00:00
+
+=== Legacy standalones ===
+pathway_key	medoid_cluster	community_size	median_within_community_coclustering	unit_type	unit_id	source	pathway_id	pathway_name	q_emp	q_Firth	pathway_size	CoreSeed_driver_n	CoreSeed_drivers
+GO_BP::GO:0000730	1	1		standalone_representative		GO_BP	GO:0000730	DNA recombinase assembly	0.016513500165135	0.0071756782765557	10	1	BRCA2
+GO_BP::GO:0006265	3	1		standalone_representative		GO_BP	GO:0006265	DNA topological change	0.016513500165135	0.0247040520286177	10	1	TOP2B

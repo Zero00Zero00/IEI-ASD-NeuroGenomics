@@ -1,0 +1,30 @@
+MAR08 R1.1 authority-transport implementation fix
+
+Trigger:
+MAR08 R1 preflight HOLD: 7 canonical upstream source TSVs were not materialized inside the active
+MAR02/MAR03/MAR04 stage source_data directories.
+
+Observed R1 preflight:
+- Missing: 5 MAR02 canonical source TSVs
+- Missing: MAR03_SOURCE_PRIMARY_HIGHER_ORDER.tsv
+- Missing: MAR04_SOURCE_WRITEUP_SUMMARY.tsv
+- All upstream stage checksum ledgers existed.
+- MAR05/MAR06/MAR07 canonical source files, MAGMA authorities, vendor-code hashes, R=1000 MAR07
+  distribution, and runtime checks passed.
+
+Diagnosis:
+This is a packaging/path-layout assumption error in MAR08 R1, not a scientific or upstream-analysis failure.
+The MAR02/MAR03/MAR04 canonical source tables are frozen in their release bundles rather than materialized
+in the active stage directories on this Linux project.
+
+R1.1 fix:
+- Vendor only the seven required canonical frozen TSVs as byte-identical transport snapshots.
+- Bind each vendored file by exact SHA256.
+- Bind its originating freeze-release SHA256 to the already frozen MAR08 contract.
+- Retain checks that the original active MAR02/MAR03/MAR04 stage checksum ledgers exist.
+- Do NOT rerun or modify MAR02/MAR03/MAR04.
+- Do NOT change the MAR08_REVISED_ANALYSIS_CONTRACT_v1.0 scientific rules.
+- Use a new MAR08 output namespace: MAR08_failure_localization_influence_v1p1.
+
+Scientific design changed: NO.
+Model/FDR/scenario rules changed: NO.

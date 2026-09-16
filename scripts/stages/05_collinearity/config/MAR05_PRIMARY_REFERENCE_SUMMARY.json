@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "PGC",
+    "universe_n": 18162,
+    "max_Jaccard": 0.20512820512820512,
+    "max_VIF": 1.159238363439388,
+    "condition_number": 1.4993691817688706
+  },
+  {
+    "dataset": "SPARK",
+    "universe_n": 18170,
+    "max_Jaccard": 0.20512820512820512,
+    "max_VIF": 1.1592389024323522,
+    "condition_number": 1.4993729446973467
+  }
+]
