@@ -1,0 +1,19 @@
+name: iei_asd_neurogenomics
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - pandas
+  - numpy
+  - scipy
+  - matplotlib
+  - pyyaml
+  - statsmodels
+  - networkx
+  - python-igraph
+  - leidenalg
+  - r-base=4.3
+  - r-data.table
+  - r-matrix
+  - r-brglm2

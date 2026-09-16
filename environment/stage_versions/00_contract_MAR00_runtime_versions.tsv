@@ -1,0 +1,9 @@
+tool	available	path	version
+python3	YES	/home/h3021/miniconda3/bin/python3	Python 3.13.2
+Rscript	YES	/usr/bin/Rscript	Rscript (R) version 4.5.1 (2025-06-13)
+bash	YES	/usr/bin/bash	GNU bash, version 5.1.16(1)-release (x86_64-pc-linux-gnu)
+git	YES	/usr/bin/git	git version 2.34.1
+tar	YES	/usr/bin/tar	tar (GNU tar) 1.34
+sha256sum	YES	/usr/bin/sha256sum	sha256sum (GNU coreutils) 8.32
+magma	YES	/home/h3021/chapter2/2.0_IEI_ASD/2.3_GWAS/2.3.2_magma/code/magma	No arguments specified. Please consult manual for usage instructions.
+platform	YES		Linux-6.8.12-11-pve-x86_64-with-glibc2.35

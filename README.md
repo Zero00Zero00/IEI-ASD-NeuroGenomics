@@ -1,56 +1,75 @@
-# IEI-ASD-NeuroGenomics
+# IEI-ASD NeuroGenomics
 
-A reproducible framework for prioritizing neuro-immune risk in autism spectrum disorder using bias-decoupled genetics.
+Publication reproducibility repository for a Molecular Autism study examining how far pathway hypotheses derived from an inborn-errors-of-immunity (IEI)–autism gene-catalog intersection remain supportable across pathway prioritization, statistical calibration, and common-variant analyses.
 
----
+## Scientific scope
 
-## 1. Overview
+A curated 26-gene IEI–autism catalog intersection was used as a hypothesis-generating anchor rather than as evidence of patient-level rare-variant convergence.
 
-This repository contains the code and curated resources for the study:
+The rare-side analyses yielded:
 
-> **“A Bias-Decoupled Genetic Scaffold Links Inborn Errors of Immunity to the Polygenic Architecture of Autism”**
+- 18 pathways passing the dual-background comparison;
+- 39 pathways prioritized under the prespecified BH-based analysis;
+- 30 nonredundant representatives;
+- 7 higher-order common-variant hypotheses;
+- 13 secondary standalone hypotheses.
 
-In this work we use inborn errors of immunity (IEI) as a natural experiment to define a compact set of *IEI–ASD CoreSeed* genes, derive three convergent neuro-immune axes, and show that common-variant ASD risk is disproportionately concentrated in the genomic neighbourhoods of these axes. We then organise the resulting gene sets into an axis-anchored resource that can be reused for risk stratification, pathway-aware analyses and trial enrichment in ASD and related neuro-immune conditions.
+The seven higher-order hypotheses showed no reproducible preferential common-variant enrichment in either PGC2019 or SPARK.
 
-The repository is organised to make the full analysis **transparent and reusable**:
+A dependency-robust multiplicity sensitivity retained none of the 39 pathway priorities. Full-chain global-null replay further showed a high probability of at least one false pathway-priority event under the complete null.
 
-- A modular **Snakemake pipeline** that mirrors the Methods, from CoreSeed construction and bias-aware pathway analysis to ASD GWAS meta-analysis, functional annotation and stratified LD-score regression.
-- Curated **annotation tables** for the IEI–ASD CoreSeed, Set A / Set B, and the three mechanistic axes.
-- Reviewer-friendly **notebooks** that reproduce the main figures and summary statistics from static TSV files.
+Accordingly, the rare-side outputs are treated as a descriptive, redundancy-compressible hypothesis space rather than as validated mechanisms.
 
-> Primary GWAS summary statistics, LD reference panels and expression resources (e.g. GTEx, PsychENCODE) are **not** redistributed here for licensing reasons. We instead provide download links and version numbers so that users can obtain these data from the original sources.
+## Interpretation boundary
 
----
+This repository does **not** support:
 
-## 2. Repository layout
+- a single unified IEI–autism neuroimmune mechanism;
+- patient-level co-occurrence of the catalog variants;
+- absence or irrelevance of common-variant effects;
+- clinical risk stratification;
+- treatment selection or biomarker deployment.
 
-The repository is intended to stay lightweight. Only code, configuration and small annotation files are tracked; large raw data and derived outputs are ignored.
+The study instead defines where catalog-derived pathway hypotheses remain supportable and where stronger interpretation stops.
 
-```text
-IEI-ASD-NeuroGenomics/
-├── README.md
-├── LICENSE                      # to be added (e.g. MIT/Apache 2.0)
-├── environment.yml              # base conda environment
-├── pipeline/                    # modular Snakemake workflows
-│   ├── 01_coreseed_and_mechanism/
-│   ├── 02_pathway_bias_and_CPS11/
-│   ├── 03_gwas_magma_meta/
-│   ├── 04_fuma_snp2gene/
-│   ├── 05_gene2func_axis_validation/
-│   ├── 06_setA_setB_construction/
-│   ├── 07_evidence_matrix/
-│   └── 08_sldsc_partitioning/
-├── annotations/                 # static resources and gene sets
-│   ├── coreseed/
-│   ├── pathways/
-│   ├── axes/
-│   ├── gwas_and_sets/
-│   ├── fuma/
-│   └── sldsc/
-└── notebooks/                   # reviewer-oriented Jupyter notebooks
-    ├── 00_QuickStart.ipynb
-    ├── 01_CoreSeed_and_bias.ipynb
-    ├── 02_Pathways_and_axes.ipynb
-    ├── 03_SetA_multimodal_evidence.ipynb
-    ├── 04_SLDSc_partitioning.ipynb
-    └── 05_Translational_axes_and_targets.ipynb
+## Repository organization
+
+- `protocol/` — analysis locks, contracts, and provenance records.
+- `scripts/` — final analysis code used for the reported results.
+- `source_data/` — publication-level derived data used for figures, tables, and reported numerical summaries.
+- `figures/` — final vector manuscript figures.
+- `environment/` — software/environment documentation.
+- `tests/` — automated checks for key manuscript claims.
+- `checksums/` — integrity manifests.
+- `docs/` — study overview, provenance, portability, and claim boundaries.
+
+## External data
+
+Primary third-party genomic resources are not redistributed here. These include PGC and SPARK association data and the 1000 Genomes reference resource. Users should obtain these data from the original providers under their applicable access and redistribution conditions.
+
+Derived publication-level summary tables required to verify the manuscript results are included in `source_data/`.
+
+## Reproducibility
+
+The repository preserves the exact analysis-code snapshots and analysis-lock records used for the manuscript. Some scripts retain historical HPC paths as fallback defaults. Portable execution is supported through environment variables such as `CH3_ROOT` and `MA_ROOT`; see `docs/PORTABILITY.md`.
+
+The continuous-integration workflow validates:
+
+- Python syntax;
+- native R parse gates;
+- shell syntax;
+- key manuscript claim counts;
+- repository checksums.
+
+## Version history
+
+The earlier exploratory CoreSeed/three-axis repository state is preserved in:
+
+- branch: `legacy-coreseed-axis`
+- tag: `legacy-pre-MDV-MAR-20260915`
+
+Those materials are historical and are not the analytic authority for the current manuscript.
+
+## License
+
+The MIT license applies to repository code. External datasets and derived materials remain subject to the terms of their original data providers.
