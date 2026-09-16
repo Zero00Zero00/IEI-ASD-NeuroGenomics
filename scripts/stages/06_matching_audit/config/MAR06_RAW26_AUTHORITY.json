@@ -1,0 +1,76 @@
+{
+  "stage": "MAR06_RAW26_MATCHING_AUTHORITY",
+  "version": "1.0R2",
+  "wp01_root": "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1",
+  "primary_K50": {
+    "candidate_pool": {
+      "file": "WP01_raw26_candidate_pools_K50.tsv.gz",
+      "sha256": "aa9104cf557b89015872aa1cdc783702f1230a764f8d5058b6627dff2fedf89a"
+    },
+    "assignments": {
+      "file": "WP01_raw26_full_assignments_10k.tsv.gz",
+      "sha256": "29629cc8e846671d722fa1fddd6e31c07601e76d37c48556d112961d0ff286ad"
+    },
+    "sets": {
+      "file": "WP01_raw26_full_sets_10k.tsv.gz",
+      "sha256": "aeddbb1a841d60475301993d770a973770403b082027d3fc2c558d76c188301a"
+    },
+    "balance_long": {
+      "file": "WP01_raw26_full_balance_10k.tsv.gz",
+      "sha256": "8be3102f6ff9fadce415719434348d4b886ba2c4a6f5db42ed20b65ecde98555"
+    },
+    "balance_summary": {
+      "file": "WP01_raw26_full_balance_summary.tsv",
+      "sha256": null
+    },
+    "expected": {
+      "B": 10000,
+      "anchors": 26,
+      "K": 50,
+      "assignment_rows": 260000,
+      "set_rows": 10000,
+      "balance_rows": 30000
+    }
+  },
+  "sensitivity_K20": {
+    "candidate_pool": {
+      "file": "WP01_raw26_candidate_pools_K20.tsv.gz",
+      "sha256": "d37697221e28fa358fc9bc1f84b03eb2202f2f1bf61f3e746d690b7e69b88385"
+    },
+    "assignments": {
+      "file": "WP01_raw26_K20_assignments_10k.tsv.gz",
+      "sha256": "4806143db9012aa91a027638aabcc23bda38a11fcf6f10dd4e8a1fd7bb276ffa"
+    },
+    "sets": {
+      "file": "WP01_raw26_K20_sets_10k.tsv.gz",
+      "sha256": "1b4dca001d126873d684030168a3c6f08df47aadf9c8158ed1a2c1588f6148cb"
+    },
+    "balance_long": {
+      "file": "WP01_raw26_K20_balance_10k.tsv.gz",
+      "sha256": "b7c429436268b7f25e5fc21e9b9ebdc83866837939cd34d050a69075cfbdc949"
+    },
+    "balance_summary": {
+      "file": "WP01_raw26_K20_balance_summary.tsv",
+      "sha256": null
+    },
+    "expected": {
+      "B": 10000,
+      "anchors": 26,
+      "K": 20,
+      "assignment_rows": 260000,
+      "set_rows": 10000,
+      "balance_rows": 30000
+    }
+  },
+  "pilot_1k": {
+    "assignments_file": "WP01_raw26_pilot_assignments_1k.tsv.gz",
+    "sets_file": "WP01_raw26_pilot_sets_1k.tsv.gz",
+    "balance_file": "WP01_raw26_pilot_balance_1k.tsv.gz",
+    "role": "PROVENANCE_ONLY_NOT_PRIMARY"
+  },
+  "gates": {
+    "median_abs_SMD_max": 0.15,
+    "p95_abs_SMD_max": 0.25
+  },
+  "source": "MAR06_RAW26_ARTIFACT_PROBE_20260909T140704Z"
+}

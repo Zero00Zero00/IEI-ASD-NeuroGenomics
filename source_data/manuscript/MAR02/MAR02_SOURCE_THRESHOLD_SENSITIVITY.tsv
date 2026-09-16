@@ -1,0 +1,5 @@
+edge_threshold	is_primary	edge_n	community_n	ARI_vs_primary_medoid	stable_domain_n	small_module_n	medoid_seed	medoid_loss
+0.2	1	21	20	1.0	1	6	20260813	0.0
+0.15	0	29	17	0.6645761579190871	2	4	20260813	0.0
+0.25	0	19	21	0.966551326412918	1	5	20260813	0.0
+0.3	0	15	21	0.966551326412918	1	5	20260813	0.0

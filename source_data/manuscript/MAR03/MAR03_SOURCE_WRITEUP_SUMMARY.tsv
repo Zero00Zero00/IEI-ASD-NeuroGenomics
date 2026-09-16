@@ -1,0 +1,23 @@
+metric	value	note
+MAR03_status	PASS	Technical execution and postflight all PASS
+primary_higher_order_n	7	Family A, Expanded units
+secondary_standalone_n	13	Family B, secondary completeness
+PGC_primary_q_lt_0.05	0	No primary BH-significant higher-order unit
+SPARK_primary_q_lt_0.05	0	No primary BH-significant higher-order unit
+PGC_min_primary_P_one	0.054348	target=D01
+PGC_min_primary_q_BH	0.380436	target=D01
+SPARK_min_primary_P_one	0.46555	target=M05
+SPARK_min_primary_q_BH	0.7205333333333334	target=D01
+standalone_q_lt_0.05	0	Across PGC/SPARK separate family-B BH
+conditional_q_lt_0.05	0	Supportive pending MAR05
+matched_meanZ_q_lt_0.05	0	No BH-significant matched mean-Z result
+matched_medianZ_q_lt_0.05	0	Supportive median-Z
+sensitivity_q_lt_0.05	1	Only PGC M02 COMPACT_W10
+sensitivity_signal	PGC:M02:COMPACT_W10:q=0.0282975	Sensitivity-only; not replicated in SPARK
+matching_targets_n	20	7 higher-order + 13 standalones
+matched_sets_per_target_min	10000	All targets reached 10000 unique sets
+matching_qc_all_pass	True	60/60 rows PASS
+matching_max_median_abs_smd	0.1185888992660971	Gate <=0.15
+matching_max_p95_abs_smd	0.2357170835772702	Gate <=0.25
+common_scored_coverage_min	0.9	Matched scoring coverage across targets
+primary_conclusion	NO_REPRODUCIBLE_COMMON_VARIANT_ENRICHMENT	At the prespecified higher-order resolution in PGC and SPARK

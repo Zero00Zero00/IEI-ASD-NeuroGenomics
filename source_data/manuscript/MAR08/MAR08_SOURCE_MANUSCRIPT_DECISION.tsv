@@ -1,0 +1,7 @@
+decision_domain	status	manuscript_implication
+MAR07_override	FAIL_REMAINS_BINDING	MAR08 cannot restore confirmatory Tier1 status.
+leave_one_driver_common_side	NULL_ROBUST	Common-side null classification was robust to omission of individual frozen rare-anchor drivers.
+leave_two_driver_common_side	NO_PRIMARY_RESCUE	Leave-two results are limited diagnostics only.
+observed_vs_null_burden	POST_HOC_OMNIBUS_EXPLORATORY	Burden tails may contextualize the pathway layer but cannot validate individual pathways.
+null_pathway_recurrence	MDV3_RECURRENCE_RUN_TIER1_NOT_RUN	Only pre-existing pathway-level sidecars were used; no global-null rerun was permitted.
+MAR09_release	YES_REVISED_CLAIM_HIERARCHY	Proceed to MAR09 only with Tier1 as exploratory/prioritization output, common-variant conclusion unchanged, and MAR07 failure explicit.

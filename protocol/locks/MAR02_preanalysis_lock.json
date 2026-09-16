@@ -1,0 +1,52 @@
+{
+  "association_results_read": "NO",
+  "common_side_files_read": "NO",
+  "forbidden_common_side_inputs": [
+    "/06_magma_pgc/",
+    "/07_magma_spark/",
+    "PGC2019_gene_results_w10.tsv",
+    "SPARK_EUR_gene_results_w10.tsv"
+  ],
+  "gwas_inputs_used": "NO",
+  "input_hashes": {
+    "/home/h3021/chapter3/01_gene_universe/01_gene_universe.tsv": "451068856fd057895729e32d64fdc29c098f095b55d73e0d2e1454323f11fce4",
+    "/home/h3021/chapter3/02_pathways/03_pathway_membership.tsv.gz": "fbf5034608b0397647652fea21816abbe4eaa214dd800a7fdaf9ff4660caa3da",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_crossstage_MDV2.tsv": "a8c2a27a77b23c5e640264c3dc8f1a684527ee531249721c07b6a0b8a0e8b35a",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_gene_set.tsv": "20655a21e2442dd77215cc5010aef56d2e0e293601dfbba975642ead56011198",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_mdv3_all.tsv.gz": "abc4e7a89864b1fcaeed5831a580837c303a017179c71efe67284a2642911893",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_tier.tsv.gz": "6c2b6551d434e719bd49f1d8833b3a4807abf77e53917ce27ebddfdbd8512a91",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_tier1.tsv": "d0949af3a4af4b7b17810291f16ec83e4d0219259d6258120c3e1460bde70c1d",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_vs_core25.tsv.gz": "ad90aa10e889ed3b1e68c10d5145030ce787dc29d2ec6f6657e83965c97330b4",
+    "/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1/work/MAR02_adapter_config.yaml": "abc9324c43c90dfe39981fe611aae20bc6d35c9a98ecd994749107d5e37c3fcd",
+    "/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1/work/MAR02_raw26_tier1_adapter.tsv": "d0949af3a4af4b7b17810291f16ec83e4d0219259d6258120c3e1460bde70c1d",
+    "/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1/work/MAR02_raw26_universe_adapter.tsv": "ab55711f55426e1316245205772026b8494be03635772d71a25f8316b3a8c821",
+    "/home/h3021/chapter3/12_molecular_autism_revision/MAR02_RAW26_COMPRESSION_v1.0R1/workflow/legacy_mdv5_snapshot/mdv5_02_jaccard.py": "a1d3b1c47bbd089ed6859721dd006bba216e9f16aadab3efb3d056df8ca7e544",
+    "/home/h3021/chapter3/12_molecular_autism_revision/MAR02_RAW26_COMPRESSION_v1.0R1/workflow/legacy_mdv5_snapshot/mdv5_03_redundancy.py": "3f0f09aec4a15c0ca78d6ac6ac1fe6294696706553b7479980c6fc17766280f9",
+    "/home/h3021/chapter3/12_molecular_autism_revision/MAR02_RAW26_COMPRESSION_v1.0R1/workflow/legacy_mdv5_snapshot/mdv5_04_leiden.py": "53d1aecc7d3268855ea5a1e0979d51a7797fcc57aa6cc7a1bc82bb7d4f1bb3ab",
+    "/home/h3021/chapter3/12_molecular_autism_revision/MAR02_RAW26_COMPRESSION_v1.0R1/workflow/legacy_mdv5_snapshot/mdv5_05_domain_freeze.py": "f244f4f3313c39b73ea99661a16b23c4d0d6926aa272aefd22825c365e0de4c8",
+    "/home/h3021/chapter3/12_molecular_autism_revision/MAR02_RAW26_COMPRESSION_v1.0R1/workflow/legacy_mdv5_snapshot/mdv5_common.py": "9b29fd610b9c34e3b56362608cd2c4fe5d786d3ad3b8154947b3f0c85632b211",
+    "/home/h3021/chapter3/config/mdv5_domain_gate_v1_1.yaml": "995fc87b3b655720b357f68c6dc0d637fd945807bf316891addda2eea05f3e68"
+  },
+  "output_root": "/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1",
+  "rules": {
+    "Compact": "genes in >=2 representative pathways; sensitivity only",
+    "Expanded": "union of representative pathway protein-coding genes",
+    "leiden_runs": 100,
+    "magma_gene_window_kb": 10,
+    "primary_common_family": "higher-order Expanded units",
+    "primary_edge_threshold": 0.2,
+    "redundancy_complete_linkage_jaccard": 0.7,
+    "representative_rule": "q_emp -> q_Firth -> pathway_size -> source_priority -> pathway_id",
+    "secondary_family": "standalone representatives",
+    "sensitivity_edge_thresholds": [
+      0.15,
+      0.25,
+      0.3
+    ],
+    "small_module": "exactly 2 representatives and pair coclustering >=0.70",
+    "stable_domain": ">=3 representatives and median coclustering >=0.70"
+  },
+  "stage": "MAR02",
+  "timestamp_utc": "2026-09-09T09:53:06.727595+00:00",
+  "version": "1.0R1"
+}

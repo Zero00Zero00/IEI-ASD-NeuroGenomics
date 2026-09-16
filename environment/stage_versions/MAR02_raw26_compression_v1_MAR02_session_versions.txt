@@ -1,0 +1,4 @@
+timestamp_utc=2026-09-09T09:55:51.863792+00:00
+python=3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]
+platform=Linux-6.8.12-11-pve-x86_64-with-glibc2.35
+pandas=2.2.3

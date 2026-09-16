@@ -1,0 +1,8 @@
+unit_id	biological_label	Expanded_n	Compact_n	representative_count	raw26_driver_n	unit_type
+D01	Purine nucleotide metabolism and biosynthesis	27	21	5	1	stable_domain
+M01	Purine nucleotide catabolism	17	8	2	1	small_module
+M02	Amino-acid transport	34	8	2	1	small_module
+M03	Purine salvage	23	10	2	1	small_module
+M04	Lymphocyte and T-cell proliferation	42	20	2	3	small_module
+M05	Lymphocyte and T-cell activation	387	255	2	9	small_module
+M06	CCT/TriC-mediated actin folding	28	10	2	1	small_module

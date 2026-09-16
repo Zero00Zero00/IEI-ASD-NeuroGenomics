@@ -1,0 +1,8 @@
+metric	value	note
+MAR07_status	FAIL	BY sensitivity guarantees at least CAUTION unless policy amended prospectively
+Tier1_BH_n	39	
+Tier1_BY_n	0	
+global_null_R	1000	
+P_any_false_Tier1	0.906	
+MC_CI_high	0.9225658264262363	HOLD if >0.10
+next_stage	STATISTICAL_REASSESSMENT	

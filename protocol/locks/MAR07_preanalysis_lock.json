@@ -1,0 +1,87 @@
+{
+  "stage": "MAR07_CHAIN_CALIBRATION_R4_CERTIFICATION",
+  "version": "1.0R4.1",
+  "timestamp_utc": "2026-09-09T16:33:52.907335+00:00",
+  "observed_authority": {
+    "MDV2": "full frozen 6671 historical MDV2 results; 18 primary-pass crossstage rows",
+    "MDV3": "WP01 raw26 exact legacy solver, 6671 pathways",
+    "MDV4": "WP01 empirical tiering on frozen 10,000 matched sets",
+    "Tier1": "MDV3 enriched AND q_Firth<0.05 AND q_emp<0.05; MDV2 not prerequisite"
+  },
+  "certification": {
+    "MDV2": "primary-only adapter must numerically replay frozen full MDV2 primary results",
+    "MDV3": "exact wp01_mdv3_legacy_bridge + mdv3_firth_solver_v1p3 replay",
+    "MDV4": "exact wp01_empirical_tiering.empirical_for_sets replay",
+    "numeric_tolerance_MDV2": 1e-08,
+    "numeric_tolerance_MDV3": 1e-08,
+    "numeric_tolerance_MDV4": 1e-12,
+    "required_replay_n": {
+      "MDV2": 6671,
+      "MDV3": 6671,
+      "MDV4": 6671
+    },
+    "numeric_missing_semantics": "both NA/NaN/blank = semantically equal; one-sided missing = FAIL; finite values use frozen tolerances"
+  },
+  "global_null": {
+    "gene_universe_n": 19267,
+    "pathways_n": 6671,
+    "group_sizes": {
+      "Overlap_raw": 26,
+      "IEI_only": 474,
+      "ASD_only": 909,
+      "Background": 17858
+    },
+    "group_sampler": "joint-stratum exponential-tilt extension of frozen WP01 global matching engine",
+    "joint_bins_per_covariate": 5,
+    "features": [
+      "z_log_gene_length",
+      "z_GC",
+      "z_log_annotation"
+    ],
+    "per_group_abs_SMD_caliper": 0.2,
+    "group_order": [
+      "Overlap_raw",
+      "IEI_only",
+      "ASD_only"
+    ],
+    "mutually_exclusive": "YES",
+    "MDV2": "certified primary-only algorithm replay-equivalent to frozen MDV2 primary",
+    "MDV3": "certified legacy solver",
+    "MDV4": "frozen raw26 matched-set bank; remove any reference set intersecting pseudo-overlap genes",
+    "pilot_R": 50,
+    "primary_R": 250,
+    "adaptive_R": [
+      500,
+      1000
+    ],
+    "CI_halfwidth_target": 0.02,
+    "submission_HOLD_if_MC_CI_upper_gt": 0.1,
+    "seed_base": 20260909
+  },
+  "no_rule_tuning_after_release": "YES",
+  "input_hashes": {
+    "WP01_PASS": "c26de83abdc9496cd1301470918ec39ecca1cf389ef0ae1c6504da1800d1c431",
+    "MODEL_FRAME": "544b05e8b14e480e1015066480c8064ac80a23c0fa248a3ead034344643b49dc",
+    "RAW26_GENE_SET": "20655a21e2442dd77215cc5010aef56d2e0e293601dfbba975642ead56011198",
+    "RAW26_MDV3": "abc4e7a89864b1fcaeed5831a580837c303a017179c71efe67284a2642911893",
+    "RAW26_TIER": "6c2b6551d434e719bd49f1d8833b3a4807abf77e53917ce27ebddfdbd8512a91",
+    "RAW26_TIER1": "d0949af3a4af4b7b17810291f16ec83e4d0219259d6258120c3e1460bde70c1d",
+    "RAW26_SETS": "aeddbb1a841d60475301993d770a973770403b082027d3fc2c558d76c188301a",
+    "PATHWAY_MEMBERSHIP": "fbf5034608b0397647652fea21816abbe4eaa214dd800a7fdaf9ff4660caa3da",
+    "GENE_UNIVERSE": "451068856fd057895729e32d64fdc29c098f095b55d73e0d2e1454323f11fce4",
+    "GENE_GROUPS": "94d4e02a4512ce64ca5dbe1fb8690bc05e31514578df65efa18b979c48b805f2",
+    "MDV2_FROZEN": "8250cb344ea85432242bce40947ad55341171b44d9940220f63f3cefda5059c2",
+    "MDV2_MAIN": "2f9cef3bcfbd8689cc9a67333fdb5056a1435fe69e1acd580886c0538937bfd9",
+    "MDV2_CONFIG": "f8ea243bf593bde4502ba7e65add2e5e47962c4356c419edcb7b269ca29f9a3a",
+    "WP01_MDV3_BRIDGE": "7cd9ff6796ec9e513bdadc1ca0aee9184f72335a217b04ada58976eda31e1abb",
+    "LEGACY_SOLVER": "6f41706188865f6c88e5774855604a62d54fa948c39a8f7fd3032d8efa55d044",
+    "MDV3_CONFIG": "68f575d01f0149c613bf2c66b691e6823a27275f8ba63471d71750a7965beaa6",
+    "WP01_EMPIRICAL": "170a984aa1f339f334f5ef7972a552a0b6e4a93057c3aa26872f2c71b28bed54",
+    "WP01_COMMON": "4e14d150312a6aba382e90ea13a077ce242ff924eeb15693392edf03c28f25f2",
+    "WP01_GLOBAL": "42ba8c2dc34341925ec3c1a09b57dec1f72cf0ce5bfcf285c28aebf46a804b0c",
+    "MAR03_PASS": "e631f460d5e99ce885779cef09cc1f09c0d80f1933b8fd53a5e12cf3a13d0eac",
+    "MAR04_PASS": "1e8422fdd3ab1bb4f801a91b83f4086559a62840c63ffc8b9473f3863dff7f50",
+    "MAR05_PASS": "7829ff9cef940a22ba2eeb9fee0f5b26455033bd367ad6df538e090893109722",
+    "MAR06_PASS": "1a5eadcdb607cc006b65ca154b4819877d8ca768a028667e666efb3c50ff3329"
+  }
+}

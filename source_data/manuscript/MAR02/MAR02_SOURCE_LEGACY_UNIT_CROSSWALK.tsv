@@ -1,0 +1,8 @@
+raw26_unit_id	raw26_label	legacy_unit_id	relationship	expanded_exact	compact_exact
+D01	Purine nucleotide metabolism and biosynthesis	D01	SPLIT_FROM_LEGACY_D01	NO	NO
+M01	Purine nucleotide catabolism	M01	EXACT_MEMBERSHIP	YES	YES
+M02	Amino-acid transport	M02	EXACT_MEMBERSHIP	YES	YES
+M03	Purine salvage	D01	SPLIT_FROM_LEGACY_D01	NO	NO
+M04	Lymphocyte and T-cell proliferation	M03	EXACT_MEMBERSHIP_ID_SHIFT	YES	YES
+M05	Lymphocyte and T-cell activation	M04	EXACT_MEMBERSHIP_ID_SHIFT	YES	YES
+M06	CCT/TriC-mediated actin folding	M06	EXACT_MEMBERSHIP	YES	YES

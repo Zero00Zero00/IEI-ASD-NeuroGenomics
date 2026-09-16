@@ -1,0 +1,78 @@
+{
+  "stage": "MAR03_COMMON_VARIANT_RETEST",
+  "version": "1.0R2_REAL",
+  "timestamp_utc": "2026-09-09T11:31:29.005715+00:00",
+  "association_scores_parsed": "NO",
+  "magma_gene_window_kb": 10,
+  "families": {
+    "A_primary_higher_order_expanded_n": 7,
+    "B_secondary_standalone_n": 13,
+    "C_compact_sensitivity_n": 7
+  },
+  "primary_model": "MAGMA competitive marginal; historical MDV6/MDV7 CLI with --model direction=greater",
+  "conditional_model": "historical per-target analyse=file + condition-hide all other A units; SUPPORTIVE_PENDING_MAR05",
+  "matched_continuous": {
+    "targets": "A+B",
+    "meanZ": "PRIMARY_COMPLEMENTARY",
+    "medianZ": "SUPPORTIVE",
+    "same_matched_sets_PGC_SPARK": "YES",
+    "B": 10000,
+    "seed": 20260814,
+    "matching_method": "chromosome_stratified_exponential_tilt_rerandomization",
+    "exact_chromosome_composition": "YES",
+    "distance_variables": [
+      "log_gene_length_z",
+      "GC_z_mdv8",
+      "log1p_annotation_degree_z"
+    ],
+    "sampling_weight": "exponential_tilt_on_frozen_structural_covariates",
+    "per_set_abs_SMD_caliper": 0.25,
+    "median_abs_SMD_max": 0.15,
+    "p95_abs_SMD_max": 0.25,
+    "tilt_mean_residual_max": 0.02,
+    "max_set_generation_attempt_factor": 40,
+    "control_exclusion": "ALL_FROZEN_MAR03_A_PLUS_B_HYPOTHESIS_GENES",
+    "historical_method_authority": "MDV8_v1_1 mdv8_05_matched_null.py + mdv8_specificity_gate_v1_1.yaml",
+    "extension_note": "Historical MDV8 matching algorithm is prospectively extended to the secondary standalone family before any association score was read."
+  },
+  "sensitivity": [
+    "Compact_w10",
+    "Expanded_remove_raw26_w10",
+    "Expanded_w0",
+    "Expanded_w50",
+    "Expanded_MHCexcluded"
+  ],
+  "multiplicity": {
+    "A_m": 7,
+    "B_m": 13,
+    "C_m": 7,
+    "matched_BH": "separate within dataset \u00d7 family \u00d7 statistic"
+  },
+  "input_hashes": {
+    "/home/h3021/chapter3/06_magma_pgc/MDV6_v1_1/PGC2019_gene_results_w10.tsv": "f4eb46aca8c3ba205d4d7576e88525e8b2f8c02ec2b9d571dd4282362593106d",
+    "/home/h3021/chapter3/06_magma_pgc/MDV6_v1_1/magma/PGC2019_w10.genes.raw": "8bb9d9fbea8f57c4423b816bb8050946521e98dabaf92de3d3d7b00248fe385d",
+    "/home/h3021/chapter3/06_magma_pgc/MDV6_v1_1/MDV6_gene_id_map.tsv": "331db7c9f6b34f2871a705e84b141b43e695c997e9f4263d90fca8f2c1b18ed9",
+    "/home/h3021/chapter3/07_magma_spark/MDV7_v1_1/SPARK_EUR_gene_results_w10.tsv": "99a8bd46f332615262c6e0422be04d3988b154bf6a1af9fa7b5670cf19308702",
+    "/home/h3021/chapter3/07_magma_spark/MDV7_v1_1/magma/SPARK_EUR_w10.genes.raw": "7329204e163ac76e124bbdce22d8b43a120959eb65a7ba469a63119cfb0d8c69",
+    "/home/h3021/chapter3/07_magma_spark/MDV7_v1_1/MDV7_gene_id_map.tsv": "331db7c9f6b34f2871a705e84b141b43e695c997e9f4263d90fca8f2c1b18ed9",
+    "/home/h3021/chapter3/08_specificity_controls/MDV8_v1_1/MDV8_common_scored_gene_universe.tsv": "3789a8b156a432b1abc7a4377353ad85c88264619b297fbdbb171f692a2a30ff",
+    "/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1/MAR02_COMMON_HYPOTHESIS_LOCK.json": "2727676bd23a1e97b584f012f8af4663582a0a77a5e2def89947dfad80f33b65",
+    "/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1/MAR02_raw26_domain_membership.tsv": "fd08513d0dd6d46ddbd93d95f7e050fe5ff1b382ecbc591686bd74b278ed1b12",
+    "/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1/MAR02_raw26_standalones.tsv": "4ff2f43745847b0e25d4ae4fd5244dfd89d685c228f57b8deacda40b42d3a759",
+    "/home/h3021/chapter3/workflow/scripts/mdv6_05_run_gsa.py": "542b6dba61c9c5af36bc217db0ce69602bc1f18c570d7b921522bffbad97302b",
+    "/home/h3021/chapter3/workflow/scripts/mdv7_05_run_gsa.py": "9ac8871b2e0edcbaf9c14d31559476819b0d8e84fc2de9bb4c9d3df1ab62d59e",
+    "/home/h3021/chapter3/workflow/scripts/mdv8_05_matched_null.py": "302a70610a3849c763d391fd45aa43826e867b4e207d24ef8c0c85e77f31b989",
+    "/home/h3021/chapter3/config/mdv8_specificity_gate_v1_1.yaml": "b9d5e345759267e135dfd24f43cda15b2c6672777c21b64818c320803244e77c"
+  },
+  "set_file_hashes": {
+    "MAR03_PGC_compact.sets": "7020aa05625e57c8675ecf45ccb7ba1a6b0f575e135d736bdeaaf22578ea3f09",
+    "MAR03_PGC_expanded_remove_raw26.sets": "3d299915d68970f91c1ab1eb14ad40f3bd8fd85e65f70346e3487ba61757550e",
+    "MAR03_PGC_higher_order_expanded.sets": "38e59884e459195cbeb70a41a1cbf527130014590fa94778722f88af2ef054c4",
+    "MAR03_PGC_standalones.sets": "0a9ec791b373993d1b030efcf527b9adc00ab658f68acb3751a31411e3abeff0",
+    "MAR03_SPARK_compact.sets": "7020aa05625e57c8675ecf45ccb7ba1a6b0f575e135d736bdeaaf22578ea3f09",
+    "MAR03_SPARK_expanded_remove_raw26.sets": "3d299915d68970f91c1ab1eb14ad40f3bd8fd85e65f70346e3487ba61757550e",
+    "MAR03_SPARK_higher_order_expanded.sets": "38e59884e459195cbeb70a41a1cbf527130014590fa94778722f88af2ef054c4",
+    "MAR03_SPARK_standalones.sets": "0a9ec791b373993d1b030efcf527b9adc00ab658f68acb3751a31411e3abeff0"
+  },
+  "GWAS_score_selection_used": "NO"
+}

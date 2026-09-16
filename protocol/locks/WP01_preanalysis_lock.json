@@ -1,0 +1,38 @@
+{
+  "ch3_root": "/home/h3021/chapter3",
+  "code_lock_sha256": "34700eb58eedeea308810a581f85d3ed4e54445d2df14501c8b7c7da1fe20800",
+  "contract_sha256": "84c54f604bffabf194e3335de1eb2f6fcd43d7fe0ef8bf8596a58f2a7fbf1f2b",
+  "data_firewall": "Legacy MDV0-8 and MA-R00 are READ ONLY; WP01 writes only under 12_molecular_autism_revision.",
+  "gate": "A",
+  "historical_sensitivity": "CoreSeed25",
+  "ma_root": "/home/h3021/chapter3/12_molecular_autism_revision",
+  "package_version": "1.0.0",
+  "primary_anchor": "raw26",
+  "resolved_inputs_sha256": "fbdc72bd336f416b55dc1e0110aa21c8f97a900e4f0c25d44fb5576177ff4228",
+  "rules": {
+    "Tier1": "OR_Firth > 1 AND q_Firth < 0.05 AND q_emp < 0.05",
+    "empirical_FDR": "BH separately within GO_BP and Reactome complete frozen families",
+    "empirical_P": "(1 + sum(T_perm >= T_obs))/(B+1)",
+    "empirical_statistic": "Haldane-corrected log odds ratio; observed and permuted identical",
+    "global_balance_median_gate": 0.1,
+    "global_balance_p95_gate": 0.2,
+    "global_joint_quantile_bins": 5,
+    "global_matched_null_B": 10000,
+    "historical_CoreSeed25": "sensitivity/comparison only; never primary",
+    "matched_balance_median_gate": 0.15,
+    "matched_balance_p95_gate": 0.25,
+    "matched_full_B": 10000,
+    "matched_pilot_B": 1000,
+    "matched_primary_K": 50,
+    "matched_sensitivity_K": 20,
+    "mdv3_FDR": "BH separately within GO_BP and Reactome complete frozen families",
+    "mdv3_model": "raw26_flag ~ pathway + frozen ns(log_gene_length,df=3) + GC_z + z(log1p(annotation_degree)); mean bias reduction",
+    "mdv3_positive": "OR_Firth > 1 and q_Firth < 0.05"
+  },
+  "seeds": {
+    "global_catalogue_null": 20260904,
+    "matched_sets": 20260811
+  },
+  "stage": "WP01",
+  "track": "MOLECULAR_AUTISM_REVISION"
+}

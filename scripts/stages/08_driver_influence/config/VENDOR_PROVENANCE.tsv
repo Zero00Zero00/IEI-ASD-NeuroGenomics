@@ -1,0 +1,4 @@
+role	package_path	sha256	note
+MAR03_R2_REAL_common.py	vendor/mar03_common.py	8f84aa9db69b98402ba1d72530785cb5c0384462f4e253c3bdea357bbeaa4844	Exact frozen helper/parser/CLI utilities
+MAR03_R2_REAL_analysis.py	vendor/mar03_analysis.py	992f821d603bddacf4f879f6fbe4d6c532f0f1df733e223fdde6ed3265864570	Historical marginal MAGMA interface provenance
+MAR08_contract	config/MAR08_REVISED_ANALYSIS_CONTRACT_v1.0.json	c0ed0c9b4d8ec94258666441c3766c67a0f932096eab1b65ed107f7d24e73578	Frozen revised analysis contract

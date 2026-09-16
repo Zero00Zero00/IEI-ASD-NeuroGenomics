@@ -1,0 +1,16 @@
+{
+  "catalog_intersection_genes": 26,
+  "dual_background_candidates": 18,
+  "bh_prioritized_pathways": 39,
+  "representatives": 30,
+  "higher_order_units": 7,
+  "standalones": 13,
+  "pgc_primary_positive": 0,
+  "spark_primary_positive": 0,
+  "pgc_standalone_positive": 0,
+  "spark_standalone_positive": 0,
+  "by_retained_priorities": 0,
+  "global_null_replicates": 1000,
+  "global_null_any_false_rate": 0.906,
+  "global_null_mean_false_count": 14.408
+}

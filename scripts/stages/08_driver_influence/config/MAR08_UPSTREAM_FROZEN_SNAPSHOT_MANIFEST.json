@@ -1,0 +1,57 @@
+{
+  "snapshot_id": "MAR08_R1P1_UPSTREAM_FROZEN_CANONICAL_INPUTS",
+  "status": "FROZEN_TRANSPORT_SNAPSHOT",
+  "scientific_authority_unchanged": true,
+  "reason": "MAR08 R1 preflight assumed MAR02/MAR03/MAR04 canonical source_data TSVs were materialized inside active stage directories. The active Linux project retains the stage checksum ledgers but these older canonical source TSVs are carried by their frozen release bundles. R1.1 vendors byte-identical canonical snapshots and binds each file by SHA256; no upstream analysis is rerun.",
+  "files": {
+    "MAR02_SOURCE_UNIT_SUMMARY.tsv": {
+      "path": "vendor/upstream_frozen/MAR02/MAR02_SOURCE_UNIT_SUMMARY.tsv",
+      "sha256": "a76b230c501ae6afdacde35d72abeda47bd7dbf598d6db217b453574304660bd",
+      "source_freeze_release": "MAR02_FREEZE_RELEASE_v1.0R1",
+      "source_freeze_release_sha256": "ab4cb9c005f80d81ccbfc6a45ff6e0355a09c3118bf329ea4adac4ab538c6ab9",
+      "transport_role": "BYTE_IDENTICAL_CANONICAL_SOURCE_SNAPSHOT"
+    },
+    "MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv": {
+      "path": "vendor/upstream_frozen/MAR02/MAR02_SOURCE_UNIT_GENE_MEMBERSHIP.tsv",
+      "sha256": "8b0fba4b1877baeb5af19985ca8c9ce92c63e3ad703f9482d862776e5029d98d",
+      "source_freeze_release": "MAR02_FREEZE_RELEASE_v1.0R1",
+      "source_freeze_release_sha256": "ab4cb9c005f80d81ccbfc6a45ff6e0355a09c3118bf329ea4adac4ab538c6ab9",
+      "transport_role": "BYTE_IDENTICAL_CANONICAL_SOURCE_SNAPSHOT"
+    },
+    "MAR02_SOURCE_REPRESENTATIVES.tsv": {
+      "path": "vendor/upstream_frozen/MAR02/MAR02_SOURCE_REPRESENTATIVES.tsv",
+      "sha256": "3f83ba8f95779a77056cf51fc29f8c10daa7eb9de06d165d79b28b471294069d",
+      "source_freeze_release": "MAR02_FREEZE_RELEASE_v1.0R1",
+      "source_freeze_release_sha256": "ab4cb9c005f80d81ccbfc6a45ff6e0355a09c3118bf329ea4adac4ab538c6ab9",
+      "transport_role": "BYTE_IDENTICAL_CANONICAL_SOURCE_SNAPSHOT"
+    },
+    "MAR02_SOURCE_STANDALONES.tsv": {
+      "path": "vendor/upstream_frozen/MAR02/MAR02_SOURCE_STANDALONES.tsv",
+      "sha256": "82e945bcdfae1e42ffdc855de873e31700b63fce4a7965bc1e2af2aed4245e91",
+      "source_freeze_release": "MAR02_FREEZE_RELEASE_v1.0R1",
+      "source_freeze_release_sha256": "ab4cb9c005f80d81ccbfc6a45ff6e0355a09c3118bf329ea4adac4ab538c6ab9",
+      "transport_role": "BYTE_IDENTICAL_CANONICAL_SOURCE_SNAPSHOT"
+    },
+    "MAR02_SOURCE_TIER1_PATHWAYS.tsv": {
+      "path": "vendor/upstream_frozen/MAR02/MAR02_SOURCE_TIER1_PATHWAYS.tsv",
+      "sha256": "9669b7e16a1f84d6551afeb33683890e129065a72f0cc78d4db6265400e9a3f9",
+      "source_freeze_release": "MAR02_FREEZE_RELEASE_v1.0R1",
+      "source_freeze_release_sha256": "ab4cb9c005f80d81ccbfc6a45ff6e0355a09c3118bf329ea4adac4ab538c6ab9",
+      "transport_role": "BYTE_IDENTICAL_CANONICAL_SOURCE_SNAPSHOT"
+    },
+    "MAR03_SOURCE_PRIMARY_HIGHER_ORDER.tsv": {
+      "path": "vendor/upstream_frozen/MAR03/MAR03_SOURCE_PRIMARY_HIGHER_ORDER.tsv",
+      "sha256": "ff0d91ff99abe69fb40c18ae2f30b42accb068cdb9ef5136d1a3d3a03976459d",
+      "source_freeze_release": "MAR03_FREEZE_RELEASE_v1.0R2",
+      "source_freeze_release_sha256": "67ef9d5bb40b733df536a7faba19b251d22f02e7e94274d461dceca87067a644",
+      "transport_role": "BYTE_IDENTICAL_CANONICAL_SOURCE_SNAPSHOT"
+    },
+    "MAR04_SOURCE_WRITEUP_SUMMARY.tsv": {
+      "path": "vendor/upstream_frozen/MAR04/MAR04_SOURCE_WRITEUP_SUMMARY.tsv",
+      "sha256": "f38e4aa9c7bdba91ca07151ba5dd363408fa4daede8f3340d37c6f3f9402a0d7",
+      "source_freeze_release": "MAR04_FREEZE_RELEASE_v1.0R1",
+      "source_freeze_release_sha256": "ef0bbfe110ab16754e76719076ff7aa5b7f6eca60655ec53ae7b2b3533b4f776",
+      "transport_role": "BYTE_IDENTICAL_CANONICAL_SOURCE_SNAPSHOT"
+    }
+  }
+}

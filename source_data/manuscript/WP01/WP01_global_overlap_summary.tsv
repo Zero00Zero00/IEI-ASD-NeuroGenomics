@@ -1,0 +1,2 @@
+N_universe	IUIS_n	SFARI_R0_n	observed_overlap_n	hypergeom_expected_overlap	hypergeom_fold_enrichment	hypergeom_one_sided_P	matched_B	matched_overlap_mean	matched_overlap_median	matched_overlap_p95	matched_empirical_P	matched_balance_gate	seed	joint_bins_per_covariate	engine_version	per_set_abs_SMD_caliper	IUIS_acceptance_rate	SFARI_acceptance_rate
+19267	500	935	26	24.26428608501583	1.0715336898395722	0.386472348015283	10000	34.6091	34.0	43.0	0.9586041395860414	PASS	20260904	5	global-match-v1.0.2-stratified-exponential-tilt-interface-hotfix	0.2	1.0	1.0

@@ -1,0 +1,148 @@
+{
+  "association_results_read": "NO",
+  "canonical_output_hashes": {
+    "MAR02_raw26_coclustering.tsv.gz": "baa929fd51606ab61df01a8ee8c9204dc0facde36f0f2275c41b8840ed60fd83",
+    "MAR02_raw26_domain_membership.tsv": "fd08513d0dd6d46ddbd93d95f7e050fe5ff1b382ecbc591686bd74b278ed1b12",
+    "MAR02_raw26_jaccard_pairs.tsv.gz": "48f66e083224a89974bb51bf2ea7504a4682b5438ed605fdacfe8b3523c951d6",
+    "MAR02_raw26_locus_dominance.tsv": "1e630be06ad861ff9e4784e3e12366f1024b0e3a70da0be530f38406ffe0e0fb",
+    "MAR02_raw26_network_edges.tsv": "988e8a455a1ca1ad860f493765ca2a069392c92d842c3523feb73ba9fd62abaa",
+    "MAR02_raw26_network_edges_sensitivity.tsv.gz": "f25c05c47ae314ecdad184fc2fd895701228dd2fa27e8ef28f1c4710e851a8f1",
+    "MAR02_raw26_pathway_to_unit.tsv": "0be4b00269ee97dd33608452c6893461fdca1f76b4013b2a07ec02263a44b0df",
+    "MAR02_raw26_redundancy_map.tsv": "601fa30fb5640659b0e794151f620062699547ea126bcec139e567e0fdfdd9a4",
+    "MAR02_raw26_representatives.tsv": "4263cb8e002c9ea5487f6e58e7a44fa430846d3dfd1013fdd8bfeecb56035475",
+    "MAR02_raw26_standalones.tsv": "4ff2f43745847b0e25d4ae4fd5244dfd89d685c228f57b8deacda40b42d3a759",
+    "MAR02_raw26_threshold_sensitivity.tsv": "4a96ed5d2db74b4da589514fd0f6ed3e0d41705d3b0d07834a438a82da197dbb",
+    "MAR02_raw26_units.tsv": "88c56174eac9ee42a87e16329ee9bcb45df5912d8271c1b4bb861fb830568182",
+    "MAR02_raw26_vs_legacy_mdv5.tsv": "b59535e79a007cbbe3f45ba9314c3a5d9e6311e11bec418f819035012f183800",
+    "MAR02_raw26_vs_legacy_mdv5_summary.tsv": "81a6942f7dc0c7fbe199e57461ec50726b9d53fa82ed55102b1b3fb523471805"
+  },
+  "families": {
+    "A_primary_higher_order_Expanded": [
+      {
+        "Compact_hash": "8b560e2e7a4400f2927f40cb196580b9f68bed669d3154a003364b789bf06c93",
+        "Compact_n": 21,
+        "Expanded_hash": "54ca7a17aa5be58ed64862ea4f1ca38361d5afeb0fac7fe6ddba1cba1e0485aa",
+        "Expanded_n": 27,
+        "unit_id": "D01"
+      },
+      {
+        "Compact_hash": "6eb4acc4126fc91460e4232a5f09bdc0c381de7d244fbcec293c4387717b1b56",
+        "Compact_n": 8,
+        "Expanded_hash": "82610c6ed4a0d56e567b6bbef2dd213537bdfa285fd79cacbeb3685aa0ad6595",
+        "Expanded_n": 17,
+        "unit_id": "M01"
+      },
+      {
+        "Compact_hash": "2ed34d7eb265f0b3f73121fb4d4133c03437ca15a7873d0506463233e8236f42",
+        "Compact_n": 8,
+        "Expanded_hash": "71ccb288a118375bf9180d586463874c8453be0bead40527fdc9c0075f121dd0",
+        "Expanded_n": 34,
+        "unit_id": "M02"
+      },
+      {
+        "Compact_hash": "a87d5c9d106a31374d6f9eceac91421c47da5360af3f9a012d826acbe3c26dc1",
+        "Compact_n": 10,
+        "Expanded_hash": "686e49bfaa76e2da2c06beb2f72a67090b154531ca5bb861423b504b4468bf90",
+        "Expanded_n": 23,
+        "unit_id": "M03"
+      },
+      {
+        "Compact_hash": "b37d52cd0439fc35a244e53b57ffc6881731cd15e0eda7e0388854633b17aba0",
+        "Compact_n": 20,
+        "Expanded_hash": "745cc94e16fbf5288ac090cbcce199d6bc1d58450d67b3c8e870e78c751b963e",
+        "Expanded_n": 42,
+        "unit_id": "M04"
+      },
+      {
+        "Compact_hash": "cf4712a1f466fc41c975091bf559afa0a805facfdf6b33069a393eef2ff4bea1",
+        "Compact_n": 255,
+        "Expanded_hash": "d37519543cc18afc7402d49f25e3786b950599e48f736de455c812553707de38",
+        "Expanded_n": 387,
+        "unit_id": "M05"
+      },
+      {
+        "Compact_hash": "b744aa0b04132c53840f5eb09a2991282f1974dcf1cce9af5a5258d19b9c191d",
+        "Compact_n": 10,
+        "Expanded_hash": "ac8f489adb27923d3276d20395cd4cb878a88194ed6075ef57d2c9f4daaca0b6",
+        "Expanded_n": 28,
+        "unit_id": "M06"
+      }
+    ],
+    "B_secondary_standalones": [
+      "GO_BP::GO:0000730",
+      "GO_BP::GO:0006265",
+      "GO_BP::GO:0006310",
+      "GO_BP::GO:0006614",
+      "GO_BP::GO:0032490",
+      "GO_BP::GO:0034497",
+      "GO_BP::GO:0045475",
+      "GO_BP::GO:0046128",
+      "GO_BP::GO:0072710",
+      "GO_BP::GO:1902969",
+      "Reactome::R-HSA-9755088",
+      "Reactome::R-HSA-9827857",
+      "Reactome::R-HSA-9953170"
+    ],
+    "C_sensitivity_Compact": [
+      {
+        "Compact_hash": "8b560e2e7a4400f2927f40cb196580b9f68bed669d3154a003364b789bf06c93",
+        "Compact_n": 21,
+        "unit_id": "D01"
+      },
+      {
+        "Compact_hash": "6eb4acc4126fc91460e4232a5f09bdc0c381de7d244fbcec293c4387717b1b56",
+        "Compact_n": 8,
+        "unit_id": "M01"
+      },
+      {
+        "Compact_hash": "2ed34d7eb265f0b3f73121fb4d4133c03437ca15a7873d0506463233e8236f42",
+        "Compact_n": 8,
+        "unit_id": "M02"
+      },
+      {
+        "Compact_hash": "a87d5c9d106a31374d6f9eceac91421c47da5360af3f9a012d826acbe3c26dc1",
+        "Compact_n": 10,
+        "unit_id": "M03"
+      },
+      {
+        "Compact_hash": "b37d52cd0439fc35a244e53b57ffc6881731cd15e0eda7e0388854633b17aba0",
+        "Compact_n": 20,
+        "unit_id": "M04"
+      },
+      {
+        "Compact_hash": "cf4712a1f466fc41c975091bf559afa0a805facfdf6b33069a393eef2ff4bea1",
+        "Compact_n": 255,
+        "unit_id": "M05"
+      },
+      {
+        "Compact_hash": "b744aa0b04132c53840f5eb09a2991282f1974dcf1cce9af5a5258d19b9c191d",
+        "Compact_n": 10,
+        "unit_id": "M06"
+      }
+    ]
+  },
+  "freeze_timestamp_utc": "2026-09-09T09:55:51.862290+00:00",
+  "gwas_inputs_used": "NO",
+  "input_hashes": {
+    "/home/h3021/chapter3/01_gene_universe/01_gene_universe.tsv": "451068856fd057895729e32d64fdc29c098f095b55d73e0d2e1454323f11fce4",
+    "/home/h3021/chapter3/02_pathways/03_pathway_membership.tsv.gz": "fbf5034608b0397647652fea21816abbe4eaa214dd800a7fdaf9ff4660caa3da",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_crossstage_MDV2.tsv": "a8c2a27a77b23c5e640264c3dc8f1a684527ee531249721c07b6a0b8a0e8b35a",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_gene_set.tsv": "20655a21e2442dd77215cc5010aef56d2e0e293601dfbba975642ead56011198",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_mdv3_all.tsv.gz": "abc4e7a89864b1fcaeed5831a580837c303a017179c71efe67284a2642911893",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_tier.tsv.gz": "6c2b6551d434e719bd49f1d8833b3a4807abf77e53917ce27ebddfdbd8512a91",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_tier1.tsv": "d0949af3a4af4b7b17810291f16ec83e4d0219259d6258120c3e1460bde70c1d",
+    "/home/h3021/chapter3/12_molecular_autism_revision/01_anchor_ingest/WP01_raw26_primary_v1/WP01_raw26_vs_core25.tsv.gz": "ad90aa10e889ed3b1e68c10d5145030ce787dc29d2ec6f6657e83965c97330b4",
+    "/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1/work/MAR02_adapter_config.yaml": "abc9324c43c90dfe39981fe611aae20bc6d35c9a98ecd994749107d5e37c3fcd",
+    "/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1/work/MAR02_raw26_tier1_adapter.tsv": "d0949af3a4af4b7b17810291f16ec83e4d0219259d6258120c3e1460bde70c1d",
+    "/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1/work/MAR02_raw26_universe_adapter.tsv": "ab55711f55426e1316245205772026b8494be03635772d71a25f8316b3a8c821",
+    "/home/h3021/chapter3/12_molecular_autism_revision/MAR02_RAW26_COMPRESSION_v1.0R1/workflow/legacy_mdv5_snapshot/mdv5_02_jaccard.py": "a1d3b1c47bbd089ed6859721dd006bba216e9f16aadab3efb3d056df8ca7e544",
+    "/home/h3021/chapter3/12_molecular_autism_revision/MAR02_RAW26_COMPRESSION_v1.0R1/workflow/legacy_mdv5_snapshot/mdv5_03_redundancy.py": "3f0f09aec4a15c0ca78d6ac6ac1fe6294696706553b7479980c6fc17766280f9",
+    "/home/h3021/chapter3/12_molecular_autism_revision/MAR02_RAW26_COMPRESSION_v1.0R1/workflow/legacy_mdv5_snapshot/mdv5_04_leiden.py": "53d1aecc7d3268855ea5a1e0979d51a7797fcc57aa6cc7a1bc82bb7d4f1bb3ab",
+    "/home/h3021/chapter3/12_molecular_autism_revision/MAR02_RAW26_COMPRESSION_v1.0R1/workflow/legacy_mdv5_snapshot/mdv5_05_domain_freeze.py": "f244f4f3313c39b73ea99661a16b23c4d0d6926aa272aefd22825c365e0de4c8",
+    "/home/h3021/chapter3/12_molecular_autism_revision/MAR02_RAW26_COMPRESSION_v1.0R1/workflow/legacy_mdv5_snapshot/mdv5_common.py": "9b29fd610b9c34e3b56362608cd2c4fe5d786d3ad3b8154947b3f0c85632b211",
+    "/home/h3021/chapter3/config/mdv5_domain_gate_v1_1.yaml": "995fc87b3b655720b357f68c6dc0d637fd945807bf316891addda2eea05f3e68"
+  },
+  "magma_gene_window_kb": 10,
+  "stage": "MAR02_COMMON_HYPOTHESIS_LOCK",
+  "version": "1.0R1"
+}

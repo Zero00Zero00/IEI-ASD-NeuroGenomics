@@ -1,0 +1,12 @@
+role	dataset_or_stage	path	use
+historical_runner	MDV6	/home/h3021/chapter3/run_mdv6_staged.sh	reference-only; do not rerun SNP/gene mapping
+historical_runner	MDV7	/home/h3021/chapter3/run_mdv7_staged.sh	reference-only; do not rerun harmonization/gene mapping
+historical_gsa_impl	MDV6	/home/h3021/chapter3/workflow/scripts/mdv6_05_run_gsa.py	hashed at MAR03 preflight
+historical_gsa_impl	MDV7	/home/h3021/chapter3/workflow/scripts/mdv7_05_run_gsa.py	hashed at MAR03 preflight
+matched_null_reference	MDV8	/home/h3021/chapter3/workflow/scripts/mdv8_05_matched_null.py	hashed at MAR03 preflight
+PGC_gene_level_tsv	PGC2019	/home/h3021/chapter3/06_magma_pgc/MDV6_v1_1/PGC2019_gene_results_w10.tsv	frozen +10kb gene-level authority
+PGC_genes_raw	PGC2019	/home/h3021/chapter3/06_magma_pgc/MDV6_v1_1/magma/PGC2019_w10.genes.raw	used directly by MAGMA GSA
+SPARK_gene_level_tsv	SPARK_EUR	/home/h3021/chapter3/07_magma_spark/MDV7_v1_1/SPARK_EUR_gene_results_w10.tsv	frozen +10kb gene-level authority
+SPARK_genes_raw	SPARK_EUR	/home/h3021/chapter3/07_magma_spark/MDV7_v1_1/magma/SPARK_EUR_w10.genes.raw	used directly by MAGMA GSA
+MAR02_membership	raw26	/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1/MAR02_raw26_domain_membership.tsv	7 new higher-order units
+MAR02_standalones	raw26	/home/h3021/chapter3/12_molecular_autism_revision/02_raw26_domains/MAR02_raw26_compression_v1/MAR02_raw26_standalones.tsv	13 secondary standalones

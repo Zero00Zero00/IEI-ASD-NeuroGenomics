@@ -1,0 +1,21 @@
+MAR07 R4.1 implementation hotfix
+
+Trigger:
+R4 certify stopped after successful MDV2 R execution with:
+ValueError: could not convert string to float: 'NA'
+
+Diagnosis:
+The error was in the Python replay comparator, not in the MDV2 statistical model.
+Frozen pathway tables legitimately contain NA for non-estimable numeric fields
+(e.g. OR/SE-related outputs in no-variation or non-estimable pathways).
+
+Fix:
+- both expected and replay missing -> PASS for that numeric field
+- one-sided missing -> FAIL
+- finite numbers -> unchanged frozen tolerance
+- equal signed infinities -> PASS; unequal infinities -> FAIL
+- same semantics applied prospectively to MDV3 and MDV4 Tier1 reconstruction
+- exact pathway-key equality remains mandatory
+- no solver/model/FDR/threshold/pathway-family/null-design change
+
+R4 scientific design is unchanged; R4.1 uses a new output namespace and requires a fresh Gate A for clean provenance.

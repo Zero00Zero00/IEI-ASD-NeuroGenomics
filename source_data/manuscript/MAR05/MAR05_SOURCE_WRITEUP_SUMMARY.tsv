@@ -1,0 +1,11 @@
+metric	value	note
+MAR05_status	PASS	Preflight/postflight all PASS; review checksums verified
+max_primary_pairwise_Jaccard	0.20512820512820512	PGC D01-M03
+max_primary_phi	0.34027052975430006	Binary design correlation
+max_VIF	1.1592389024323524	SPARK D01
+max_condition_number	1.4993729446973463	Max across PGC/SPARK
+hard_high_collinearity	NO	
+conditional_reporting_gate	MAIN_TEXT_SUPPORTIVE_ELIGIBLE	Marginal remains primary
+coefficient_correlation_native	NOT_AVAILABLE_FROM_NATIVE_OUTPUT	Design correlation (phi) used instead
+max_standalone_pairwise_Jaccard	0.09523809523809523	PGC SA001-SA010
+next_stage	MAR06	Matched-null candidate support/reuse/balance audit

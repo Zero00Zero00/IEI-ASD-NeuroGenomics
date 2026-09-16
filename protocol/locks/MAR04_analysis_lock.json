@@ -1,0 +1,24 @@
+{
+  "stage": "MAR04",
+  "status": "PASS",
+  "timestamp_utc": "2026-09-09T13:27:39.102260+00:00",
+  "preanalysis_lock_sha256": "7f939478447a633ede9d8d2b27d8865c262fd86abaa6b4fee5e573f07544b48c",
+  "output_hashes": {
+    "MAR04_conditional_supportive.tsv": "19c805170fe6729afc8bec971610702082cf0142d2e51c0815b58c58631e9e0a",
+    "MAR04_STOPA_RELEASE.txt": "df909103add28495b071a7878795ff3c46a381380d44b1f435533eee19d84061",
+    "MAR04_primary_effect_boundary.tsv": "d0c0daabf30da46ffe0ef8c9e48e978ecc1d0973f2ccebb08efb5560bfa177b3",
+    "MAR04_postflight_checks.tsv": "847c526c146002080ace23ee3f8c0fddc3152f5fce5daa2c956fc685e1e9c0d7",
+    "MAR04_effect_boundary.tsv": "5513a8abae4457b4d092eed04bc02544e5e4f04d0cbc10913a486f1bcd14a7ee",
+    "MAR04_preanalysis_lock.json": "7f939478447a633ede9d8d2b27d8865c262fd86abaa6b4fee5e573f07544b48c",
+    "MAR04_standalone_effect_boundary.tsv": "6ad4213c680c08173e2e1dae908b558ce9500c0e24808b6947f28c429dbe9068",
+    "MAR04_preflight_report.tsv": "74d9261ba7a74ee1397e8097696f9d94a36d22814e5c19be29ec12bcabf2557b",
+    "MAR04_power_interpretation.tsv": "cf0ebf0e384d8b5623190c9a9728488126a425e86dac813c96b881f3e581aff0",
+    "MAR04_forest_source.tsv": "5f17fc275e73ae42369e8f520ede93b9c04d0e41b99bfbff488a04614043a5ff",
+    "MAR04_resolved_inputs.json": "7372b5b581900cfb5a102f0cd77689f7e58aec12b31d0f094c013166787e3c6b",
+    "source_data/MAR04_SOURCE_CONDITIONAL_SUPPORTIVE.tsv": "19c805170fe6729afc8bec971610702082cf0142d2e51c0815b58c58631e9e0a",
+    "source_data/MAR04_SOURCE_PRIMARY_EFFECT_BOUNDARY.tsv": "d0c0daabf30da46ffe0ef8c9e48e978ecc1d0973f2ccebb08efb5560bfa177b3",
+    "source_data/MAR04_SOURCE_POWER_INTERPRETATION.tsv": "cf0ebf0e384d8b5623190c9a9728488126a425e86dac813c96b881f3e581aff0",
+    "source_data/MAR04_SOURCE_STANDALONE_EFFECT_BOUNDARY.tsv": "6ad4213c680c08173e2e1dae908b558ce9500c0e24808b6947f28c429dbe9068",
+    "source_data/MAR04_SOURCE_FOREST_PLOT.tsv": "5f17fc275e73ae42369e8f520ede93b9c04d0e41b99bfbff488a04614043a5ff"
+  }
+}

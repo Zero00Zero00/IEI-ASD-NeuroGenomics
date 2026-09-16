@@ -1,0 +1,41 @@
+{
+  "stage": "MAR04_EFFECT_BOUNDARY",
+  "version": "1.0R1",
+  "formula_lock": {
+    "stage": "MAR04_EFFECT_BOUNDARY",
+    "version": "1.0R1",
+    "source_release": "MAR03_FREEZE_RELEASE_v1.0R2",
+    "formulae": {
+      "CI95": "beta +/- z(0.975)*SE",
+      "one_sided_upper95": "beta + z(0.95)*SE",
+      "MDE80": "[z(1-alpha_family)+z(0.80)]*SE",
+      "alpha_family": "0.05/m, one-sided Bonferroni familywise alpha"
+    },
+    "constants": {
+      "z_0.975": 1.9599639845400536,
+      "z_0.95": 1.6448536269514715,
+      "z_0.80": 0.8416212335729144,
+      "primary_m": 7,
+      "standalone_m": 13,
+      "primary_alpha_family": 0.0071428571428571435,
+      "primary_z_family": 2.449997660602729,
+      "primary_MDE_multiplier": 3.2916188941756435,
+      "standalone_alpha_family": 0.0038461538461538464,
+      "standalone_z_family": 2.665285106024977,
+      "standalone_MDE_multiplier": 3.5069063395978914
+    },
+    "SESOI_prespecified": "NO",
+    "equivalence_claim_allowed": "NO",
+    "conditional_status": "SUPPORTIVE_PENDING_MAR05"
+  },
+  "source_input_hashes": {
+    "primary": "ff0d91ff99abe69fb40c18ae2f30b42accb068cdb9ef5136d1a3d3a03976459d",
+    "standalone": "a047643fddb2e2bad4a99bfda762e1f73eec1ad31635c161fe22cb3df2d62666",
+    "conditional": "e412c70c56185e39fc8876a04f41163ed9369051f4aec5487f3894ff02d8fc7f"
+  },
+  "source_mar03_root": "/home/h3021/chapter3/12_molecular_autism_revision/MAR03_FREEZE_RELEASE_v1.0R2",
+  "SESOI_prespecified": "NO",
+  "equivalence_claim_allowed": "NO",
+  "conditional_status": "SUPPORTIVE_PENDING_MAR05",
+  "timestamp_utc": "2026-09-09T13:26:39.171799+00:00"
+}

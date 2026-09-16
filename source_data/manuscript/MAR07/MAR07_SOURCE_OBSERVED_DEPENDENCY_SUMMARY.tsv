@@ -1,0 +1,10 @@
+section	stage	database	family_n	evaluated_rows	BH_positive_n	BY_positive_n	changed_n	Tier1_BH_n	Tier1_BY_n	Tier1_lost_n	interpretation
+BH_BY	MDV2_PRIMARY_PASS_SUBSET	GO_BP	5450	12	12	0	12				All frozen MDV2 primary-pass pathways; q_BY derived exactly from full-family q_BH×H_m
+BH_BY	MDV2_PRIMARY_PASS_SUBSET	Reactome	1221	6	6	0	6				All frozen MDV2 primary-pass pathways; q_BY derived exactly from full-family q_BH×H_m
+BH_BY	MDV3	GO_BP	5450	5450	159	35	124				Full-universe BH replay and BY sensitivity
+BH_BY	MDV3	Reactome	1221	1221	46	6	40				Full-universe BH replay and BY sensitivity
+BH_BY	MDV4	GO_BP	5450	5450	36	0	36				Full-universe BH replay and BY sensitivity
+BH_BY	MDV4	Reactome	1221	1221	7	0	7				Full-universe BH replay and BY sensitivity
+TIER1	FROZEN_TIER1_MD3_MD4	GO_BP	5450	5450				32	0	32	Tier1=MDV3 enriched q_Firth<0.05 AND MDV4 q_emp<0.05; MDV2 not prerequisite
+TIER1	FROZEN_TIER1_MD3_MD4	Reactome	1221	1221				7	0	7	Tier1=MDV3 enriched q_Firth<0.05 AND MDV4 q_emp<0.05; MDV2 not prerequisite
+TIER1	FROZEN_TIER1_MD3_MD4	ALL	6671	6671				39	0	39	Tier1=MDV3 enriched q_Firth<0.05 AND MDV4 q_emp<0.05; MDV2 not prerequisite

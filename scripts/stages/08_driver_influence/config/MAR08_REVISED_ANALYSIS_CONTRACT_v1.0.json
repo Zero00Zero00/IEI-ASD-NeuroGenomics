@@ -1,0 +1,180 @@
+{
+  "contract_id": "MAR08_REVISED_ANALYSIS_CONTRACT_v1.0",
+  "stage_name": "MAR08_FAILURE_LOCALIZATION_AND_INFLUENCE",
+  "status": "FROZEN_BEFORE_ANALYSIS",
+  "freeze_date": "2026-09-14",
+  "target_journal": "Molecular Autism",
+  "roots": {
+    "CH3_ROOT": "/home/h3021/chapter3",
+    "MA_ROOT": "/home/h3021/chapter3/12_molecular_autism_revision",
+    "output_root": "/home/h3021/chapter3/12_molecular_autism_revision/08_driver_influence/MAR08_failure_localization_influence_v1"
+  },
+  "trigger": {
+    "MAR07_status": "FAIL",
+    "fullchain_certification": "PASS",
+    "Tier1_BH_n": 39,
+    "Tier1_BY_n": 0,
+    "global_null_R": 1000,
+    "P_any_false_Tier1": 0.906,
+    "MC_95CI": [
+      0.8863268456834931,
+      0.9225658264262363
+    ],
+    "MC_CI_halfwidth": 0.0181194903713716,
+    "decision": "Original confirmatory MAR08 chain is blocked. Revised MAR08 is released only as an exploratory/diagnostic statistical-reassessment stage."
+  },
+  "source_authorities": {
+    "MAR02": "$MA_ROOT/02_raw26_domains/MAR02_raw26_compression_v1/source_data/",
+    "MAR03": "$MA_ROOT/03_common_retest/MAR03_common_variant_retest_v1.0R2/source_data/",
+    "MAR04": "$MA_ROOT/04_effect_boundary/MAR04_effect_boundary_v1/source_data/",
+    "MAR05": "$MA_ROOT/05_magma_collinearity/MAR05_collinearity_v1/source_data/",
+    "MAR06": "$MA_ROOT/06_matched_null_audit/MAR06_matched_null_audit_v1.0R2/source_data/",
+    "MAR07": "$MA_ROOT/07_chain_calibration/MAR07_chain_calibration_v1.0R4p1/source_data/",
+    "PGC_gene_results": "$CH3_ROOT/06_magma_pgc/MDV6_v1_1/PGC2019_gene_results_w10.tsv",
+    "SPARK_gene_results": "$CH3_ROOT/07_magma_spark/MDV7_v1_1/SPARK_EUR_gene_results_w10.tsv",
+    "MAR03_implementation": "Reuse the frozen MAR03 implementation snapshot and gene-set model interface; no SNP harmonization, liftOver, or SNP-to-gene remapping is permitted."
+  },
+  "frozen_scientific_facts": {
+    "raw26_n": 26,
+    "raw26_Tier1_BH_n": 39,
+    "representatives_n": 30,
+    "higher_order_units_n": 7,
+    "standalones_n": 13,
+    "MAR03_primary_PGC_BH_positive_n": 0,
+    "MAR03_primary_SPARK_BH_positive_n": 0,
+    "MAR03_secondary_standalone_positive_n": 0,
+    "MAR03_sensitivity_only_signal": "PGC M02 COMPACT_W10 q=0.0282975; not replicated in SPARK",
+    "MAR05_max_VIF": 1.1592389024323524,
+    "MAR05_max_condition_number": 1.4993729446973463,
+    "MAR06_status": "PASS",
+    "MAR07_status": "FAIL"
+  },
+  "scientific_role": [
+    "Localize and characterize the MAR07 calibration failure without attempting to rescue Tier1 pathway claims.",
+    "Quantify observed-versus-null stage-level burden as an exploratory omnibus diagnostic.",
+    "Audit driver concentration and determine whether the seven frozen higher-order common-variant conclusions are sensitive to omission of rare-anchor driver genes.",
+    "Provide a source-driven manuscript decision for MAR09."
+  ],
+  "modules": {
+    "A_chain_failure_localization": {
+      "status": "REQUIRED",
+      "input": "MAR07_SOURCE_FALSE_TIER1_DISTRIBUTION.tsv (R=1000)",
+      "analyses": [
+        "For n_MDV2, n_MDV3 and n_Tier1: event probability P(n>0), mean, SD, median, IQR, P05, P95, min and max.",
+        "Correlations among n_MDV2, n_MDV3 and n_Tier1; correlation of reference_B_MDV4 with n_Tier1.",
+        "Stratified diagnostics for reference_B_MDV4 <8000 versus >=8000, without excluding either stratum.",
+        "No new simulation and no threshold modification."
+      ],
+      "output": "MAR08_CHAIN_FAILURE_LOCALIZATION.tsv"
+    },
+    "B_observed_vs_null_burden": {
+      "status": "REQUIRED_EXPLORATORY",
+      "observed_counts": {
+        "MDV2_primary_pass": 18,
+        "MDV3_BH_positive": 205,
+        "Tier1_BH": 39
+      },
+      "analyses": [
+        "Use the same 1000 frozen null replicates.",
+        "For each stage, compute +1 corrected empirical upper-tail probability P(null count >= observed count).",
+        "Report standardized position of observed count relative to null distribution.",
+        "Label all results POST_HOC_OMNIBUS_EXPLORATORY; they cannot validate individual pathways."
+      ],
+      "output": "MAR08_OBSERVED_VS_NULL_BURDEN.tsv"
+    },
+    "C_driver_concentration": {
+      "status": "REQUIRED",
+      "targets": "7 higher-order units + 13 secondary standalones",
+      "analyses": [
+        "Use MAR02 frozen raw26 driver membership only; no pathway reselection.",
+        "Report raw26_driver_n, dominant_driver_gene, locus_dominated_flag and representative-pathway driver incidence.",
+        "Define descriptive driver weights p_g from frozen representative-pathway incidence within target; compute N_eff=1/sum(p_g^2) and C_max=max(p_g).",
+        "N_eff and C_max are descriptive only and do not define new significance thresholds."
+      ],
+      "output": "MAR08_DRIVER_CONCENTRATION.tsv"
+    },
+    "D_leave_one_driver_common_side": {
+      "status": "REQUIRED",
+      "targets": "Seven primary higher-order Expanded units only",
+      "scenario_definition": "For each actual raw26 driver gene appearing in any primary unit, remove that gene from every affected frozen Expanded unit in a global omission scenario; all other memberships remain unchanged.",
+      "datasets": [
+        "PGC2019",
+        "SPARK"
+      ],
+      "model": "Reuse MAR03 primary marginal competitive gene-set model on frozen gene-level results; same +/-10 kb mapping authority; same seven-test BH family within each dataset/scenario.",
+      "outputs": [
+        "beta",
+        "SE",
+        "P_one",
+        "q_BH",
+        "delta_beta_vs_frozen",
+        "sign_flip",
+        "classification_switch"
+      ],
+      "interpretation": "Any q<0.05 created by omission is SENSITIVITY_ONLY_NOT_RESCUE and cannot revise MAR03 or MAR07."
+    },
+    "E_leave_two_driver_common_side": {
+      "status": "REQUIRED_LIMITED",
+      "eligibility": "Only units with frozen raw26_driver_n between 3 and 10; current expected units are M04 and M05 under MAR02 labels.",
+      "scenario_definition": "Enumerate all driver pairs within the eligible unit; remove the pair globally from all affected primary units; rerun the same seven-test marginal family.",
+      "maximum_scope": "No random search, no pair selection after results, no combinations outside frozen driver lists.",
+      "output": "MAR08_LEAVE_TWO_DRIVER.tsv.gz"
+    },
+    "F_null_pathway_recurrence": {
+      "status": "CONDITIONAL_SUPPORTIVE",
+      "rule": "Run only if pathway-level per-replicate intermediates for all 1000 MAR07 replicates already exist and can be audited without recomputing the full chain.",
+      "allowed": "MDV3 pathway recurrence may be calculated from complete persisted mdv3.tsv sidecars if 1000/1000 are present.",
+      "prohibited": "Do not rerun 1000 global-null replicates solely to recover pathway identities. If complete MDV4/Tier1 pathway-level outputs were not persisted, record NOT_RUN_WITH_REASON_PATHWAY_LEVEL_NULL_STATE_NOT_FROZEN.",
+      "output": "MAR08_NULL_PATHWAY_RECURRENCE.tsv or explicit NOT_RUN record"
+    }
+  },
+  "hard_prohibitions": [
+    "No redefinition of Tier1, BH/BY choice, alpha, pathway family, or matching thresholds.",
+    "No deletion of high-null-frequency pathways to improve calibration.",
+    "No post hoc creation of a new “rescued” pathway set.",
+    "No new external transcriptomic, single-cell, regulatory or direct rare-variant datasets in the current manuscript revision.",
+    "No SNP harmonization or SNP-to-gene remapping for MAR08.",
+    "No reinterpretation of MAR07 FAIL as PASS/CAUTION."
+  ],
+  "technical_gates": {
+    "preflight": "All frozen source files exist and hashes/checksums match; seven primary unit memberships and driver lists exactly match MAR02; MAR07 R=1000 distribution complete.",
+    "manual_gate_A": "Release only after preanalysis lock, scenario counts and input hashes are reviewed.",
+    "postflight": "No missing scenarios, no duplicate scenarios, deterministic replay of frozen baseline MAR03 values, no mutation of upstream files."
+  },
+  "interpretation_gates": {
+    "common_side_null_robust": "If all PGC and SPARK primary units remain non-significant across every leave-one-driver scenario, language allowed: common-side null classification was robust to omission of individual rare-anchor drivers.",
+    "influence_sensitive": "If any omission materially changes beta/sign or produces q<0.05, report influence sensitivity only; the result cannot rescue the primary family.",
+    "distributed_support": "Use distributed/multi-driver language only for units already supported by frozen MAR02 driver architecture and without single-driver dominance in the descriptive influence audit.",
+    "MAR07_override": "No MAR08 result can restore confirmatory status to the 39 BH-defined Tier1 pathways."
+  },
+  "required_outputs": [
+    "MAR08_preflight_report.tsv",
+    "MAR08_resolved_inputs.json",
+    "MAR08_preanalysis_lock.json",
+    "MA_MAR08_STOPA_RELEASE.txt",
+    "MAR08_CHAIN_FAILURE_LOCALIZATION.tsv",
+    "MAR08_OBSERVED_VS_NULL_BURDEN.tsv",
+    "MAR08_DRIVER_CONCENTRATION.tsv",
+    "MAR08_LEAVE_ONE_DRIVER.tsv",
+    "MAR08_LEAVE_TWO_DRIVER.tsv.gz",
+    "MAR08_INFLUENCE_SUMMARY.tsv",
+    "MAR08_NULL_PATHWAY_RECURRENCE.tsv or MAR08_NULL_PATHWAY_RECURRENCE_NOT_RUN.txt",
+    "MAR08_MANUSCRIPT_DECISION.tsv",
+    "MAR08_postflight_checks.tsv",
+    "MAR08_analysis_lock.json",
+    "MAR08_checksums.sha256",
+    "MAR08_PASS.txt"
+  ],
+  "manuscript_release_rule": "After MAR08 technical PASS, MAR09 may proceed only under the revised claim hierarchy: Tier1 pathways are exploratory/prioritization outputs; the common-variant result remains “no reproducible enrichment detected”; MAR07 calibration failure must be reported explicitly.",
+  "source_package_sha256": {
+    "SOP_v1.0_docx": "d4edb61292c310a9f07d6b60f7fc638a983e813eac71a9fc6badebb12e04464b",
+    "Research_Plan_v1.1_docx": "1aee996918f47c1a7d02f600f01ba9b58fb37cdbc4356d25310afda8fb21d627",
+    "Current_manuscript_20260819_docx": "17647f80bdbda8ab342b7c4d3ad28573ee9678b84e786aa3e9c087ec9d66c97d",
+    "MAR02_FREEZE_RELEASE_v1.0R1": "ab4cb9c005f80d81ccbfc6a45ff6e0355a09c3118bf329ea4adac4ab538c6ab9",
+    "MAR03_FREEZE_RELEASE_v1.0R2": "67ef9d5bb40b733df536a7faba19b251d22f02e7e94274d461dceca87067a644",
+    "MAR04_FREEZE_RELEASE_v1.0R1": "ef0bbfe110ab16754e76719076ff7aa5b7f6eca60655ec53ae7b2b3533b4f776",
+    "MAR05_FREEZE_RELEASE_v1.0R1": "3b7f5bdd18c473f37920b3f81fe05f118282412cde6bbe21059afcf09a65c48d",
+    "MAR06_REVIEW_20260909T142051Z": "30b6923ae3945ec0de307d995e2792e770dc3c64b129a07f3bf2ac019e49879d",
+    "MAR07_FREEZE_RELEASE_v1.0R4.1_FAIL": "809bc4d0547ffc9fb926b68937e6362efa059729556bd789dc4f658e2bcc266b"
+  }
+}

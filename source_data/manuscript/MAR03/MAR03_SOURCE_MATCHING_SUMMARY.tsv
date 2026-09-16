@@ -1,0 +1,21 @@
+family	target_id	frozen_n	target_common_scored_n	common_scored_coverage	matched_set_n	unique_set_n	generation_attempts	balance_rejections	duplicate_rejections	acceptance_rate	control_pool_n	global_hypothesis_union_excluded_n	matching_method	exact_chromosome_composition	biological_label
+A	D01	27	25	0.925925925925926	10000	10000	22808	12808	0	0.4384426517011575	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	Purine nucleotide metabolism and biosynthesis
+A	M01	17	16	0.9411764705882352	10000	10000	35206	25206	0	0.2840424927569164	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	Purine nucleotide catabolism
+A	M02	34	31	0.9117647058823528	10000	10000	20884	10884	0	0.4788354721317755	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	Amino-acid transport
+A	M03	23	22	0.9565217391304348	10000	10000	24169	14169	0	0.4137531548678059	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	Purine salvage
+A	M04	42	39	0.9285714285714286	10000	10000	13430	3430	0	0.7446016381236039	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	Lymphocyte and T-cell proliferation
+A	M05	387	374	0.96640826873385	10000	10000	10000	0	0	1.0	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	Lymphocyte and T-cell activation
+A	M06	28	26	0.9285714285714286	10000	10000	23522	13522	0	0.4251339171839129	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	CCT/TriC-mediated actin folding
+B	SA001	10	10	1.0	10000	10000	54341	44341	0	0.1840231133030308	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	DNA recombinase assembly
+B	SA002	10	10	1.0	10000	10000	44562	34562	0	0.224406444953099	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	DNA topological change
+B	SA003	215	209	0.972093023255814	10000	10000	10023	23	0	0.99770527786092	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	DNA recombination
+B	SA004	18	18	1.0	10000	10000	42343	32343	0	0.2361665446472852	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	SRP-dependent cotranslational protein targeting to membrane
+B	SA005	13	13	1.0	10000	10000	39154	29154	0	0.2554017469479491	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	detection of molecule of bacterial origin
+B	SA006	16	15	0.9375	10000	10000	42715	32715	0	0.2341097974950251	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	protein localization to phagophore assembly site
+B	SA007	11	11	1.0	10000	10000	34712	24712	0	0.2880848121687024	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	locomotor rhythm
+B	SA008	25	24	0.96	10000	10000	24613	14613	0	0.4062893592816804	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	purine ribonucleoside metabolic process
+B	SA009	10	9	0.9	10000	10000	55373	45373	0	0.1805934300110162	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	response to hydroxyurea
+B	SA010	14	13	0.9285714285714286	10000	10000	47876	37876	0	0.2088729217144289	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	mitotic DNA replication
+B	SA011	11	11	1.0	10000	10000	54679	44679	0	0.1828855684997896	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	Ribavirin ADME
+B	SA012	12	12	1.0	10000	10000	44929	34929	0	0.2225733935765318	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	Specification of primordial germ cells
+B	SA013	11	11	1.0	10000	10000	43428	33428	0	0.2302661877129962	17321	801	chromosome_stratified_exponential_tilt_rerandomization	YES	GBP-mediated host defense

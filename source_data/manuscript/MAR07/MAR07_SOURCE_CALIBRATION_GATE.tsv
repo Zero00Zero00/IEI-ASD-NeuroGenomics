@@ -1,0 +1,2 @@
+calibration_gate	any_false_tier1_rate	MC_CI_low	MC_CI_high	Tier1_BH_n	Tier1_BY_n	Tier1_lost_under_BY	BY_stability	overall_gate	manuscript_implication
+FAIL	0.906	0.8863268456834931	0.9225658264262363	39	0	39	SENSITIVE_REVIEW_REQUIRED	FAIL	PAUSE_AND_REASSESS

@@ -1,0 +1,61 @@
+family	target_id	covariate	median_abs_smd	p95_abs_smd	median_gate	p95_gate	status	biological_label
+A	D01	log_gene_length	0.1027198321937531	0.2291162205865324	0.15	0.25	PASS	Purine nucleotide metabolism and biosynthesis
+A	D01	GC	0.0942391130742111	0.2249300941585945	0.15	0.25	PASS	Purine nucleotide metabolism and biosynthesis
+A	D01	annotation_degree	0.1121077401175388	0.233158579095532	0.15	0.25	PASS	Purine nucleotide metabolism and biosynthesis
+A	M01	log_gene_length	0.1047764592896142	0.2298377147694343	0.15	0.25	PASS	Purine nucleotide catabolism
+A	M01	GC	0.1049494949247647	0.2311933843541463	0.15	0.25	PASS	Purine nucleotide catabolism
+A	M01	annotation_degree	0.1135165875752229	0.2338487909136823	0.15	0.25	PASS	Purine nucleotide catabolism
+A	M02	log_gene_length	0.105294528715013	0.2304260484230962	0.15	0.25	PASS	Amino-acid transport
+A	M02	GC	0.0890393345212426	0.2210451584685042	0.15	0.25	PASS	Amino-acid transport
+A	M02	annotation_degree	0.1093841223406792	0.2326752182250716	0.15	0.25	PASS	Amino-acid transport
+A	M03	log_gene_length	0.102155603269524	0.2303839036496859	0.15	0.25	PASS	Purine salvage
+A	M03	GC	0.0973052138201008	0.2263961335693162	0.15	0.25	PASS	Purine salvage
+A	M03	annotation_degree	0.1115735733971991	0.2331825166029753	0.15	0.25	PASS	Purine salvage
+A	M04	log_gene_length	0.0906398306946373	0.2230019030886892	0.15	0.25	PASS	Lymphocyte and T-cell proliferation
+A	M04	GC	0.0788954914228305	0.2082342951955841	0.15	0.25	PASS	Lymphocyte and T-cell proliferation
+A	M04	annotation_degree	0.0955843123454478	0.2239492912422806	0.15	0.25	PASS	Lymphocyte and T-cell proliferation
+A	M05	log_gene_length	0.0318497438953052	0.0938753179577722	0.15	0.25	PASS	Lymphocyte and T-cell activation
+A	M05	GC	0.0299526613563741	0.087233939037009	0.15	0.25	PASS	Lymphocyte and T-cell activation
+A	M05	annotation_degree	0.0727288996887277	0.1498955022193407	0.15	0.25	PASS	Lymphocyte and T-cell activation
+A	M06	log_gene_length	0.106544183543468	0.2304076984718905	0.15	0.25	PASS	CCT/TriC-mediated actin folding
+A	M06	GC	0.0985281967799387	0.2263199427319274	0.15	0.25	PASS	CCT/TriC-mediated actin folding
+A	M06	annotation_degree	0.1089461625520362	0.2305787173054211	0.15	0.25	PASS	CCT/TriC-mediated actin folding
+B	SA001	log_gene_length	0.1118089462403568	0.2343254839121864	0.15	0.25	PASS	DNA recombinase assembly
+B	SA001	GC	0.112347371784774	0.2337795303810515	0.15	0.25	PASS	DNA recombinase assembly
+B	SA001	annotation_degree	0.1168439209311333	0.2353981645260637	0.15	0.25	PASS	DNA recombinase assembly
+B	SA002	log_gene_length	0.1138865373987642	0.2348438177049252	0.15	0.25	PASS	DNA topological change
+B	SA002	GC	0.1094614397402028	0.2323017555325832	0.15	0.25	PASS	DNA topological change
+B	SA002	annotation_degree	0.1136427253648714	0.234361467051527	0.15	0.25	PASS	DNA topological change
+B	SA003	log_gene_length	0.0489327459299572	0.1416468120254891	0.15	0.25	PASS	DNA recombination
+B	SA003	GC	0.0409111330385675	0.1193352218986301	0.15	0.25	PASS	DNA recombination
+B	SA003	annotation_degree	0.0534974052145721	0.1554576217207656	0.15	0.25	PASS	DNA recombination
+B	SA004	log_gene_length	0.1108624186626528	0.2322250697373948	0.15	0.25	PASS	SRP-dependent cotranslational protein targeting to membrane
+B	SA004	GC	0.1114054974757916	0.2330320111555648	0.15	0.25	PASS	SRP-dependent cotranslational protein targeting to membrane
+B	SA004	annotation_degree	0.1156957326156321	0.235349355925451	0.15	0.25	PASS	SRP-dependent cotranslational protein targeting to membrane
+B	SA005	log_gene_length	0.1121667777215692	0.2335725227696261	0.15	0.25	PASS	detection of molecule of bacterial origin
+B	SA005	GC	0.1080813793603301	0.2334522927646871	0.15	0.25	PASS	detection of molecule of bacterial origin
+B	SA005	annotation_degree	0.1125881775691958	0.2340425728037899	0.15	0.25	PASS	detection of molecule of bacterial origin
+B	SA006	log_gene_length	0.1103968931760988	0.2325816748036942	0.15	0.25	PASS	protein localization to phagophore assembly site
+B	SA006	GC	0.105786621873616	0.2322105720202663	0.15	0.25	PASS	protein localization to phagophore assembly site
+B	SA006	annotation_degree	0.1177703130582196	0.2347252241375404	0.15	0.25	PASS	protein localization to phagophore assembly site
+B	SA007	log_gene_length	0.1076203441542195	0.2317615752623586	0.15	0.25	PASS	locomotor rhythm
+B	SA007	GC	0.1078542986898521	0.2320533349775705	0.15	0.25	PASS	locomotor rhythm
+B	SA007	annotation_degree	0.1147903581895006	0.2330668974601294	0.15	0.25	PASS	locomotor rhythm
+B	SA008	log_gene_length	0.102857673115611	0.2306439550716451	0.15	0.25	PASS	purine ribonucleoside metabolic process
+B	SA008	GC	0.1017553590383748	0.2273548582977907	0.15	0.25	PASS	purine ribonucleoside metabolic process
+B	SA008	annotation_degree	0.1117104742503203	0.2332055204373434	0.15	0.25	PASS	purine ribonucleoside metabolic process
+B	SA009	log_gene_length	0.1133722946023134	0.2334428269413754	0.15	0.25	PASS	response to hydroxyurea
+B	SA009	GC	0.1170215994197355	0.2342816735565768	0.15	0.25	PASS	response to hydroxyurea
+B	SA009	annotation_degree	0.1157623786185608	0.2335345009463401	0.15	0.25	PASS	response to hydroxyurea
+B	SA010	log_gene_length	0.116169943578776	0.2350308058207573	0.15	0.25	PASS	mitotic DNA replication
+B	SA010	GC	0.1052902516589829	0.2308941549605548	0.15	0.25	PASS	mitotic DNA replication
+B	SA010	annotation_degree	0.1149357382447749	0.2351182494245709	0.15	0.25	PASS	mitotic DNA replication
+B	SA011	log_gene_length	0.1126084235416305	0.2343137671743204	0.15	0.25	PASS	Ribavirin ADME
+B	SA011	GC	0.1108994489103424	0.2330491538204317	0.15	0.25	PASS	Ribavirin ADME
+B	SA011	annotation_degree	0.1185888992660971	0.2357170835772702	0.15	0.25	PASS	Ribavirin ADME
+B	SA012	log_gene_length	0.1107541720985256	0.2327056294424974	0.15	0.25	PASS	Specification of primordial germ cells
+B	SA012	GC	0.1104037011540654	0.2326937628458795	0.15	0.25	PASS	Specification of primordial germ cells
+B	SA012	annotation_degree	0.1155244767045762	0.2337032424402615	0.15	0.25	PASS	Specification of primordial germ cells
+B	SA013	log_gene_length	0.1150336451401983	0.2353606116159348	0.15	0.25	PASS	GBP-mediated host defense
+B	SA013	GC	0.1057063734552464	0.2303684874035546	0.15	0.25	PASS	GBP-mediated host defense
+B	SA013	annotation_degree	0.1136210337692134	0.2332957207348585	0.15	0.25	PASS	GBP-mediated host defense

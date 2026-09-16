@@ -1,0 +1,38 @@
+{
+  "stage": "MAR05_MAGMA_COLLINEARITY_AUDIT",
+  "version": "1.0R1",
+  "timestamp_utc": "2026-09-09T13:49:50.256522+00:00",
+  "primary_family": "A_HIGHER_ORDER_EXPANDED",
+  "primary_unit_n": 7,
+  "secondary_standalone_overlap": "YES",
+  "methods": {
+    "pairwise_overlap": [
+      "intersection_n",
+      "union_n",
+      "Jaccard",
+      "phi_binary_Pearson"
+    ],
+    "VIF": "For each primary unit indicator, OLS on intercept + other six indicators; VIF=1/(1-R2)",
+    "condition_number": "Centered/scaled primary 7-unit binary design matrix; kappa=max(singular)/min(singular)",
+    "design_correlation": "Pearson correlation of binary unit indicators (equal to phi)",
+    "coefficient_correlation": "Use native MAGMA covariance only if explicitly available; otherwise NOT_AVAILABLE_FROM_NATIVE_OUTPUT"
+  },
+  "thresholds": {
+    "VIF_GREEN_lt": 5,
+    "VIF_CAUTION_5_to_10": true,
+    "VIF_HIGH_gt": 10,
+    "condition_GREEN_lt": 30,
+    "condition_CAUTION_30_to_100": true,
+    "condition_HIGH_gt": 100,
+    "pairwise_Jaccard_GREEN_lt": 0.5,
+    "pairwise_Jaccard_CAUTION_0.5_to_0.7": true,
+    "pairwise_Jaccard_HIGH_gt": 0.7
+  },
+  "conditional_gate": {
+    "hard_rule": "If any primary VIF>10 OR condition_number>100 -> SUPPLEMENT_ONLY",
+    "otherwise": "MAIN_TEXT_SUPPORTIVE_ELIGIBLE",
+    "marginal_model_status": "PRIMARY_ALWAYS"
+  },
+  "association_coefficients_used": "NO",
+  "association_scores_used": "NO"
+}

@@ -1,0 +1,157 @@
+dataset	standalone_i	label_i	standalone_j	label_j	n_i	n_j	intersect_n	union_n	Jaccard	phi
+PGC	SA001	DNA recombinase assembly	SA002	DNA topological change	10	10	0	20	0.0	-0.0005509034817100044
+PGC	SA001	DNA recombinase assembly	SA003	DNA recombination	10	209	10	209	0.04784688995215311	0.21753699797668155
+PGC	SA001	DNA recombinase assembly	SA004	SRP-dependent cotranslational protein targeting to membrane	10	18	0	28	0.0	-0.0007392775066611747
+PGC	SA001	DNA recombinase assembly	SA005	detection of molecule of bacterial origin	10	13	0	23	0.0	-0.0006281785234526317
+PGC	SA001	DNA recombinase assembly	SA006	protein localization to phagophore assembly site	10	15	0	25	0.0	-0.0006748091589357967
+PGC	SA001	DNA recombinase assembly	SA007	locomotor rhythm	10	11	0	21	0.0	-0.0005778083621563278
+PGC	SA001	DNA recombinase assembly	SA008	purine ribonucleoside metabolic process	10	24	0	34	0.0	-0.0008537853148327286
+PGC	SA001	DNA recombinase assembly	SA009	response to hydroxyurea	10	9	1	18	0.05555555555555555	0.10494180213238243
+PGC	SA001	DNA recombinase assembly	SA010	mitotic DNA replication	10	13	2	21	0.09523809523809523	0.17489456521418886
+PGC	SA001	DNA recombinase assembly	SA011	Ribavirin ADME	10	11	0	21	0.0	-0.0005778083621563278
+PGC	SA001	DNA recombinase assembly	SA012	Specification of primordial germ cells	10	12	0	22	0.0	-0.0006035177768017322
+PGC	SA001	DNA recombinase assembly	SA013	GBP-mediated host defense	10	11	0	21	0.0	-0.0005778083621563278
+PGC	SA002	DNA topological change	SA003	DNA recombination	10	209	6	213	0.028169014084507043	0.12950921527178563
+PGC	SA002	DNA topological change	SA004	SRP-dependent cotranslational protein targeting to membrane	10	18	0	28	0.0	-0.0007392775066611747
+PGC	SA002	DNA topological change	SA005	detection of molecule of bacterial origin	10	13	0	23	0.0	-0.0006281785234526317
+PGC	SA002	DNA topological change	SA006	protein localization to phagophore assembly site	10	15	0	25	0.0	-0.0006748091589357967
+PGC	SA002	DNA topological change	SA007	locomotor rhythm	10	11	0	21	0.0	-0.0005778083621563278
+PGC	SA002	DNA topological change	SA008	purine ribonucleoside metabolic process	10	24	0	34	0.0	-0.0008537853148327286
+PGC	SA002	DNA topological change	SA009	response to hydroxyurea	10	9	0	19	0.0	-0.0005226185365158487
+PGC	SA002	DNA topological change	SA010	mitotic DNA replication	10	13	0	23	0.0	-0.0006281785234526317
+PGC	SA002	DNA topological change	SA011	Ribavirin ADME	10	11	0	21	0.0	-0.0005778083621563278
+PGC	SA002	DNA topological change	SA012	Specification of primordial germ cells	10	12	0	22	0.0	-0.0006035177768017322
+PGC	SA002	DNA topological change	SA013	GBP-mediated host defense	10	11	0	21	0.0	-0.0005778083621563278
+PGC	SA003	DNA recombination	SA004	SRP-dependent cotranslational protein targeting to membrane	209	18	0	227	0.0	-0.003398398955291367
+PGC	SA003	DNA recombination	SA005	detection of molecule of bacterial origin	209	13	0	222	0.0	-0.002887685907663248
+PGC	SA003	DNA recombination	SA006	protein localization to phagophore assembly site	209	15	0	224	0.0	-0.0031020431706432375
+PGC	SA003	DNA recombination	SA007	locomotor rhythm	209	11	0	220	0.0	-0.0026561383467205188
+PGC	SA003	DNA recombination	SA008	purine ribonucleoside metabolic process	209	24	0	233	0.0	-0.003924782095798935
+PGC	SA003	DNA recombination	SA009	response to hydroxyurea	209	9	3	215	0.013953488372093023	0.06718772065562814
+PGC	SA003	DNA recombination	SA010	mitotic DNA replication	209	13	9	213	0.04225352112676056	0.17083898435174757
+PGC	SA003	DNA recombination	SA011	Ribavirin ADME	209	11	0	220	0.0	-0.0026561383467205188
+PGC	SA003	DNA recombination	SA012	Specification of primordial germ cells	209	12	0	221	0.0	-0.002774322448204535
+PGC	SA003	DNA recombination	SA013	GBP-mediated host defense	209	11	0	220	0.0	-0.0026561383467205188
+PGC	SA004	SRP-dependent cotranslational protein targeting to membrane	SA005	detection of molecule of bacterial origin	18	13	0	31	0.0	-0.0008429757080399413
+PGC	SA004	SRP-dependent cotranslational protein targeting to membrane	SA006	protein localization to phagophore assembly site	18	15	0	33	0.0	-0.0009055510612161749
+PGC	SA004	SRP-dependent cotranslational protein targeting to membrane	SA007	locomotor rhythm	18	11	0	29	0.0	-0.0007753821485698367
+PGC	SA004	SRP-dependent cotranslational protein targeting to membrane	SA008	purine ribonucleoside metabolic process	18	24	0	42	0.0	-0.001145725702829595
+PGC	SA004	SRP-dependent cotranslational protein targeting to membrane	SA009	response to hydroxyurea	18	9	0	27	0.0	-0.0007013209054535049
+PGC	SA004	SRP-dependent cotranslational protein targeting to membrane	SA010	mitotic DNA replication	18	13	0	31	0.0	-0.0008429757080399413
+PGC	SA004	SRP-dependent cotranslational protein targeting to membrane	SA011	Ribavirin ADME	18	11	0	29	0.0	-0.0007753821485698367
+PGC	SA004	SRP-dependent cotranslational protein targeting to membrane	SA012	Specification of primordial germ cells	18	12	0	30	0.0	-0.0008098825512497708
+PGC	SA004	SRP-dependent cotranslational protein targeting to membrane	SA013	GBP-mediated host defense	18	11	0	29	0.0	-0.0007753821485698367
+PGC	SA005	detection of molecule of bacterial origin	SA006	protein localization to phagophore assembly site	13	15	0	28	0.0	-0.0007694644073709854
+PGC	SA005	detection of molecule of bacterial origin	SA007	locomotor rhythm	13	11	0	24	0.0	-0.0006588573422177266
+PGC	SA005	detection of molecule of bacterial origin	SA008	purine ribonucleoside metabolic process	13	24	0	37	0.0	-0.0009735454870468357
+PGC	SA005	detection of molecule of bacterial origin	SA009	response to hydroxyurea	13	9	0	22	0.0	-0.0005959260587325841
+PGC	SA005	detection of molecule of bacterial origin	SA010	mitotic DNA replication	13	13	0	26	0.0	-0.0007162929087002038
+PGC	SA005	detection of molecule of bacterial origin	SA011	Ribavirin ADME	13	11	0	24	0.0	-0.0006588573422177266
+PGC	SA005	detection of molecule of bacterial origin	SA012	Specification of primordial germ cells	13	12	0	25	0.0	-0.0006881730076055214
+PGC	SA005	detection of molecule of bacterial origin	SA013	GBP-mediated host defense	13	11	0	24	0.0	-0.0006588573422177266
+PGC	SA006	protein localization to phagophore assembly site	SA007	locomotor rhythm	15	11	0	26	0.0	-0.0007077653125053774
+PGC	SA006	protein localization to phagophore assembly site	SA008	purine ribonucleoside metabolic process	15	24	0	39	0.0	-0.0010458132310684673
+PGC	SA006	protein localization to phagophore assembly site	SA009	response to hydroxyurea	15	9	0	24	0.0	-0.0006401625453080021
+PGC	SA006	protein localization to phagophore assembly site	SA010	mitotic DNA replication	15	13	0	28	0.0	-0.0007694644073709854
+PGC	SA006	protein localization to phagophore assembly site	SA011	Ribavirin ADME	15	11	0	26	0.0	-0.0007077653125053774
+PGC	SA006	protein localization to phagophore assembly site	SA012	Specification of primordial germ cells	15	12	0	27	0.0	-0.0007392571237746507
+PGC	SA006	protein localization to phagophore assembly site	SA013	GBP-mediated host defense	15	11	0	26	0.0	-0.0007077653125053774
+PGC	SA007	locomotor rhythm	SA008	purine ribonucleoside metabolic process	11	24	0	35	0.0	-0.0008954822591887512
+PGC	SA007	locomotor rhythm	SA009	response to hydroxyurea	11	9	0	20	0.0	-0.0005481420441915419
+PGC	SA007	locomotor rhythm	SA010	mitotic DNA replication	11	13	0	24	0.0	-0.0006588573422177266
+PGC	SA007	locomotor rhythm	SA011	Ribavirin ADME	11	11	0	22	0.0	-0.0006060272161313426
+PGC	SA007	locomotor rhythm	SA012	Specification of primordial germ cells	11	12	0	23	0.0	-0.0006329922204586864
+PGC	SA007	locomotor rhythm	SA013	GBP-mediated host defense	11	11	0	22	0.0	-0.0006060272161313426
+PGC	SA008	purine ribonucleoside metabolic process	SA009	response to hydroxyurea	24	9	0	33	0.0	-0.0008099495584082832
+PGC	SA008	purine ribonucleoside metabolic process	SA010	mitotic DNA replication	24	13	0	37	0.0	-0.0009735454870468357
+PGC	SA008	purine ribonucleoside metabolic process	SA011	Ribavirin ADME	24	11	3	32	0.09375	0.18391984491565327
+PGC	SA008	purine ribonucleoside metabolic process	SA012	Specification of primordial germ cells	24	12	0	36	0.0	-0.0009353264812819897
+PGC	SA008	purine ribonucleoside metabolic process	SA013	GBP-mediated host defense	24	11	0	35	0.0	-0.0008954822591887512
+PGC	SA009	response to hydroxyurea	SA010	mitotic DNA replication	9	13	0	22	0.0	-0.0005959260587325841
+PGC	SA009	response to hydroxyurea	SA011	Ribavirin ADME	9	11	0	20	0.0	-0.0005481420441915419
+PGC	SA009	response to hydroxyurea	SA012	Specification of primordial germ cells	9	12	0	21	0.0	-0.0005725314646667117
+PGC	SA009	response to hydroxyurea	SA013	GBP-mediated host defense	9	11	0	20	0.0	-0.0005481420441915419
+PGC	SA010	mitotic DNA replication	SA011	Ribavirin ADME	13	11	0	24	0.0	-0.0006588573422177266
+PGC	SA010	mitotic DNA replication	SA012	Specification of primordial germ cells	13	12	0	25	0.0	-0.0006881730076055214
+PGC	SA010	mitotic DNA replication	SA013	GBP-mediated host defense	13	11	0	24	0.0	-0.0006588573422177266
+PGC	SA011	Ribavirin ADME	SA012	Specification of primordial germ cells	11	12	0	23	0.0	-0.0006329922204586864
+PGC	SA011	Ribavirin ADME	SA013	GBP-mediated host defense	11	11	0	22	0.0	-0.0006060272161313426
+PGC	SA012	Specification of primordial germ cells	SA013	GBP-mediated host defense	12	11	0	23	0.0	-0.0006329922204586864
+SPARK	SA001	DNA recombinase assembly	SA002	DNA topological change	10	10	0	20	0.0	-0.0005506607929515419
+SPARK	SA001	DNA recombinase assembly	SA003	DNA recombination	10	209	10	209	0.04784688995215311	0.21753752909685006
+SPARK	SA001	DNA recombinase assembly	SA004	SRP-dependent cotranslational protein targeting to membrane	10	18	0	28	0.0	-0.0007389517619850116
+SPARK	SA001	DNA recombinase assembly	SA005	detection of molecule of bacterial origin	10	13	0	23	0.0	-0.000627901769964077
+SPARK	SA001	DNA recombinase assembly	SA006	protein localization to phagophore assembly site	10	15	0	25	0.0	-0.0006745118452431712
+SPARK	SA001	DNA recombinase assembly	SA007	locomotor rhythm	10	11	0	21	0.0	-0.0005775538140189475
+SPARK	SA001	DNA recombinase assembly	SA008	purine ribonucleoside metabolic process	10	24	0	34	0.0	-0.0008534090528631082
+SPARK	SA001	DNA recombinase assembly	SA009	response to hydroxyurea	10	9	1	18	0.05555555555555555	0.10494200805321806
+SPARK	SA001	DNA recombinase assembly	SA010	mitotic DNA replication	10	13	2	21	0.09523809523809523	0.17489479300307098
+SPARK	SA001	DNA recombinase assembly	SA011	Ribavirin ADME	10	11	0	21	0.0	-0.0005775538140189475
+SPARK	SA001	DNA recombinase assembly	SA012	Specification of primordial germ cells	10	12	0	22	0.0	-0.0006032518952978466
+SPARK	SA001	DNA recombinase assembly	SA013	GBP-mediated host defense	10	11	0	21	0.0	-0.0005775538140189475
+SPARK	SA002	DNA topological change	SA003	DNA recombination	10	209	6	213	0.028169014084507043	0.12950998266425132
+SPARK	SA002	DNA topological change	SA004	SRP-dependent cotranslational protein targeting to membrane	10	18	0	28	0.0	-0.0007389517619850116
+SPARK	SA002	DNA topological change	SA005	detection of molecule of bacterial origin	10	13	0	23	0.0	-0.000627901769964077
+SPARK	SA002	DNA topological change	SA006	protein localization to phagophore assembly site	10	15	0	25	0.0	-0.0006745118452431712
+SPARK	SA002	DNA topological change	SA007	locomotor rhythm	10	11	0	21	0.0	-0.0005775538140189475
+SPARK	SA002	DNA topological change	SA008	purine ribonucleoside metabolic process	10	24	0	34	0.0	-0.0008534090528631082
+SPARK	SA002	DNA topological change	SA009	response to hydroxyurea	10	9	0	19	0.0	-0.0005223883144242049
+SPARK	SA002	DNA topological change	SA010	mitotic DNA replication	10	13	0	23	0.0	-0.000627901769964077
+SPARK	SA002	DNA topological change	SA011	Ribavirin ADME	10	11	0	21	0.0	-0.0005775538140189475
+SPARK	SA002	DNA topological change	SA012	Specification of primordial germ cells	10	12	0	22	0.0	-0.0006032518952978466
+SPARK	SA002	DNA topological change	SA013	GBP-mediated host defense	10	11	0	21	0.0	-0.0005775538140189475
+SPARK	SA003	DNA recombination	SA004	SRP-dependent cotranslational protein targeting to membrane	209	18	0	227	0.0	-0.0033968932397684002
+SPARK	SA003	DNA recombination	SA005	detection of molecule of bacterial origin	209	13	0	222	0.0	-0.002886406647032055
+SPARK	SA003	DNA recombination	SA006	protein localization to phagophore assembly site	209	15	0	224	0.0	-0.003100668873290692
+SPARK	SA003	DNA recombination	SA007	locomotor rhythm	209	11	0	220	0.0	-0.0026549617273707946
+SPARK	SA003	DNA recombination	SA008	purine ribonucleoside metabolic process	209	24	0	233	0.0	-0.003923042871757366
+SPARK	SA003	DNA recombination	SA009	response to hydroxyurea	209	9	3	215	0.013953488372093023	0.06718859889084738
+SPARK	SA003	DNA recombination	SA010	mitotic DNA replication	209	13	9	213	0.04225352112676056	0.17083979099343607
+SPARK	SA003	DNA recombination	SA011	Ribavirin ADME	209	11	0	220	0.0	-0.0026549617273707946
+SPARK	SA003	DNA recombination	SA012	Specification of primordial germ cells	209	12	0	221	0.0	-0.0027730934418643332
+SPARK	SA003	DNA recombination	SA013	GBP-mediated host defense	209	11	0	220	0.0	-0.0026549617273707946
+SPARK	SA004	SRP-dependent cotranslational protein targeting to membrane	SA005	detection of molecule of bacterial origin	18	13	0	31	0.0	-0.0008426042405915273
+SPARK	SA004	SRP-dependent cotranslational protein targeting to membrane	SA006	protein localization to phagophore assembly site	18	15	0	33	0.0	-0.0009051519972043204
+SPARK	SA004	SRP-dependent cotranslational protein targeting to membrane	SA007	locomotor rhythm	18	11	0	29	0.0	-0.0007750404858550044
+SPARK	SA004	SRP-dependent cotranslational protein targeting to membrane	SA008	purine ribonucleoside metabolic process	18	24	0	42	0.0	-0.0011452206719257912
+SPARK	SA004	SRP-dependent cotranslational protein targeting to membrane	SA009	response to hydroxyurea	18	9	0	27	0.0	-0.00070101189393761
+SPARK	SA004	SRP-dependent cotranslational protein targeting to membrane	SA010	mitotic DNA replication	18	13	0	31	0.0	-0.0008426042405915273
+SPARK	SA004	SRP-dependent cotranslational protein targeting to membrane	SA011	Ribavirin ADME	18	11	0	29	0.0	-0.0007750404858550044
+SPARK	SA004	SRP-dependent cotranslational protein targeting to membrane	SA012	Specification of primordial germ cells	18	12	0	30	0.0	-0.000809525676527273
+SPARK	SA004	SRP-dependent cotranslational protein targeting to membrane	SA013	GBP-mediated host defense	18	11	0	29	0.0	-0.0007750404858550044
+SPARK	SA005	detection of molecule of bacterial origin	SA006	protein localization to phagophore assembly site	13	15	0	28	0.0	-0.0007691253615856998
+SPARK	SA005	detection of molecule of bacterial origin	SA007	locomotor rhythm	13	11	0	24	0.0	-0.000658567064722753
+SPARK	SA005	detection of molecule of bacterial origin	SA008	purine ribonucleoside metabolic process	13	24	0	37	0.0	-0.0009731164115097398
+SPARK	SA005	detection of molecule of bacterial origin	SA009	response to hydroxyurea	13	9	0	22	0.0	-0.0005956635217796845
+SPARK	SA005	detection of molecule of bacterial origin	SA010	mitotic DNA replication	13	13	0	26	0.0	-0.0007159773090268216
+SPARK	SA005	detection of molecule of bacterial origin	SA011	Ribavirin ADME	13	11	0	24	0.0	-0.000658567064722753
+SPARK	SA005	detection of molecule of bacterial origin	SA012	Specification of primordial germ cells	13	12	0	25	0.0	-0.0006878698059497307
+SPARK	SA005	detection of molecule of bacterial origin	SA013	GBP-mediated host defense	13	11	0	24	0.0	-0.000658567064722753
+SPARK	SA006	protein localization to phagophore assembly site	SA007	locomotor rhythm	15	11	0	26	0.0	-0.0007074534700992113
+SPARK	SA006	protein localization to phagophore assembly site	SA008	purine ribonucleoside metabolic process	15	24	0	39	0.0	-0.0010453522792289627
+SPARK	SA006	protein localization to phagophore assembly site	SA009	response to hydroxyurea	15	9	0	24	0.0	-0.0006398805043066645
+SPARK	SA006	protein localization to phagophore assembly site	SA010	mitotic DNA replication	15	13	0	28	0.0	-0.0007691253615856998
+SPARK	SA006	protein localization to phagophore assembly site	SA011	Ribavirin ADME	15	11	0	26	0.0	-0.0007074534700992113
+SPARK	SA006	protein localization to phagophore assembly site	SA012	Specification of primordial germ cells	15	12	0	27	0.0	-0.0007389313970635241
+SPARK	SA006	protein localization to phagophore assembly site	SA013	GBP-mediated host defense	15	11	0	26	0.0	-0.0007074534700992113
+SPARK	SA007	locomotor rhythm	SA008	purine ribonucleoside metabolic process	11	24	0	35	0.0	-0.0008950876105732845
+SPARK	SA007	locomotor rhythm	SA009	response to hydroxyurea	11	9	0	20	0.0	-0.0005479005719246458
+SPARK	SA007	locomotor rhythm	SA010	mitotic DNA replication	11	13	0	24	0.0	-0.000658567064722753
+SPARK	SA007	locomotor rhythm	SA011	Ribavirin ADME	11	11	0	22	0.0	-0.0006057602290875048
+SPARK	SA007	locomotor rhythm	SA012	Specification of primordial germ cells	11	12	0	23	0.0	-0.0006327133462252691
+SPARK	SA007	locomotor rhythm	SA013	GBP-mediated host defense	11	11	0	22	0.0	-0.0006057602290875048
+SPARK	SA008	purine ribonucleoside metabolic process	SA009	response to hydroxyurea	24	9	0	33	0.0	-0.0008095926246173617
+SPARK	SA008	purine ribonucleoside metabolic process	SA010	mitotic DNA replication	24	13	0	37	0.0	-0.0009731164115097398
+SPARK	SA008	purine ribonucleoside metabolic process	SA011	Ribavirin ADME	24	11	3	32	0.09375	0.18392016107256967
+SPARK	SA008	purine ribonucleoside metabolic process	SA012	Specification of primordial germ cells	24	12	0	36	0.0	-0.0009349142615448824
+SPARK	SA008	purine ribonucleoside metabolic process	SA013	GBP-mediated host defense	24	11	0	35	0.0	-0.0008950876105732845
+SPARK	SA009	response to hydroxyurea	SA010	mitotic DNA replication	9	13	0	22	0.0	-0.0005956635217796845
+SPARK	SA009	response to hydroxyurea	SA011	Ribavirin ADME	9	11	0	20	0.0	-0.0005479005719246458
+SPARK	SA009	response to hydroxyurea	SA012	Specification of primordial germ cells	9	12	0	21	0.0	-0.0005722792412162539
+SPARK	SA009	response to hydroxyurea	SA013	GBP-mediated host defense	9	11	0	20	0.0	-0.0005479005719246458
+SPARK	SA010	mitotic DNA replication	SA011	Ribavirin ADME	13	11	0	24	0.0	-0.000658567064722753
+SPARK	SA010	mitotic DNA replication	SA012	Specification of primordial germ cells	13	12	0	25	0.0	-0.0006878698059497307
+SPARK	SA010	mitotic DNA replication	SA013	GBP-mediated host defense	13	11	0	24	0.0	-0.000658567064722753
+SPARK	SA011	Ribavirin ADME	SA012	Specification of primordial germ cells	11	12	0	23	0.0	-0.0006327133462252691
+SPARK	SA011	Ribavirin ADME	SA013	GBP-mediated host defense	11	11	0	22	0.0	-0.0006057602290875048
+SPARK	SA012	Specification of primordial germ cells	SA013	GBP-mediated host defense	12	11	0	23	0.0	-0.0006327133462252691
