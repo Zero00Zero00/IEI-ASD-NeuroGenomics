@@ -1,0 +1,33 @@
+{
+  "stage": "MAR06",
+  "status": "PASS",
+  "version": "1.0R2",
+  "timestamp_utc": "2026-09-09T14:20:51.504627+00:00",
+  "preanalysis_lock_sha256": "01c89d3299e9414ba3a69641ce89a133b7e8b5520b29f69c8ba0a445a43a86ef",
+  "output_hashes": {
+    "MAR06_raw26_candidate_support.tsv": "a008f227e2c47ee26923eae086abd71c271479cc34ec8d75fba24ef35cdab2b2",
+    "MAR06_STOPA_RELEASE.txt": "14e4d9e9a58694e17bfe0c579d7094a1e23576209952eb21dc59eea9c0a440b4",
+    "MAR06_matching_gate.tsv": "813c69d425d5af5c3c968fe7173039191724fca198d08c3494d7a93a6bb8cc24",
+    "MAR06_RAW26_ARTIFACT_RESOLUTION.json": "f320f7e0e53f9aa347aaf38ced513eddf02a8ba064cd5109c48f74985ebf447c",
+    "MAR06_preanalysis_lock.json": "01c89d3299e9414ba3a69641ce89a133b7e8b5520b29f69c8ba0a445a43a86ef",
+    "MAR06_RAW26_AUTHORITY_BINDING.tsv": "25890e374ebf12b22e9013ffd90c4f2c526e6ddd7c5cc8ab9801886bb350bedf",
+    "MAR06_preflight_report.tsv": "a0e6b9aaf2ea3124c4e8220aed8540789cd54a842e519d7c24f4f61f5fc8a586",
+    "MAR06_raw26_balance.tsv": "aa551b23d33c96666ca783149061ad9e8bc0f5f5e80ecbb67705d923dd96180f",
+    "MAR06_postflight_checks.tsv": "d0e08cb674d73701360a2e5386996cdfd13f1afe7a63c2d7e024362325795839",
+    "MAR06_common_candidate_pool_qc.tsv": "d8b45ecf53bc0170cae4f6b342796277a6ec579e4e85eef7fcddc6eee99f8a55",
+    "MAR06_raw26_reuse_summary.tsv": "c49b74932bd92152f02a01f4310975adc3717d5976a76fcd57b594ddeef4f5e6",
+    "MAR06_common_control_reuse.tsv": "d3fd4c99bb387b53effd7900fcf0dcabbe1826a59b9f6660826f5ae50b5ab782",
+    "MAR06_raw26_set_integrity.tsv": "d5bb7f8ecd799d2d0ae50dbebfcba3086fef1b117196589ededc444c046a7f91",
+    "MAR06_common_matching_qc.tsv": "7ff6541be8b505c9f8de64434316388267d5dcce0d200e110e6cf415e2ff9d6a",
+    "MAR06_resolved_inputs.json": "9ece32f9def46cdf6517da783658dc00dcb7dc9d69981b23f1352a7e007179e0",
+    "source_data/MAR06_SOURCE_RAW26_CANDIDATE_SUPPORT.tsv": "a008f227e2c47ee26923eae086abd71c271479cc34ec8d75fba24ef35cdab2b2",
+    "source_data/MAR06_SOURCE_COMMON_CONTROL_REUSE.tsv": "d3fd4c99bb387b53effd7900fcf0dcabbe1826a59b9f6660826f5ae50b5ab782",
+    "source_data/MAR06_SOURCE_RAW26_SET_INTEGRITY.tsv": "d5bb7f8ecd799d2d0ae50dbebfcba3086fef1b117196589ededc444c046a7f91",
+    "source_data/MAR06_SOURCE_WRITEUP_SUMMARY.tsv": "c16f140f3ec06fadfe526b2f599b4382afdab5b6e67499a65585bd78f384ccba",
+    "source_data/MAR06_SOURCE_RAW26_REUSE_SUMMARY.tsv": "c49b74932bd92152f02a01f4310975adc3717d5976a76fcd57b594ddeef4f5e6",
+    "source_data/MAR06_SOURCE_COMMON_CANDIDATE_POOL_QC.tsv": "d8b45ecf53bc0170cae4f6b342796277a6ec579e4e85eef7fcddc6eee99f8a55",
+    "source_data/MAR06_SOURCE_RAW26_BALANCE.tsv": "aa551b23d33c96666ca783149061ad9e8bc0f5f5e80ecbb67705d923dd96180f",
+    "source_data/MAR06_SOURCE_MATCHING_GATE.tsv": "813c69d425d5af5c3c968fe7173039191724fca198d08c3494d7a93a6bb8cc24",
+    "source_data/MAR06_SOURCE_COMMON_MATCHING_QC.tsv": "7ff6541be8b505c9f8de64434316388267d5dcce0d200e110e6cf415e2ff9d6a"
+  }
+}

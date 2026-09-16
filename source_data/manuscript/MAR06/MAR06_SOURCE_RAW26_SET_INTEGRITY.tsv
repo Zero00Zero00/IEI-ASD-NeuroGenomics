@@ -1,0 +1,3 @@
+analysis	K	expected_B	anchor_n	candidate_pool_rows	candidate_pool_per_anchor_min	candidate_pool_per_anchor_max	assignment_rows	accepted_replicates	set_rows	unique_set_hashes	within_set_duplicate_sets	assignment_anchor_duplicate_or_missing_sets	assignment_set_membership_mismatch	balance_rows	balance_summary_replay
+PRIMARY_K50	50	10000	26	1300	50	50	260000	10000	10000	10000	0	0	0	30000	PASS
+SENSITIVITY_K20	20	10000	26	520	20	20	260000	10000	10000	10000	0	0	0	30000	PASS

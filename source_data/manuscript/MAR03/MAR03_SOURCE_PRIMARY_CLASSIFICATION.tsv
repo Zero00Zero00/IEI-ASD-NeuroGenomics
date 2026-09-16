@@ -1,0 +1,8 @@
+target_id	biological_label	PGC_marginal_class	SPARK_marginal_class	matched_meanZ_class	primary_reproducible_competitive_enrichment	allowed_language
+D01	Purine nucleotide metabolism and biosynthesis	NOT_DETECTED	NOT_DETECTED	NO_REPRODUCIBLE_EMPIRICAL_SIGNAL	NO	no reproducible common-variant enrichment detected among the prespecified higher-order units at the tested resolution
+M01	Purine nucleotide catabolism	NOT_DETECTED	NOT_DETECTED	NO_REPRODUCIBLE_EMPIRICAL_SIGNAL	NO	no reproducible common-variant enrichment detected among the prespecified higher-order units at the tested resolution
+M02	Amino-acid transport	NOT_DETECTED	NOT_DETECTED	NO_REPRODUCIBLE_EMPIRICAL_SIGNAL	NO	no reproducible common-variant enrichment detected among the prespecified higher-order units at the tested resolution
+M03	Purine salvage	NOT_DETECTED	NOT_DETECTED	NO_REPRODUCIBLE_EMPIRICAL_SIGNAL	NO	no reproducible common-variant enrichment detected among the prespecified higher-order units at the tested resolution
+M04	Lymphocyte and T-cell proliferation	NOT_DETECTED	NOT_DETECTED	NO_REPRODUCIBLE_EMPIRICAL_SIGNAL	NO	no reproducible common-variant enrichment detected among the prespecified higher-order units at the tested resolution
+M05	Lymphocyte and T-cell activation	NOT_DETECTED	NOT_DETECTED	NO_REPRODUCIBLE_EMPIRICAL_SIGNAL	NO	no reproducible common-variant enrichment detected among the prespecified higher-order units at the tested resolution
+M06	CCT/TriC-mediated actin folding	NOT_DETECTED	NOT_DETECTED	NO_REPRODUCIBLE_EMPIRICAL_SIGNAL	NO	no reproducible common-variant enrichment detected among the prespecified higher-order units at the tested resolution

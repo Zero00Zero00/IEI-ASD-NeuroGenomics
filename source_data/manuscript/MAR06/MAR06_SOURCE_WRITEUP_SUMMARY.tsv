@@ -1,0 +1,12 @@
+metric	value	note
+MAR06_status	PASS	Raw26 K50, K20 sensitivity, and common-side hard gates pass
+raw26_primary_B	10000	K=50 primary
+raw26_primary_pool_per_anchor	50	26 anchors
+raw26_sensitivity_B	10000	K=20 sensitivity
+raw26_sensitivity_pool_per_anchor	20	26 anchors
+common_targets	20	7 higher-order + 13 standalones
+common_B_per_target	10000	
+reuse_concentration	DIAGNOSTIC	Not automatic failure criterion
+rare_constraint_mutability_sensitivity	NOT_RUN_WITH_REASON	Required frozen fields absent in WP01 model frame
+common_SNP_local_density_sensitivity	NOT_RUN_WITH_REASON	Local gene density absent in frozen gene table
+next_stage	MAR07	

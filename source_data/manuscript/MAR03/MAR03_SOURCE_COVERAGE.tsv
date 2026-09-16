@@ -1,0 +1,55 @@
+dataset	family	target_id	frozen_n	mapped_n	coverage	missing_n	missing_genes	biological_label
+PGC	A	D01	27	27	1.0	0		Purine nucleotide metabolism and biosynthesis
+PGC	A	M01	17	17	1.0	0		Purine nucleotide catabolism
+PGC	A	M02	34	34	1.0	0		Amino-acid transport
+PGC	A	M03	23	23	1.0	0		Purine salvage
+PGC	A	M04	42	42	1.0	0		Lymphocyte and T-cell proliferation
+PGC	A	M05	387	387	1.0	0		Lymphocyte and T-cell activation
+PGC	A	M06	28	28	1.0	0		CCT/TriC-mediated actin folding
+PGC	B	SA001	10	10	1.0	0		DNA recombinase assembly
+PGC	B	SA002	10	10	1.0	0		DNA topological change
+PGC	B	SA003	215	215	1.0	0		DNA recombination
+PGC	B	SA004	18	18	1.0	0		SRP-dependent cotranslational protein targeting to membrane
+PGC	B	SA005	13	13	1.0	0		detection of molecule of bacterial origin
+PGC	B	SA006	16	16	1.0	0		protein localization to phagophore assembly site
+PGC	B	SA007	11	11	1.0	0		locomotor rhythm
+PGC	B	SA008	25	25	1.0	0		purine ribonucleoside metabolic process
+PGC	B	SA009	10	10	1.0	0		response to hydroxyurea
+PGC	B	SA010	14	14	1.0	0		mitotic DNA replication
+PGC	B	SA011	11	11	1.0	0		Ribavirin ADME
+PGC	B	SA012	12	12	1.0	0		Specification of primordial germ cells
+PGC	B	SA013	11	11	1.0	0		GBP-mediated host defense
+PGC	C	D01	21	21	1.0	0		Purine nucleotide metabolism and biosynthesis
+PGC	C	M01	8	8	1.0	0		Purine nucleotide catabolism
+PGC	C	M02	8	8	1.0	0		Amino-acid transport
+PGC	C	M03	10	10	1.0	0		Purine salvage
+PGC	C	M04	20	20	1.0	0		Lymphocyte and T-cell proliferation
+PGC	C	M05	255	255	1.0	0		Lymphocyte and T-cell activation
+PGC	C	M06	10	10	1.0	0		CCT/TriC-mediated actin folding
+SPARK	A	D01	27	27	1.0	0		Purine nucleotide metabolism and biosynthesis
+SPARK	A	M01	17	17	1.0	0		Purine nucleotide catabolism
+SPARK	A	M02	34	34	1.0	0		Amino-acid transport
+SPARK	A	M03	23	23	1.0	0		Purine salvage
+SPARK	A	M04	42	42	1.0	0		Lymphocyte and T-cell proliferation
+SPARK	A	M05	387	387	1.0	0		Lymphocyte and T-cell activation
+SPARK	A	M06	28	28	1.0	0		CCT/TriC-mediated actin folding
+SPARK	B	SA001	10	10	1.0	0		DNA recombinase assembly
+SPARK	B	SA002	10	10	1.0	0		DNA topological change
+SPARK	B	SA003	215	215	1.0	0		DNA recombination
+SPARK	B	SA004	18	18	1.0	0		SRP-dependent cotranslational protein targeting to membrane
+SPARK	B	SA005	13	13	1.0	0		detection of molecule of bacterial origin
+SPARK	B	SA006	16	16	1.0	0		protein localization to phagophore assembly site
+SPARK	B	SA007	11	11	1.0	0		locomotor rhythm
+SPARK	B	SA008	25	25	1.0	0		purine ribonucleoside metabolic process
+SPARK	B	SA009	10	10	1.0	0		response to hydroxyurea
+SPARK	B	SA010	14	14	1.0	0		mitotic DNA replication
+SPARK	B	SA011	11	11	1.0	0		Ribavirin ADME
+SPARK	B	SA012	12	12	1.0	0		Specification of primordial germ cells
+SPARK	B	SA013	11	11	1.0	0		GBP-mediated host defense
+SPARK	C	D01	21	21	1.0	0		Purine nucleotide metabolism and biosynthesis
+SPARK	C	M01	8	8	1.0	0		Purine nucleotide catabolism
+SPARK	C	M02	8	8	1.0	0		Amino-acid transport
+SPARK	C	M03	10	10	1.0	0		Purine salvage
+SPARK	C	M04	20	20	1.0	0		Lymphocyte and T-cell proliferation
+SPARK	C	M05	255	255	1.0	0		Lymphocyte and T-cell activation
+SPARK	C	M06	10	10	1.0	0		CCT/TriC-mediated actin folding

@@ -1,0 +1,2 @@
+raw26_Firth_positive_n	core25_Firth_positive_n	raw26_emp_positive_n	core25_emp_positive_n	raw26_Tier1_n	core25_Tier1_n	Firth_gate_changed_n	Emp_gate_changed_n	Tier1_gate_changed_n	max_abs_delta_logOR	max_abs_delta_q_Firth	max_abs_delta_q_emp
+205	202	43	43	39	40	13	4	3	1.4981500869229505	0.5569557097476328	0.9847390260973903

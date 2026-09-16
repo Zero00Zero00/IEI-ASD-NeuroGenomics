@@ -1,0 +1,43 @@
+dataset	unit_i	label_i	unit_j	label_j	n_i	n_j	intersect_n	union_n	Jaccard	phi
+PGC	D01	Purine nucleotide metabolism and biosynthesis	M01	Purine nucleotide catabolism	25	16	4	37	0.10810810810810811	0.1991235626124286
+PGC	D01	Purine nucleotide metabolism and biosynthesis	M02	Amino-acid transport	25	31	0	56	0.0	-0.0015351727249976442
+PGC	D01	Purine nucleotide metabolism and biosynthesis	M03	Purine salvage	25	22	8	39	0.20512820512820512	0.3402701545897585
+PGC	D01	Purine nucleotide metabolism and biosynthesis	M04	Lymphocyte and T-cell proliferation	25	39	0	64	0.0	-0.0017222830843575097
+PGC	D01	Purine nucleotide metabolism and biosynthesis	M05	Lymphocyte and T-cell activation	25	375	1	399	0.002506265664160401	0.005052669705040661
+PGC	D01	Purine nucleotide metabolism and biosynthesis	M06	CCT/TriC-mediated actin folding	25	26	0	51	0.0	-0.0014057341591625998
+PGC	M01	Purine nucleotide catabolism	M02	Amino-acid transport	16	31	0	47	0.0	-0.0012278335780335273
+PGC	M01	Purine nucleotide catabolism	M03	Purine salvage	16	22	3	35	0.08571428571428572	0.1590338937465556
+PGC	M01	Purine nucleotide catabolism	M04	Lymphocyte and T-cell proliferation	16	39	0	55	0.0	-0.0013774847399380065
+PGC	M01	Purine nucleotide catabolism	M05	Lymphocyte and T-cell activation	16	375	1	390	0.002564102564102564	0.008739519748771546
+PGC	M01	Purine nucleotide catabolism	M06	CCT/TriC-mediated actin folding	16	26	0	42	0.0	-0.0011243084079748849
+PGC	M02	Amino-acid transport	M03	Purine salvage	31	22	0	53	0.0	-0.0014400005799867434
+PGC	M02	Amino-acid transport	M04	Lymphocyte and T-cell proliferation	31	39	0	70	0.0	-0.0019181705824446863
+PGC	M02	Amino-acid transport	M05	Lymphocyte and T-cell activation	31	375	0	406	0.0	-0.006003911048625424
+PGC	M02	Amino-acid transport	M06	CCT/TriC-mediated actin folding	31	26	0	57	0.0	-0.0015656182977894196
+PGC	M03	Purine salvage	M04	Lymphocyte and T-cell proliferation	22	39	0	61	0.0	-0.001615511140858744
+PGC	M03	Purine salvage	M05	Lymphocyte and T-cell activation	22	375	1	396	0.0025252525252525255	0.006075252393413216
+PGC	M03	Purine salvage	M06	CCT/TriC-mediated actin folding	22	26	0	48	0.0	-0.0013185864831622952
+PGC	M04	Lymphocyte and T-cell proliferation	M05	Lymphocyte and T-cell activation	39	375	39	375	0.104	0.31948684231153707
+PGC	M04	Lymphocyte and T-cell proliferation	M06	CCT/TriC-mediated actin folding	39	26	0	65	0.0	-0.0017564394331246692
+PGC	M05	Lymphocyte and T-cell activation	M06	CCT/TriC-mediated actin folding	375	26	0	401	0.0	-0.005497689420999488
+SPARK	D01	Purine nucleotide metabolism and biosynthesis	M01	Purine nucleotide catabolism	25	16	4	37	0.10810810810810811	0.19912394892887428
+SPARK	D01	Purine nucleotide metabolism and biosynthesis	M02	Amino-acid transport	25	31	0	56	0.0	-0.0015344957664409312
+SPARK	D01	Purine nucleotide metabolism and biosynthesis	M03	Purine salvage	25	22	8	39	0.20512820512820512	0.34027052975430006
+SPARK	D01	Purine nucleotide metabolism and biosynthesis	M04	Lymphocyte and T-cell proliferation	25	39	0	64	0.0	-0.0017215234489662056
+SPARK	D01	Purine nucleotide metabolism and biosynthesis	M05	Lymphocyte and T-cell activation	25	374	1	398	0.002512562814070352	0.005076017315295529
+SPARK	D01	Purine nucleotide metabolism and biosynthesis	M06	CCT/TriC-mediated actin folding	25	27	0	52	0.0	-0.0014319203126649605
+SPARK	M01	Purine nucleotide catabolism	M02	Amino-acid transport	16	31	0	47	0.0	-0.0012272922796948648
+SPARK	M01	Purine nucleotide catabolism	M03	Purine salvage	16	22	3	35	0.08571428571428572	0.159034275716192
+SPARK	M01	Purine nucleotide catabolism	M04	Lymphocyte and T-cell proliferation	16	39	0	55	0.0	-0.0013768773328911175
+SPARK	M01	Purine nucleotide catabolism	M05	Lymphocyte and T-cell activation	16	374	1	389	0.002570694087403599	0.00876431578771783
+SPARK	M01	Purine nucleotide catabolism	M06	CCT/TriC-mediated actin folding	16	27	0	43	0.0	-0.001145252260257449
+SPARK	M02	Amino-acid transport	M03	Purine salvage	31	22	0	53	0.0	-0.0014393656415598297
+SPARK	M02	Amino-acid transport	M04	Lymphocyte and T-cell proliferation	31	39	0	70	0.0	-0.001917324408449303
+SPARK	M02	Amino-acid transport	M05	Lymphocyte and T-cell activation	31	374	0	405	0.0	-0.005993062116652078
+SPARK	M02	Amino-acid transport	M06	CCT/TriC-mediated actin folding	31	27	0	58	0.0	-0.0015947826723333705
+SPARK	M03	Purine salvage	M04	Lymphocyte and T-cell proliferation	22	39	0	61	0.0	-0.0016147986574956235
+SPARK	M03	Purine salvage	M05	Lymphocyte and T-cell activation	22	374	1	395	0.002531645569620253	0.006098893271978083
+SPARK	M03	Purine salvage	M06	CCT/TriC-mediated actin folding	22	27	0	49	0.0	-0.001343149290194468
+SPARK	M04	Lymphocyte and T-cell proliferation	M05	Lymphocyte and T-cell activation	39	374	39	374	0.10427807486631016	0.3199240006409918
+SPARK	M04	Lymphocyte and T-cell proliferation	M06	CCT/TriC-mediated actin folding	39	27	0	66	0.0	-0.0017891582541114618
+SPARK	M05	Lymphocyte and T-cell activation	M06	CCT/TriC-mediated actin folding	374	27	0	401	0.0	-0.005592447739234159

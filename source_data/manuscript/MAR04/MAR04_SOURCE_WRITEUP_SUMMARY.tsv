@@ -1,0 +1,12 @@
+metric	value	note
+MAR04_status	PASS	Preflight/postflight and 17/17 review checksums verified
+primary_family_m	7	Higher-order Expanded units
+standalone_family_m	13	Secondary completeness family
+primary_BH_positive_n	0	PGC 0/7; SPARK 0/7
+standalone_BH_positive_n	0	PGC 0/13; SPARK 0/13
+PGC_primary_MDE80_range	0.15729-0.743544	
+SPARK_primary_MDE80_range	0.148281-0.685381	
+SESOI_prespecified	NO	No post-hoc equivalence margin
+equivalence_allowed	NO	Nonsignificance is not evidence of equivalence
+conditional_status	SUPPORTIVE_PENDING_MAR05	MAR05 collinearity gate required
+next_stage	MAR05	
