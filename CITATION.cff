@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software or derived source data, please cite this repository."
+title: "IEI-ASD NeuroGenomics: reproducibility resources for pathway prioritization, calibration and common-variant analyses"
+type: software
+version: 1.0.0
+license: MIT
+
+authors:
+  - family-names: "Xiao"
+    given-names: "Ningkun"
+    orcid: "https://orcid.org/0000-0002-0615-3222"
+    affiliation: "Ural Federal University"
+
+repository-code: "https://github.com/Zero00Zero00/IEI-ASD-NeuroGenomics"
+
+keywords:
+  - autism
+  - inborn errors of immunity
+  - statistical genetics
+  - genomics
+  - gene-set analysis
+  - reproducibility
