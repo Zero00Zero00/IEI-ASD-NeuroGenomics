@@ -43,6 +43,13 @@ The study instead defines where catalog-derived pathway hypotheses remain suppor
 - `checksums/` — integrity manifests.
 - `docs/` — study overview, provenance, portability, and claim boundaries.
 
+## Archival release
+
+The Molecular Autism submission snapshot is archived on Zenodo:
+
+**Version 1.0.0:** DOI: 10.5281/zenodo.22790971
+
+
 ## External data
 
 Primary third-party genomic resources are not redistributed here. These include PGC and SPARK association data and the 1000 Genomes reference resource. Users should obtain these data from the original providers under their applicable access and redistribution conditions.
